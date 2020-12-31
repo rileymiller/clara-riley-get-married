@@ -132,15 +132,15 @@ export const SaveTheDateHeader = styled.h1`
   justify-content: center;
   font-family: "Clicker Script";
   display: flex;
-  font-size: 9rem;
+  font-size: 11rem;
   font-weight: 500;
   align-items: center;
   margin-bottom: 0;
   ${bpMaxSM} {
-  font-size: 8.2rem;
+  font-size: 10rem;
   }
   ${bpMaxXS} {
-  font-size: 5.2rem;
+  font-size: 6.34rem;
   }
 `;
 
