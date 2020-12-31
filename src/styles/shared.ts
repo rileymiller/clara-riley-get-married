@@ -12,11 +12,32 @@ export const outer = css`
 
 // Centered content container blocks
 export const inner = css`
-  margin: 0 auto;
+  /* margin: 0 auto; */
   max-width: 1040px;
   width: 100%;
 `;
 
+export const flexColumn = css`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const flexRow = css`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const flexCenter = css`
+  justify-content: center;
+`;
+
+export const flexSpaceEvenly = css`
+  justify-content: space-evenly;
+`;
+
+export const flexAlignMiddle = css`
+  align-items: center;
+`;
 export const SiteNavMain = css`
   position: fixed;
   top: 0;

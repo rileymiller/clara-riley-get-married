@@ -5,27 +5,20 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import SiteNav from '../components/header/SiteNav';
-import { PostCard } from '../components/PostCard';
 import { Wrapper } from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
-import { inner, outer, PostFeed, SiteHeader, SiteNavMain } from '../styles/shared';
-import { PageContext } from '../templates/post';
+import { inner, outer, SiteHeader, SiteNavMain } from '../styles/shared';
 
 interface NotFoundTemplateProps {
   data: {
     allMarkdownRemark: {
       totalCount: number;
-      edges: Array<{
-        node: PageContext;
-      }>;
     };
   };
 }
 
 const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
-  const { edges } = props.data.allMarkdownRemark;
-
   return (
     <IndexLayout>
       <Wrapper>
@@ -45,12 +38,6 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
                 Go to the front page →
               </Link>
             </section>
-
-            <div css={PostFeed} className="post-feed">
-              {edges.map(({ node }) => (
-                <PostCard key={node.fields.slug} post={node} />
-              ))}
-            </div>
           </div>
         </main>
       </Wrapper>

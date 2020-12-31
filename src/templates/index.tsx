@@ -7,30 +7,24 @@ import { Helmet } from 'react-helmet';
 import { css } from '@emotion/react';
 
 import "fontsource-clicker-script";
-
 import { RCLogo } from '../components/RCLogo';
 import LandingImage from '../components/LandingImage';
 import { Footer } from '../components/Footer';
-import SiteNav from '../components/header/SiteNav';
-import Pagination from '../components/Pagination';
-import { PostCard } from '../components/PostCard';
 import { Wrapper } from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import {
   inner,
   outer,
-  PostFeed,
-  Posts,
-  SiteDescription,
-  SiteHeader,
-  SiteHeaderContent,
-  SiteTitle,
-  SiteHeaderStyles,
+  flexColumn,
+  flexRow,
+  flexCenter,
+  flexSpaceEvenly,
 } from '../styles/shared';
 import config from '../website-config';
-import { PageContext } from './post';
 import { colors } from '../styles/colors';
 import { lighten } from 'polished';
+import { bpMaxMD, bpMaxSM, bpMaxXS, maxMD, maxSM, maxXS } from '../styles/breakpoints';
+import styled from '@emotion/styled';
 
 export interface IndexProps {
   pageContext: {
@@ -48,23 +42,14 @@ export interface IndexProps {
         fixed: FixedObject;
       };
     };
-    allMarkdownRemark: {
-      edges: Array<{
-        node: PageContext;
-      }>;
-    };
   };
 }
 
 export const SiteMain = css`
   flex-grow: 1;
-
-  /* background-color: #fff; */
+  display: flex;
   background-color: ${lighten(`0.05`, colors.royalty.white)};
-  /* background-color: ${colors.royalty.white}; */
-
   @media (prefers-color-scheme: dark) {
-    /* background: ${colors.royalty.blue}; */
   }
 `;
 
@@ -142,81 +127,196 @@ function useWindowSize() {
   return windowSize;
 }
 
-const IndexPage: React.FC<IndexProps> = props => {
-  // const { width, height } = props.data.header.childImageSharp.fixed;
+export const SaveTheDateHeader = styled.h1`
+  color: ${colors.royalty.blue};
+  justify-content: center;
+  font-family: "Clicker Script";
+  display: flex;
+  font-size: 9rem;
+  font-weight: 500;
+  align-items: center;
+  margin-bottom: 0;
+  ${bpMaxSM} {
+  font-size: 8.2rem;
+  }
+  ${bpMaxXS} {
+  font-size: 5.2rem;
+  }
+`;
 
-  const size = useWindowSize();
+export const SaveTheDateWrapper = styled.div`
+display: flex;
+flex-direction:column;
+/* justify-content: center; */
+align-self: center;
+align-items: center;
+margin-left: 2rem;
+`;
+
+export const SaveTheDateForTheWedding = styled.div`
+color: ${colors.royalty.blue};
+font-family: "Railway";
+font-size: 4rem;
+margin-bottom: 4rem;
+${bpMaxSM} {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+${bpMaxXS} {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+`;
+
+export const SaveTheDateNamesAttention = () => (
+  <div css={css`
+font-family: 'Clicker Script';
+font-size: 7rem;
+margin-bottom: 3rem;
+color: ${colors.royalty.blue};
+display: flex;
+align-items:center;
+line-height: 1;
+${bpMaxSM} {
+  font-size: 5.25rem;
+  margin-bottom: 2.25rem;
+}
+${bpMaxXS} {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+`}
+  >
+    <span >
+      Riley <br /> Miller
+    </span>
+    <span css={css`
+    margin: 0 1.5rem;
+  `}
+    >
+
+      {` `}&{` `}
+    </span>
+    <span>
+      Clara <br /> Larson
+    </span>
+  </div>
+);
+
+export const SaveTheDateWeddingDate = styled.div`
+color: ${colors.royalty.blue};
+font-family: "Railway";
+font-size: 5rem;
+margin-bottom: 2.3rem;
+${bpMaxSM} {
+  font-size: 3.75rem;
+  margin-bottom: 1.725rem;
+}
+${bpMaxXS} {
+  font-size: 2.5rem;
+  margin-bottom: 1.15rem;
+}
+`;
+
+export const SaveTheDateWeddingPlace = styled.div`
+color: ${colors.royalty.blue};
+font-family: "Railway";
+font-size: 3rem;
+margin-bottom: 2.5rem;
+${bpMaxSM} {
+  font-size: 2.25rem;
+  margin-bottom: 1.875rem;
+}
+${bpMaxXS} {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+`;
+
+export const SaveTheDateInvitationContext = styled.div`
+color: ${colors.royalty.blue};
+font-family: "Railway";
+font-size: 2rem;
+margin-top: 1.2rem;
+${bpMaxSM} {
+  font-size: 1.75rem;
+  margin-top: 1.06rem;
+}
+${bpMaxXS} {
+  font-size: 1.16rem;
+  margin-top: .696rem;
+}
+
+`;
+
+export type SaveTheDateInfoProps = {
+  size: {
+    width?: number
+    height?: number
+  }
+};
+
+export const SaveTheDateInfo = (props: SaveTheDateInfoProps) => {
+  const { size } = props;
 
   const getLogoWidth = () => {
-    return (size.width && size.width > 500) ? 100 :
-      (size.width && size.width < 380) ? 45 : 60;
+    return (size.width && size.width > maxSM) ? 80 :
+      (size.width && size.width < maxXS) ? 45 : 60;
   };
 
   const getLogoHeight = () => {
-    return (size.width && size.width > 500) ? 100 :
-      (size.width && size.width < 380) ? 45 : 60;
+    return (size.width && size.width > maxSM) ? 80 :
+      (size.width && size.width < maxXS) ? 45 : 60;
   };
+
+  return (
+    <SaveTheDateWrapper>
+      <SaveTheDateForTheWedding>
+        For the wedding of
+      </SaveTheDateForTheWedding>
+      <SaveTheDateNamesAttention />
+      <SaveTheDateWeddingDate>
+        June 19, 2021
+      </SaveTheDateWeddingDate>
+      <SaveTheDateWeddingPlace>
+        Golden, Colorado
+      </SaveTheDateWeddingPlace>
+      <RCLogo
+        width={getLogoWidth()} height={getLogoHeight()} />
+      <SaveTheDateInvitationContext>
+        Invitation to Follow
+      </SaveTheDateInvitationContext>
+    </SaveTheDateWrapper >
+  );
+};
+
+const IndexPage: React.FC<IndexProps> = props => {
+  const size = useWindowSize();
 
   return (
     <IndexLayout>
       <Meta {...props} />
       <Wrapper>
+        <main id="site-main" css={[SiteMain, outer, flexCenter]}>
+          <div css={[inner, flexColumn, flexSpaceEvenly]} >
+            <div css={[flexRow, flexCenter]}>
 
-        <main id="site-main" css={[SiteMain, outer]}>
-          <div
-            css={css`
-              position: absolute;
-              top: 2rem;
-              left: 2rem;
-            `}
-          >
-
-            <RCLogo
-              width={getLogoWidth()} height={getLogoHeight()} />
-          </div>
-          <div css={[inner]}>
-            <div css={css`
-              /* margin-top: 24px; */
-            `}
-            >
-              <h1 css={css`
-              /* color: ${lighten(`0.05`, colors.royalty.gold)}; */
-              color: ${colors.royalty.blue};
-              justify-content: center;
-              font-family: "Clicker Script";
-              display: flex;
-              font-size: 9rem;
-              align-items: center;
-              @media (max-width: 500px) {
-              font-size: 5.2rem;
+              <SaveTheDateHeader>Save the Date</SaveTheDateHeader>
+            </div>
+            <div css={[flexRow, css`
+              ${bpMaxSM} {
+                justify-content: center;
+                flex-wrap: wrap-reverse;
               }
-            `}>
-                Save the Date
-              </h1>
+              justify-content: space-evenly;
+              margin-bottom: 3.3rem;
+            `]}
+            >
+              <LandingImage width={size.width} />
+              <SaveTheDateInfo size={size} />
             </div>
           </div>
-          <LandingImage />
-          {/* <div css={[inner, Posts]}>
-            <div css={[PostFeed]}>
-              {props.data.allMarkdownRemark.edges.map((post, index) => {
-                // filter out drafts in production
-                return (
-                  (post.node.frontmatter.draft !== true ||
-                    process.env.NODE_ENV !== 'production') && (
-                    <PostCard key={post.node.fields.slug} post={post.node} large={index === 0} />
-                  )
-                );
-              })}
-            </div>
-          </div> */}
         </main>
-        {/* {props.children} */}
-        {/* {props.pageContext.numPages > 1 && (
-          // <Pagination
-          //   currentPage={props.pageContext.currentPage}
-          //   numPages={props.pageContext.numPages}
-          // />
-        )} */}
         <Footer />
       </Wrapper>
     </IndexLayout >
@@ -225,8 +325,8 @@ const IndexPage: React.FC<IndexProps> = props => {
 
 export const pageQuery = graphql`
   query blogPageQuery($skip: Int!, $limit: Int!) {
-    logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
-      childImageSharp {
+          logo: file(relativePath: {eq: "img/ghost-logo.png" }) {
+          childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
         fixed {
@@ -234,8 +334,8 @@ export const pageQuery = graphql`
         }
       }
     }
-    header: file(relativePath: { eq: "img/blog-cover.png" }) {
-      childImageSharp {
+    header: file(relativePath: {eq: "img/blog-cover.png" }) {
+          childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
         fixed(width: 2000, quality: 100) {
@@ -244,36 +344,36 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { ne: true } } }
+      sort: {fields: [frontmatter___date], order: DESC }
+      filter: {frontmatter: {draft: {ne: true } } }
       limit: $limit
       skip: $skip
     ) {
-      edges {
-        node {
+          edges {
+          node {
           timeToRead
           frontmatter {
-            title
+          title
             date
             tags
             draft
             excerpt
             image {
-              childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
+          childImageSharp {
+          fluid(maxWidth: 3720) {
+          ...GatsbyImageSharpFluid
+        }
               }
             }
             author {
-              id
+          id
               bio
               avatar {
-                children {
-                  ... on ImageSharp {
-                    fluid(quality: 100, srcSetBreakpoints: [40, 80, 120]) {
-                      ...GatsbyImageSharpFluid
-                    }
+          children {
+          ...on ImageSharp {
+          fluid(quality: 100, srcSetBreakpoints: [40, 80, 120]) {
+          ...GatsbyImageSharpFluid
+        }
                   }
                 }
               }
@@ -281,7 +381,7 @@ export const pageQuery = graphql`
           }
           excerpt
           fields {
-            layout
+          layout
             slug
           }
         }
