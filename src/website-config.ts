@@ -50,7 +50,7 @@ export interface WebsiteConfig {
 }
 
 const config: WebsiteConfig = {
-  title: 'Ghost',
+  title: 'Riley & Clara',
   description: 'The professional publishing platform',
   coverImage: 'img/blog-cover.png',
   landingImage: 'img/rc_landing.jpg',
