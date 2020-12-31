@@ -6298,6 +6298,21 @@ follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.1.tgz#5f69b813376cee4fd0474a3aba835df04ab763b7"
   integrity sha512-SSG5xmZh1mkPGyKzjZP8zLjltIfpW32Y5QpdNJyjcfGxK3qo3NDDkZOZSFiGn1A6SclQxY9GzEwAHQ3dmYRWpg==
 
+fontsource-clicker-script@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/fontsource-clicker-script/-/fontsource-clicker-script-4.0.0.tgz#e2f4da58b58604a34fd85716d075d1e32152e1b0"
+  integrity sha512-/mGUfC11y7GLvLGsOwu4E4gg8Cqmt+wsj2BIjC+KT5BoKcsIW7Mb0+MiWSpAO0iDkvXIsLqe+Pp+1bpisDk3Pg==
+
+fontsource-dancing-script@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/fontsource-dancing-script/-/fontsource-dancing-script-4.0.0.tgz#20ec2f80404ebe4bc740321d50361965ebdd91b9"
+  integrity sha512-kqnLjtQKv306A72p8VbzKOeuSyUVT7Ti68NmxJLbwsVs55jdi9v17ny9lAQcupIWsrUndrOmbvA6CK4XcOjplw==
+
+fontsource-open-sans@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/fontsource-open-sans/-/fontsource-open-sans-4.0.0.tgz#f5884fe491b86e522e6ce10dbddaebd5d152fa95"
+  integrity sha512-WWiMhDr/rgDPnw1tKjcqPpjRDJDrDnNVLpfscr7wwbpK33q3zcVnkhBOUcaZZlw3y1iRc+pj/ciPzLWExKT3zw==
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"

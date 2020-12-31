@@ -2,6 +2,7 @@ export interface WebsiteConfig {
   title: string;
   description: string;
   coverImage?: string;
+  landingImage: string;
   logo: string;
   /**
    * Specifying a valid BCP 47 language helps screen readers announce text properly.
@@ -52,6 +53,7 @@ const config: WebsiteConfig = {
   title: 'Ghost',
   description: 'The professional publishing platform',
   coverImage: 'img/blog-cover.png',
+  landingImage: 'img/rc_landing.jpg',
   logo: 'img/ghost-logo.png',
   lang: 'en',
   siteUrl: 'https://gatsby-casper.netlify.com',

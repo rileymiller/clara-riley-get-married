@@ -23,3 +23,8 @@ declare module 'rehype-react' {
   }
   export default RehypeReact;
 }
+
+
+declare module '*.woff';
+declare module '*.ttf';
+declare module "*.otf";

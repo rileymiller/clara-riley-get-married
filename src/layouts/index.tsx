@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet';
 import { Global, css } from '@emotion/react';
 import { lighten } from 'polished';
 
+import AndinaRegular from "../fonts/andina.regular.otf"
+
 // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
 // @ts-ignore
 import favicon from '../../src/favicon.ico';
@@ -129,6 +131,15 @@ const IndexLayout: React.FC<IndexProps> = props => {
           img {
             max-width: 100%;
           }
+
+          @font-face {
+            font-family: "Andina Regular";
+            src: local('Andina Regular'), local('AndinaRegular'),
+            url(${AndinaRegular}) format('otf');
+            font-weight: 300;
+            font-style: normal;
+          }
+
           html {
             box-sizing: border-box;
             font-family: sans-serif;
@@ -276,9 +287,10 @@ const IndexLayout: React.FC<IndexProps> = props => {
           }
           body {
             overflow-x: hidden;
-            color: ${lighten('-0.3', colors.midgrey)};
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-              Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: ${lighten('-0.3', colors.royalty.white)};
+            /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, */
+              /* Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+            font-family: "Andina Regular", "AndinaRegular", "Wotfard",Futura,-apple-system,sans-serif;
             font-size: 1.6rem;
             line-height: 1.6em;
             font-weight: 400;

@@ -12,4 +12,12 @@ export const colors = {
   brown: '#a3821a',
   // darkmode: color(var(--darkgrey) l(+2%)),
   darkmode: '#191b1f',
+
+  royalty: {
+
+    blue: `#1B3644`,
+    gold: `#DFC189`,
+    white: `#F3E4D2`,
+  },
+
 };

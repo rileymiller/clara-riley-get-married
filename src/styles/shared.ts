@@ -1,4 +1,4 @@
-import { lighten } from 'polished';
+import { lighten, darken } from 'polished';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -7,7 +7,7 @@ import { colors } from './colors';
 
 export const outer = css`
   position: relative;
-  padding: 0 5vw;
+  padding: 3vw 3vw 0vw 3vw;
 `;
 
 // Centered content container blocks
@@ -24,15 +24,7 @@ export const SiteNavMain = css`
   left: 0;
   z-index: 1000;
   /* background: color(var(--darkgrey) l(-5%)); */
-  background: ${lighten('-0.05', colors.darkgrey)};
-`;
-
-export const SiteMain = css`
-  flex-grow: 1;
-
-  @media (prefers-color-scheme: dark) {
-    background: ${colors.darkmode};
-  }
+  background: ${lighten('-0.3', colors.royalty.white)};
 `;
 
 export const SiteTitle = styled.h1`
@@ -80,7 +72,7 @@ export const PostFeed = css`
   border-top-right-radius: 3px;
 
   @media (prefers-color-scheme: dark) {
-    background: ${colors.darkmode};
+    background: ${colors.royalty.blue};
   }
 `;
 
@@ -125,10 +117,11 @@ export const SiteHeaderStyles = css`
   padding-bottom: 12px;
   color: #fff;
   /* background: color(var(--darkgrey) l(-5%)) no-repeat center center; */
-  background: ${lighten('-0.05', colors.darkgrey)} no-repeat center center;
+  background-color: ${colors.royalty.blue};
+  /* background: ${lighten('-0.05', colors.royalty.blue)} no-repeat center center; */
   background-size: cover;
 
-  :before {
+  /* :before {
     content: '';
     position: absolute;
     top: 0;
@@ -137,7 +130,7 @@ export const SiteHeaderStyles = css`
     left: 0;
     z-index: 10;
     display: block;
-    background: rgba(0, 0, 0, 0.18);
+    background: rgba(27, 54, 68, 0.18);
   }
   :after {
     content: '';
@@ -149,14 +142,14 @@ export const SiteHeaderStyles = css`
     z-index: 10;
     display: block;
     height: 140px;
-    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
-  }
+    background: linear-gradient(rgba(27, 54, 68, 0.15), rgba(0, 0, 0, 0));
+  } */
 
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     :before {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(27, 54, 68, 0.6);
     }
-  }
+  } */
 `;
 
 export const AuthorProfileImage = css`
@@ -239,21 +232,21 @@ export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string 
     padding-top: 0;
     padding-bottom: 0;
     /* color: var(--darkgrey); */
-    color: ${colors.darkgrey};
+    color: ${colors.royalty.gold};
     background: #fff;
     opacity: 1;
 
 
   .site-description {
     /* color: var(--midgrey); */
-    color: ${colors.midgrey};
+    color: ${colors.royalty.blue};
     opacity: 1;
   }
 
   .site-header-content {
     padding: 5vw 0 10px;
     /* border-bottom: 1px solid color(var(--lightgrey) l(+12%)); */
-    border-bottom: 1px solid ${lighten('0.12', colors.lightgrey)};
+    border-bottom: 1px solid ${lighten('0.12', colors.royalty.white)};
   }
 
   .author-bio {
