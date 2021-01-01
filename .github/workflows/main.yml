@@ -15,10 +15,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+      - name: Yarn Install
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install # will run `yarn install` command
       - name: Build
         run: |
-          npm ci
-          npm run build
+          yarn build
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
