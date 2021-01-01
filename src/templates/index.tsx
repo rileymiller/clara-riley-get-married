@@ -260,12 +260,12 @@ export const SaveTheDateInfo = (props: SaveTheDateInfoProps) => {
 
   const getLogoWidth = () => {
     return (size.width && size.width > maxSM) ? 80 :
-      (size.width && size.width < maxXS) ? 45 : 60;
+      (size.width && size.width < maxXS) ? 55 : 65;
   };
 
   const getLogoHeight = () => {
     return (size.width && size.width > maxSM) ? 80 :
-      (size.width && size.width < maxXS) ? 45 : 60;
+      (size.width && size.width < maxXS) ? 55 : 65;
   };
 
   return (
