@@ -1101,6 +1101,16 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/clicker-script@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/clicker-script/-/clicker-script-4.1.0.tgz#f24c3cbab3f7612ec5c9659a2a2e738ccf44e69d"
+  integrity sha512-70Nj1IvYmYZiSmHW4thML1rOA2JrQrQysfx9+5EbC4L5Doj8MKPmTvQ1MvCLf5G3YcXRYgRT6tWiT11gcU2atg==
+
+"@fontsource/raleway@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/raleway/-/raleway-4.1.0.tgz#561cfac61b828b9580371d30e943d49dba5247c7"
+  integrity sha512-eFA/+PEQ/avDDxMSlYEifPDh7fNlgZCIvVrKmm1eUB6oYT27OQOtVgC5LcG4QbWvNDr2zTEnDA0dltUZIljT+w==
+
 "@graphql-tools/batch-execute@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@graphql-tools/batch-execute/-/batch-execute-7.0.0.tgz#e79d11bd5b39f29172f6ec2eafa71103c6a6c85b"
@@ -6297,16 +6307,6 @@ follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.1.tgz#5f69b813376cee4fd0474a3aba835df04ab763b7"
   integrity sha512-SSG5xmZh1mkPGyKzjZP8zLjltIfpW32Y5QpdNJyjcfGxK3qo3NDDkZOZSFiGn1A6SclQxY9GzEwAHQ3dmYRWpg==
-
-fontsource-clicker-script@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/fontsource-clicker-script/-/fontsource-clicker-script-4.0.0.tgz#e2f4da58b58604a34fd85716d075d1e32152e1b0"
-  integrity sha512-/mGUfC11y7GLvLGsOwu4E4gg8Cqmt+wsj2BIjC+KT5BoKcsIW7Mb0+MiWSpAO0iDkvXIsLqe+Pp+1bpisDk3Pg==
-
-fontsource-dancing-script@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/fontsource-dancing-script/-/fontsource-dancing-script-4.0.0.tgz#20ec2f80404ebe4bc740321d50361965ebdd91b9"
-  integrity sha512-kqnLjtQKv306A72p8VbzKOeuSyUVT7Ti68NmxJLbwsVs55jdi9v17ny9lAQcupIWsrUndrOmbvA6CK4XcOjplw==
 
 fontsource-open-sans@^4.0.0:
   version "4.0.0"

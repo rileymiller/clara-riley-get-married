@@ -6,7 +6,9 @@ import { Helmet } from 'react-helmet';
 
 import { css } from '@emotion/react';
 
-import "fontsource-clicker-script";
+import "@fontsource/clicker-script";
+// import "fontsource-raleway";
+import "@fontsource/raleway";
 import { RCLogo } from '../components/RCLogo';
 import LandingImage from '../components/LandingImage';
 import { Footer } from '../components/Footer';
@@ -154,7 +156,7 @@ align-items: center;
 
 export const SaveTheDateForTheWedding = styled.div`
 color: ${colors.royalty.blue};
-font-family: "Railway";
+font-family: "Raleway";
 font-size: 4rem;
 margin-bottom: 4rem;
 ${bpMaxSM} {
@@ -204,7 +206,7 @@ ${bpMaxXS} {
 
 export const SaveTheDateWeddingDate = styled.div`
 color: ${colors.royalty.blue};
-font-family: "Railway";
+font-family: "Raleway";
 font-size: 5rem;
 margin-bottom: 2.3rem;
 ${bpMaxSM} {
@@ -219,7 +221,7 @@ ${bpMaxXS} {
 
 export const SaveTheDateWeddingPlace = styled.div`
 color: ${colors.royalty.blue};
-font-family: "Railway";
+font-family: "Raleway";
 font-size: 3rem;
 margin-bottom: 2.5rem;
 ${bpMaxSM} {
@@ -234,7 +236,7 @@ ${bpMaxXS} {
 
 export const SaveTheDateInvitationContext = styled.div`
 color: ${colors.royalty.blue};
-font-family: "Railway";
+font-family: "Raleway";
 font-size: 2rem;
 margin-top: 1.2rem;
 ${bpMaxSM} {
