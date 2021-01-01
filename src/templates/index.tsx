@@ -150,7 +150,6 @@ flex-direction:column;
 /* justify-content: center; */
 align-self: center;
 align-items: center;
-margin-left: 2rem;
 `;
 
 export const SaveTheDateForTheWedding = styled.div`
