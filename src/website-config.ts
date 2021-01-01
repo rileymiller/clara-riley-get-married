@@ -56,7 +56,7 @@ const config: WebsiteConfig = {
   landingImage: 'img/rc_landing.jpg',
   logo: 'img/ghost-logo.png',
   lang: 'en',
-  siteUrl: 'https://gatsby-casper.netlify.com',
+  siteUrl: 'http://clara-riley-get-married.s3-website.us-east-2.amazonaws.com/',
   facebook: 'https://www.facebook.com/ghost',
   twitter: 'https://twitter.com/tryghost',
   showSubscribe: true,
