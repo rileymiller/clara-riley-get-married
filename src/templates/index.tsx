@@ -1,13 +1,12 @@
 import { graphql } from 'gatsby';
 import { FixedObject } from 'gatsby-image';
 import React, { useEffect, useState } from 'react';
-
+import { useWindowSize } from '../hooks/useWindowSize';
 import { Helmet } from 'react-helmet';
 
 import { css } from '@emotion/react';
 
 import "@fontsource/clicker-script";
-// import "fontsource-raleway";
 import "@fontsource/raleway";
 import { RCLogo } from '../components/RCLogo';
 import LandingImage from '../components/LandingImage';
@@ -25,7 +24,7 @@ import {
 import config from '../website-config';
 import { colors } from '../styles/colors';
 import { lighten } from 'polished';
-import { bpMaxMD, bpMaxSM, bpMaxXS, maxMD, maxSM, maxXS } from '../styles/breakpoints';
+import { bpMaxSM, bpMaxXS, maxSM, maxXS } from '../styles/breakpoints';
 import styled from '@emotion/styled';
 
 export interface IndexProps {
@@ -94,40 +93,6 @@ export const Meta = (props: IndexProps) => {
     </Helmet>
   );
 };
-
-function useWindowSize() {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const [windowSize, setWindowSize] = useState<{
-    width?: number,
-    height?: number
-  }>({
-    width: undefined,
-    height: undefined,
-  });
-
-  useEffect(() => {
-    // Handler to call on window resize
-    function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth ?? 0,
-        height: window.innerHeight ?? 0,
-      });
-    }
-
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-
-    // Call handler right away so state gets updated with initial window size
-    handleResize();
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
-
-  return windowSize;
-}
 
 export const SaveTheDateHeader = styled.h1`
   color: ${colors.royalty.blue};
@@ -260,14 +225,18 @@ export type SaveTheDateInfoProps = {
 export const SaveTheDateInfo = (props: SaveTheDateInfoProps) => {
   const { size } = props;
 
+  const LG_LOGO_SIZE = 80;
+  const MD_LOGO_SIZE = 65;
+  const SM_LOGO_SIZE = 55;
+
   const getLogoWidth = () => {
-    return (size.width && size.width > maxSM) ? 80 :
-      (size.width && size.width < maxXS) ? 55 : 65;
+    return (size.width && size.width > maxSM) ? LG_LOGO_SIZE :
+      (size.width && size.width < maxXS) ? SM_LOGO_SIZE : MD_LOGO_SIZE;
   };
 
   const getLogoHeight = () => {
-    return (size.width && size.width > maxSM) ? 80 :
-      (size.width && size.width < maxXS) ? 55 : 65;
+    return (size.width && size.width > maxSM) ? LG_LOGO_SIZE :
+      (size.width && size.width < maxXS) ? SM_LOGO_SIZE : MD_LOGO_SIZE;
   };
 
   return (
@@ -282,8 +251,7 @@ export const SaveTheDateInfo = (props: SaveTheDateInfoProps) => {
       <SaveTheDateWeddingPlace>
         Golden, Colorado
       </SaveTheDateWeddingPlace>
-      <RCLogo
-        width={getLogoWidth()} height={getLogoHeight()} />
+      <RCLogo width={getLogoWidth()} height={getLogoHeight()} />
       <SaveTheDateInvitationContext>
         Invitation to Follow
       </SaveTheDateInvitationContext>
