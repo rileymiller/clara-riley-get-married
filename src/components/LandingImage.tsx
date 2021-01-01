@@ -53,6 +53,7 @@ const LandingImage = (props: Props) => (
             minWidth: '300px',
             borderRadius: '.5rem',
             maxHeight: (props.width && props.width < maxSM) ? '450px' : '600px',
+            boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
           }}
           fluid={data.landingImage.childImageSharp.fluid}
         />
