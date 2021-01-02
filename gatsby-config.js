@@ -3,9 +3,9 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Casper',
-    description: 'A port of the casper blog built for gatsby',
-    siteUrl: 'https://gatsby-casper.netlify.com', // full path to blog - no ending slash
+    title: 'Riley & Clara Get Married',
+    description: 'Wedding website for Riley Miller and Clara Larson',
+    siteUrl: 'http://clara-riley-get-married.s3-website.us-east-2.amazonaws.com', // full path to blog - no ending slash
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
@@ -54,7 +54,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://gatsby-casper.netlify.com',
+        siteUrl: 'http://clara-riley-get-married.s3-website.us-east-2.amazonaws.com',
       },
     },
     'gatsby-plugin-typescript',
