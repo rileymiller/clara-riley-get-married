@@ -11,7 +11,7 @@ import { bpMaxSM } from '../styles/breakpoints';
 export const Footer: React.FC = () => {
   return (
     <footer css={[outer, SiteFooter]}>
-      <div css={[inner, SiteFooterContent]}>
+      <div css={[SiteFooterContent]}>
         <section className="copyright">
           <Link to="/">{config.title}</Link> &copy; {new Date().getFullYear()}{' '}
           {config.footer && (
@@ -20,6 +20,9 @@ export const Footer: React.FC = () => {
             </Link>
           )}
         </section>
+        <section>
+          #clarasallriledup
+        </section>
       </div>
     </footer >
   );
@@ -27,8 +30,8 @@ export const Footer: React.FC = () => {
 
 const SiteFooter = css`
   position: relative;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   font-size: 1.2rem;
   color: ${colors.royalty.gold};
   background-color: ${colors.royalty.blue};
