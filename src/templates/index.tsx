@@ -22,7 +22,7 @@ import {
   flexSpaceEvenly,
 } from '../styles/shared';
 import config from '../website-config';
-import { colors } from '../styles/colors';
+import { bgColor, colors, textColor } from '../styles/colors';
 import { darken, lighten } from 'polished';
 import { bpMaxSM, bpMaxXS, maxSM, maxXS } from '../styles/breakpoints';
 import styled from '@emotion/styled';
@@ -49,7 +49,8 @@ export interface IndexProps {
 export const SiteMain = css`
   flex-grow: 1;
   display: flex;
-  background-color: ${lighten(`0.05`, colors.royalty.white)};
+  /* background-color: ${lighten(`0.05`, bgColor.primary)}; */
+  background-color: ${bgColor.primary};
   @media (prefers-color-scheme: dark) {
   }
 `;
@@ -95,7 +96,7 @@ export const Meta = (props: IndexProps) => {
 };
 
 export const SaveTheDateHeader = styled.h1`
-  color: ${colors.royalty.blue};
+  color: ${textColor.primary};
   justify-content: center;
   font-family: "Clicker Script";
   display: flex;
@@ -120,7 +121,7 @@ align-items: center;
 `;
 
 export const SaveTheDateForTheWedding = styled.div`
-color: ${colors.royalty.blue};
+color: ${textColor.primary};
 font-family: "Raleway";
 font-size: 4rem;
 margin-bottom: 4rem;
@@ -139,7 +140,7 @@ export const SaveTheDateNamesAttention = () => (
 font-family: 'Clicker Script';
 font-size: 7rem;
 margin-bottom: 3rem;
-color: ${colors.royalty.blue};
+color: ${textColor.primary};
 display: flex;
 align-items:center;
 line-height: 1;
@@ -170,7 +171,7 @@ ${bpMaxXS} {
 );
 
 export const SaveTheDateWeddingDate = styled.div`
-color: ${colors.royalty.blue};
+color: ${textColor.primary};
 font-family: "Raleway";
 font-size: 5rem;
 margin-bottom: 2.3rem;
@@ -185,7 +186,7 @@ ${bpMaxXS} {
 `;
 
 export const SaveTheDateWeddingPlace = styled.div`
-color: ${colors.royalty.blue};
+color: ${textColor.primary};
 font-family: "Raleway";
 font-size: 3rem;
 margin-bottom: 2.5rem;
@@ -200,7 +201,7 @@ ${bpMaxXS} {
 `;
 
 export const SaveTheDateInvitationContext = styled.div`
-color: ${colors.royalty.blue};
+color: ${textColor.primary};
 font-family: "Raleway";
 font-size: 2rem;
 margin-top: 1.2rem;

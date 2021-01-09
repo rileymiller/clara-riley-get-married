@@ -8,7 +8,7 @@ import AndinaRegular from "../fonts/andina.regular.otf"
 // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
 // @ts-ignore
 import favicon from '../../src/favicon.ico';
-import { colors } from '../styles/colors';
+import { bgColor, colors } from '../styles/colors';
 
 interface IndexProps {
   className?: string;
@@ -287,7 +287,7 @@ const IndexLayout: React.FC<IndexProps> = props => {
           }
           body {
             overflow-x: hidden;
-            color: ${lighten('-0.3', colors.royalty.white)};
+            color: ${lighten('-0.3', bgColor.primary)};
             /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, */
               /* Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
             font-family: "Andina Regular", "AndinaRegular", "Wotfard",Futura,-apple-system,sans-serif;
@@ -498,7 +498,7 @@ const IndexLayout: React.FC<IndexProps> = props => {
           @media (prefers-color-scheme: dark) {
             body {
               color: rgba(255, 255, 255, 0.75);
-              background: ${lighten(`0.05`, colors.royalty.white)};
+              background: ${lighten(`0.05`, bgColor.primary)};
             }
             img {
               opacity: 0.9;
