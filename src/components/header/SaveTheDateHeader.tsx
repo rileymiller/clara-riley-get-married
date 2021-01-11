@@ -54,6 +54,12 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
             stroke-dashoffset: 0;
         }
       }
+
+      @-webkit-keyframes move {
+        100% {
+            -webkit-stroke-dashoffset: 0;
+        }
+      }
     `}
     >
 
