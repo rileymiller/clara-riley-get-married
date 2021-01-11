@@ -33,8 +33,8 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
       const length = path.getTotalLength();
       // console.log(length);
 
-      path.style.strokeDasharray = `${length} ${length}`;
-      path.style.strokeDashoffset = `${length}`;
+      path.style.strokeDasharray = `${length} ${length}px`;
+      path.style.strokeDashoffset = `${length}px`;
     });
     // }, 1000)
   }, []);
@@ -54,15 +54,15 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
       
       @-webkit-keyframes move {
         100% {
-          -webkit-stroke-dashoffset: 0;
-          stroke-dashoffset: 0;
+          -webkit-stroke-dashoffset: 0px;
+          stroke-dashoffset: 0px;
         }
       }
-      /* @keyframes move {
+      @keyframes move {
         100% {
             stroke-dashoffset: 0;
         }
-      } */
+      }
     `}
     >
 
