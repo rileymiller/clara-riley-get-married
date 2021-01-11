@@ -46,6 +46,8 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
       .save-the-animation {
         animation: move 3s linear; 
         animation-fill-mode: forwards;
+        -webkit-animation: move 3s linear; 
+        -webkit-animation-fill-mode: forwards;
       }
 
 
@@ -57,7 +59,7 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
 
       @-webkit-keyframes move {
         100% {
-            -webkit-stroke-dashoffset: 0;
+          -webkit-stroke-dashoffset: 0;
         }
       }
     `}
