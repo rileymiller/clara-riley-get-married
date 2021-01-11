@@ -283,7 +283,7 @@ export const SaveTheDateInfo = (props: SaveTheDateInfoProps) => {
       </SaveTheDateInvitationContext>
       <RCLogo width={getLogoWidth()} height={getLogoHeight()} />
       <SaveTheDateCovidNotice>
-        *Please be aware that we may need to limit our guest list due to unforseeable changes in COVID-19 regulations.
+        * Please be aware that we may need to limit our guest list due to unforseeable changes in COVID-19 regulations.
       </SaveTheDateCovidNotice>
 
     </SaveTheDateWrapper >
