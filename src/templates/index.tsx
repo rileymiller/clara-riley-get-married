@@ -26,6 +26,7 @@ import { bgColor, colors, textColor } from '../styles/colors';
 import { darken, lighten } from 'polished';
 import { bpMaxSM, bpMaxXS, maxSM, maxXS } from '../styles/breakpoints';
 import styled from '@emotion/styled';
+import { SaveTheDateHeader } from '../components/header/SaveTheDateHeader';
 
 export interface IndexProps {
   pageContext: {
@@ -95,22 +96,22 @@ export const Meta = (props: IndexProps) => {
   );
 };
 
-export const SaveTheDateHeader = styled.h1`
-  color: ${textColor.primary};
-  justify-content: center;
-  font-family: "Clicker Script";
-  display: flex;
-  font-size: 11rem;
-  font-weight: 500;
-  align-items: center;
-  margin-bottom: 0;
-  ${bpMaxSM} {
-  font-size: 10rem;
-  }
-  ${bpMaxXS} {
-  font-size: 6.34rem;
-  }
-`;
+// export const SaveTheDateHeader = styled.h1`
+//   color: ${textColor.primary};
+//   justify-content: center;
+//   font-family: "Clicker Script";
+//   display: flex;
+//   font-size: 11rem;
+//   font-weight: 500;
+//   align-items: center;
+//   margin-bottom: 0;
+//   ${bpMaxSM} {
+//   font-size: 10rem;
+//   }
+//   ${bpMaxXS} {
+//   font-size: 6.34rem;
+//   }
+// `;
 
 export const SaveTheDateWrapper = styled.div`
 display: flex;
@@ -271,7 +272,8 @@ const IndexPage: React.FC<IndexProps> = props => {
           <div css={[inner, flexColumn, flexSpaceEvenly]} >
             <div css={[flexRow, flexCenter]}>
 
-              <SaveTheDateHeader>Save the Date</SaveTheDateHeader>
+              {/* <SaveTheDateHeader>Save the Date</SaveTheDateHeader> */}
+              <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} />
             </div>
             <div css={[flexRow, css`
               ${bpMaxSM} {
