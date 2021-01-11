@@ -27,12 +27,12 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
 
   useEffect(() => {
     const paths = document.querySelectorAll<SVGPathElement>(".save-the-animation");
-
+    console.log(`loading heading component`)
     // setTimeout(() => {
     paths.forEach(path => {
       const length = path.getTotalLength();
       // console.log(length);
-
+      console.log(`path length: ${length}`)
       path.style.strokeDasharray = `${length} ${length}px`;
       path.style.strokeDashoffset = `${length}px`;
     });
@@ -44,20 +44,21 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
       css={css`
       
       .save-the-animation {
-        animation: move 3s linear; 
-        animation-fill-mode: forwards;
         -webkit-animation: move 3s linear; 
         -webkit-animation-fill-mode: forwards;
+        animation: move 3s linear; 
+        animation-fill-mode: forwards;
       }
 
 
       
       @-webkit-keyframes move {
         100% {
-          -webkit-stroke-dashoffset: 0px;
+          /* -webkit-stroke-dashoffset: 0px; */
           stroke-dashoffset: 0px;
         }
       }
+
       @keyframes move {
         100% {
             stroke-dashoffset: 0;
