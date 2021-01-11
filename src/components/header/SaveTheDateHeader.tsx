@@ -48,8 +48,9 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
         -webkit-animation-fill-mode: forwards;
         animation: move 3s linear; 
         animation-fill-mode: forwards;
-        /* stroke-dasharray: 1000;
+        stroke-dasharray: 1000;
         stroke-dashoffset: 1000;
+        /*
         animation-delay: 500ms;
         --webkit-animation-delay: 500ms; */
       }
