@@ -25,19 +25,19 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
   const getHeaderHeight = () => (props.width && props.width > maxSM) ? LG_HEADER_HEIGHT :
     (props.width && props.width < maxXS) ? SM_HEADER_HEIGHT : MD_HEADER_HEIGHT;
 
-  useEffect(() => {
-    const paths = document.querySelectorAll<SVGPathElement>(".save-the-animation");
-    console.log(`loading heading component`)
-    // setTimeout(() => {
-    paths.forEach(path => {
-      const length = path.getTotalLength();
-      // console.log(length);
-      console.log(`path length: ${length}`)
-      path.style.strokeDasharray = `${length}`;
-      path.style.strokeDashoffset = `${length}`;
-    });
-    // }, 1000)
-  }, []);
+  // useEffect(() => {
+  //   const paths = document.querySelectorAll<SVGPathElement>(".save-the-animation");
+  //   console.log(`loading heading component`)
+  //   // setTimeout(() => {
+  //   paths.forEach(path => {
+  //     const length = path.getTotalLength();
+  //     // console.log(length);
+  //     console.log(`path length: ${length}`)
+  //     path.style.strokeDasharray = `${length}`;
+  //     path.style.strokeDashoffset = `${length}`;
+  //   });
+  //   // }, 1000)
+  // }, []);
 
   return (
     <div
@@ -96,15 +96,6 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
         stroke-dasharray: 165;
         stroke-dashoffset: 165;
       }
-
-      /* .save-the-animation-e {
-        -webkit-animation: move 3s linear; 
-        -webkit-animation-fill-mode: forwards;
-        animation: move 3s linear; 
-        animation-fill-mode: forwards;
-        stroke-dasharray: 91;
-        stroke-dashoffset: 91;
-      } */
 
       .save-the-animation-d {
         -webkit-animation: move 3s linear; 
