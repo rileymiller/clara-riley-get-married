@@ -33,8 +33,8 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
       const length = path.getTotalLength();
       // console.log(length);
       console.log(`path length: ${length}`)
-      // path.style.strokeDasharray = `${length} ${length}px`;
-      // path.style.strokeDashoffset = `${length}px`;
+      path.style.strokeDasharray = `${length}`;
+      path.style.strokeDashoffset = `${length}`;
     });
     // }, 1000)
   }, []);
@@ -44,14 +44,14 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
       css={css`
       
       .save-the-animation {
-        -webkit-animation: move 4s linear; 
+        -webkit-animation: move 3s linear; 
         -webkit-animation-fill-mode: forwards;
-        animation: move 4s linear; 
+        animation: move 3s linear; 
         animation-fill-mode: forwards;
-        stroke-dasharray: 1000;
+        /* stroke-dasharray: 1000;
         stroke-dashoffset: 1000;
         animation-delay: 500ms;
-        --webkit-animation-delay: 500ms;
+        --webkit-animation-delay: 500ms; */
       }
 
 
