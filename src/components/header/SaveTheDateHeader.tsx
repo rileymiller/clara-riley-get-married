@@ -48,8 +48,8 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
         -webkit-animation-fill-mode: forwards;
         animation: move 3s linear; 
         animation-fill-mode: forwards;
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
         /*
         animation-delay: 500ms;
         --webkit-animation-delay: 500ms; */
@@ -58,6 +58,10 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
 
       
       @-webkit-keyframes move {
+        /* 0% {
+          stroke-dashoffset: 100%;
+        } */
+
         100% {
           /* -webkit-stroke-dashoffset: 0px; */
           stroke-dashoffset: 0;
@@ -65,6 +69,10 @@ export const SaveTheDateHeader = (props: SaveTheDateHeaderType) => {
       }
 
       @keyframes move {
+        /* 0% {
+          stroke-dashoffset: 100%;
+        } */
+
         100% {
             stroke-dashoffset: 0;
         }
