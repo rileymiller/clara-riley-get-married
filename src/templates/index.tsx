@@ -119,6 +119,14 @@ flex-direction:column;
 /* justify-content: center; */
 align-self: center;
 align-items: center;
+max-width: 50%;
+${bpMaxSM} {
+  max-width: 100%
+}
+${bpMaxXS} {
+  max-width: 100%;
+}
+margin: .75rem;
 `;
 
 export const SaveTheDateForTheWedding = styled.div`
@@ -205,18 +213,35 @@ export const SaveTheDateInvitationContext = styled.div`
 color: ${textColor.primary};
 font-family: "Raleway";
 font-size: 2rem;
-margin-top: 1.2rem;
+margin-bottom: 1.2rem;
 ${bpMaxSM} {
   font-size: 1.75rem;
-  margin-top: 1.06rem;
+  margin-bottom: 1.06rem;
 }
 ${bpMaxXS} {
   font-size: 1.16rem;
-  margin-top: .696rem;
+  margin-bottom: .696rem;
 }
 
 `;
 
+export const SaveTheDateCovidNotice = styled.div`
+color: ${textColor.primary};
+font-family: "Raleway";
+font-size: 1.4rem;
+margin: 1rem 0;
+text-align: center;
+line-height: 1.5;
+${bpMaxSM} {
+  font-size: 1.0rem;
+  margin: .9rem 0;
+}
+${bpMaxXS} {
+  font-size: .85rem;
+  margin: .6rem 0;
+}
+
+`;
 export type SaveTheDateInfoProps = {
   size: {
     width?: number
@@ -253,10 +278,14 @@ export const SaveTheDateInfo = (props: SaveTheDateInfoProps) => {
       <SaveTheDateWeddingPlace>
         Golden, Colorado
       </SaveTheDateWeddingPlace>
-      <RCLogo width={getLogoWidth()} height={getLogoHeight()} />
       <SaveTheDateInvitationContext>
-        Invitation to Follow
+        Invitation to Follow*
       </SaveTheDateInvitationContext>
+      <RCLogo width={getLogoWidth()} height={getLogoHeight()} />
+      <SaveTheDateCovidNotice>
+        *Please be aware that we may need to limit our guest list due to unforseeable changes in COVID-19 regulations.
+      </SaveTheDateCovidNotice>
+
     </SaveTheDateWrapper >
   );
 };

@@ -22,6 +22,7 @@ const IndexLayout: React.FC<IndexProps> = props => {
       </Helmet>
       <Global
         styles={css`
+          @import url("https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap");
           html,
           body,
           div,
@@ -131,7 +132,6 @@ const IndexLayout: React.FC<IndexProps> = props => {
           img {
             max-width: 100%;
           }
-          @import url("https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap");
           @font-face {
             font-family: "Andina Regular";
             src: local('Andina Regular'), local('AndinaRegular'),
