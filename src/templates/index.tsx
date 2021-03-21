@@ -5,6 +5,7 @@ import { useWindowSize } from '../hooks/useWindowSize';
 import { Helmet } from 'react-helmet';
 
 import { css } from '@emotion/react';
+import SiteNav from '../components/header/SiteNav'
 
 import "@fontsource/clicker-script";
 import "@fontsource/raleway";
@@ -20,6 +21,7 @@ import {
   flexRow,
   flexCenter,
   flexSpaceEvenly,
+  flexStart,
 } from '../styles/shared';
 import config from '../website-config';
 import { bgColor, colors, textColor } from '../styles/colors';
@@ -49,6 +51,7 @@ export interface IndexProps {
 
 export const SiteMain = css`
   flex-grow: 1;
+  flex-direction: column;
   display: flex;
   /* background-color: ${lighten(`0.05`, bgColor.primary)}; */
   background-color: ${bgColor.primary};
@@ -113,182 +116,8 @@ export const Meta = (props: IndexProps) => {
 //   }
 // `;
 
-export const SaveTheDateWrapper = styled.div`
-display: flex;
-flex-direction:column;
-/* justify-content: center; */
-align-self: center;
-align-items: center;
-max-width: 50%;
-${bpMaxSM} {
-  max-width: 100%
-}
-${bpMaxXS} {
-  max-width: 100%;
-}
-margin: .75rem;
-`;
 
-export const SaveTheDateForTheWedding = styled.div`
-color: ${textColor.primary};
-font-family: "Raleway";
-font-size: 4rem;
-margin-bottom: 4rem;
-${bpMaxSM} {
-  font-size: 3rem;
-  margin-bottom: 3rem;
-}
-${bpMaxXS} {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-`;
 
-export const SaveTheDateNamesAttention = () => (
-  <div css={css`
-font-family: 'Clicker Script';
-font-size: 7rem;
-margin-bottom: 3rem;
-color: ${textColor.primary};
-display: flex;
-align-items:center;
-line-height: 1;
-${bpMaxSM} {
-  font-size: 5.25rem;
-  margin-bottom: 2.25rem;
-}
-${bpMaxXS} {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-}
-`}
-  >
-    <span >
-      Riley <br /> Miller
-    </span>
-    <span css={css`
-    margin: 0 1.5rem;
-  `}
-    >
-
-      {` `}&{` `}
-    </span>
-    <span>
-      Clara <br /> Larson
-    </span>
-  </div>
-);
-
-export const SaveTheDateWeddingDate = styled.div`
-color: ${textColor.primary};
-font-family: "Raleway";
-font-size: 5rem;
-margin-bottom: 2.3rem;
-${bpMaxSM} {
-  font-size: 3.75rem;
-  margin-bottom: 1.725rem;
-}
-${bpMaxXS} {
-  font-size: 2.5rem;
-  margin-bottom: 1.15rem;
-}
-`;
-
-export const SaveTheDateWeddingPlace = styled.div`
-color: ${textColor.primary};
-font-family: "Raleway";
-font-size: 3rem;
-margin-bottom: 2.5rem;
-${bpMaxSM} {
-  font-size: 2.25rem;
-  margin-bottom: 1.875rem;
-}
-${bpMaxXS} {
-  font-size: 1.5rem;
-  margin-bottom: 1.25rem;
-}
-`;
-
-export const SaveTheDateInvitationContext = styled.div`
-color: ${textColor.primary};
-font-family: "Raleway";
-font-size: 2rem;
-margin-bottom: 1.2rem;
-${bpMaxSM} {
-  font-size: 1.75rem;
-  margin-bottom: 1.06rem;
-}
-${bpMaxXS} {
-  font-size: 1.16rem;
-  margin-bottom: .696rem;
-}
-
-`;
-
-export const SaveTheDateCovidNotice = styled.div`
-color: ${textColor.primary};
-font-family: "Raleway";
-font-size: 1.4rem;
-margin: 1rem 0;
-text-align: center;
-line-height: 1.5;
-${bpMaxSM} {
-  font-size: 1.0rem;
-  margin: .9rem 0;
-}
-${bpMaxXS} {
-  font-size: .85rem;
-  margin: .6rem 0;
-}
-
-`;
-export type SaveTheDateInfoProps = {
-  size: {
-    width?: number
-    height?: number
-  }
-};
-
-export const SaveTheDateInfo = (props: SaveTheDateInfoProps) => {
-  const { size } = props;
-
-  const LG_LOGO_SIZE = 80;
-  const MD_LOGO_SIZE = 65;
-  const SM_LOGO_SIZE = 55;
-
-  const getLogoWidth = () => {
-    return (size.width && size.width > maxSM) ? LG_LOGO_SIZE :
-      (size.width && size.width < maxXS) ? SM_LOGO_SIZE : MD_LOGO_SIZE;
-  };
-
-  const getLogoHeight = () => {
-    return (size.width && size.width > maxSM) ? LG_LOGO_SIZE :
-      (size.width && size.width < maxXS) ? SM_LOGO_SIZE : MD_LOGO_SIZE;
-  };
-
-  return (
-    <SaveTheDateWrapper>
-      <SaveTheDateForTheWedding>
-        For the wedding of
-      </SaveTheDateForTheWedding>
-      <SaveTheDateNamesAttention />
-      <SaveTheDateWeddingDate>
-        June 19, 2021
-      </SaveTheDateWeddingDate>
-      <SaveTheDateWeddingPlace>
-        Golden, Colorado
-      </SaveTheDateWeddingPlace>
-      <SaveTheDateInvitationContext>
-        Invitation to Follow*
-      </SaveTheDateInvitationContext>
-      <RCLogo width={getLogoWidth()} height={getLogoHeight()} />
-      <SaveTheDateCovidNotice>
-        *Please be aware that we may need to limit our guest list due to unforseeable changes in COVID-19 regulations.
-      </SaveTheDateCovidNotice>
-
-    </SaveTheDateWrapper >
-  );
-};
 
 const IndexPage: React.FC<IndexProps> = props => {
   const size = useWindowSize();
@@ -297,14 +126,15 @@ const IndexPage: React.FC<IndexProps> = props => {
     <IndexLayout>
       <Meta {...props} />
       <Wrapper>
-        <main id="site-main" css={[SiteMain, outer, flexCenter]}>
+        <main id="site-main" css={[SiteMain, outer, flexStart]}>
+          <SiteNav isHome />
           <div css={[inner, flexColumn, flexSpaceEvenly]} >
             <div css={[flexRow, flexCenter]}>
 
               {/* <SaveTheDateHeader>Save the Date</SaveTheDateHeader> */}
               <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} />
             </div>
-            <div css={[flexRow, css`
+            {/* <div css={[flexRow, css`
               ${bpMaxSM} {
                 justify-content: center;
                 flex-wrap: wrap-reverse;
@@ -315,7 +145,7 @@ const IndexPage: React.FC<IndexProps> = props => {
             >
               <LandingImage width={size.width} />
               <SaveTheDateInfo size={size} />
-            </div>
+            </div> */}
           </div>
         </main>
         <Footer />

@@ -80,13 +80,13 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
   };
 
   render() {
-    const { isHome = false, isPost = false, post = {} } = this.props;
+    // const { isHome = false, isPost = false, post = {} } = this.props;
     return (
       <>
         {config.showSubscribe && <SubscribeModal ref={this.subscribe} />}
         <nav css={SiteNavStyles}>
           <SiteNavLeft className="site-nav-left">
-            {!isHome && <SiteNavLogo />}
+            {/* {!isHome && <SiteNavLogo />} */}
             <SiteNavContent css={[this.state.showTitle ? HideNav : '']}>
               <ul css={NavStyles} role="menu">
                 {/* TODO: mark current nav item - add class nav-current */}
@@ -94,21 +94,24 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   <Link to="/">Home</Link>
                 </li>
                 <li role="menuitem">
-                  <Link to="/about">About</Link>
+                  <Link to="/faq">FAQ</Link>
                 </li>
                 <li role="menuitem">
-                  <Link to="/tags/getting-started/">Getting Started</Link>
+                  <Link to="/save-the-date">Save The Date</Link>
                 </li>
+                {/* <li role="menuitem">
+                  <Link to="/tags/getting-started/">Getting Started</Link>
+                </li> */}
               </ul>
-              {isPost && (
+              {/* {isPost && (
                 <NavPostTitle ref={this.titleRef} className="nav-post-title">
                   {post.title}
                 </NavPostTitle>
-              )}
+              )} */}
             </SiteNavContent>
           </SiteNavLeft>
           <SiteNavRight>
-            <SocialLinks>
+            {/* <SocialLinks>
               {config.facebook && (
                 <a
                   className="social-link-fb"
@@ -132,9 +135,11 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   <Twitter />
                 </a>
               )}
-            </SocialLinks>
+            </SocialLinks> */}
             {config.showSubscribe && (
-              <SubscribeButton onClick={this.openModal}>Subscribe</SubscribeButton>
+              <Link to="/rsvp">
+                <RSVPButton>RSVP</RSVPButton>
+              </Link>
             )}
           </SiteNavRight>
         </nav>
@@ -262,7 +267,7 @@ const SocialLinks = styled.div`
   align-items: center;
 `;
 
-const SubscribeButton = styled.a`
+const RSVPButton = styled.a`
   display: block;
   padding: 4px 10px;
   margin: 0 0 0 10px;

@@ -7,7 +7,7 @@ import { colors } from './colors';
 
 export const outer = css`
   position: relative;
-  padding: 3vw 3vw 0vw 3vw;
+  padding: 0vw 3vw 0vw 3vw;
 `;
 
 // Centered content container blocks
@@ -38,6 +38,11 @@ export const flexSpaceEvenly = css`
 export const flexAlignMiddle = css`
   align-items: center;
 `;
+
+export const flexStart = css`
+  justify-content: flex-start;
+`;
+
 export const SiteNavMain = css`
   position: fixed;
   top: 0;
