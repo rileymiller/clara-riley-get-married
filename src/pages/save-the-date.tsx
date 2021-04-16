@@ -223,14 +223,13 @@ const SaveTheDatePage: React.FC<NotFoundTemplateProps> = props => {
     <IndexLayout>
       <Wrapper>
         <header css={[SiteHeader, outer]}>
-          <div css={[outer, SiteNavMain]}>
+          <div css={[SiteNavMain]}>
             <div css={inner}>
               <SiteNav isHome={false} />
             </div>
           </div>
         </header>
         <main id="site-main" css={[SiteMain, outer, flexCenter]}>
-          <SiteNav isHome />
           <div css={[inner, flexColumn, flexSpaceEvenly]} >
             <div css={[flexRow, flexCenter]}>
 

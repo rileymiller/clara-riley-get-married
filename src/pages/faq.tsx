@@ -23,7 +23,7 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
     <IndexLayout>
       <Wrapper>
         <header css={[SiteHeader, outer]}>
-          <div css={[outer, SiteNavMain]}>
+          <div css={[SiteNavMain]}>
             <div css={inner}>
               <SiteNav isHome={false} />
             </div>

@@ -1,11 +1,11 @@
-import { graphql } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
+import { graphql, StaticQuery } from 'gatsby';
+import Img, { FixedObject, FluidObject } from 'gatsby-image';
 import React, { useEffect, useState } from 'react';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { Helmet } from 'react-helmet';
 
 import { css } from '@emotion/react';
-import SiteNav from '../components/header/SiteNav'
+import SiteNav from '../components/header/SiteNav';
 
 import "@fontsource/clicker-script";
 import "@fontsource/raleway";
@@ -28,7 +28,7 @@ import { bgColor, colors, textColor } from '../styles/colors';
 import { darken, lighten } from 'polished';
 import { bpMaxSM, bpMaxXS, maxSM, maxXS } from '../styles/breakpoints';
 import styled from '@emotion/styled';
-import { SaveTheDateHeader } from '../components/header/SaveTheDateHeader';
+// import { SaveTheDateHeader } from '../components/header/SaveTheDateHeader';
 
 export interface IndexProps {
   pageContext: {
@@ -46,6 +46,11 @@ export interface IndexProps {
         fixed: FixedObject;
       };
     };
+    beach: {
+      childImageSharp: {
+        fluid: FluidObject;
+      };
+    };
   };
 }
 
@@ -53,6 +58,7 @@ export const SiteMain = css`
   flex-grow: 1;
   flex-direction: column;
   display: flex;
+  align-items: center;
   /* background-color: ${lighten(`0.05`, bgColor.primary)}; */
   background-color: ${bgColor.primary};
   @media (prefers-color-scheme: dark) {
@@ -99,25 +105,59 @@ export const Meta = (props: IndexProps) => {
   );
 };
 
-// export const SaveTheDateHeader = styled.h1`
-//   color: ${textColor.primary};
-//   justify-content: center;
-//   font-family: "Clicker Script";
-//   display: flex;
-//   font-size: 11rem;
-//   font-weight: 500;
-//   align-items: center;
-//   margin-bottom: 0;
-//   ${bpMaxSM} {
-//   font-size: 10rem;
-//   }
-//   ${bpMaxXS} {
-//   font-size: 6.34rem;
-//   }
-// `;
+export const SaveTheDateHeader = styled.h1`
+  color: ${textColor.primary};
+  justify-content: center;
+  font-family: "Clicker Script";
+  display: flex;
+  font-size: 10rem;
+  font-weight: 500;
+  align-items: center;
+  margin-bottom: 0;
+  ${bpMaxSM} {
+  font-size: 10rem;
+  }
+  ${bpMaxXS} {
+  font-size: 6.34rem;
+  }
+`;
 
+// const BeachBackground = () => {
+//   return (
+//     <StaticQuery
+//       query={graphql`
+//     query HomeImage {
+//       # beachImage: file(relativePath: { eq: "img/rc_landing.jpg" }) {
+//         childImageSharp {
+//           # Specify the image processing specifications right in the query.
+//           # Makes it trivial to update as your page's design changes.
+//           fluid(quality: 100) {
+//             ...GatsbyImageSharpFluid
+//           }
+//         }
+//       }
+//     }
+//   `}
+//       render={(data: any) => {
+//         if (!data.beachImage) {
+//           return;
+//         }
 
-
+//         return (
+//           <Img
+//             alt={config.title}
+//             style={{
+//               height: '100%',
+//               borderRadius: '.5rem',
+//               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+//             }}
+//             fluid={data.beachImage.childImageSharp.fluid}
+//           />
+//         );
+//       }}
+//     />
+//   );
+// };
 
 const IndexPage: React.FC<IndexProps> = props => {
   const size = useWindowSize();
@@ -126,13 +166,28 @@ const IndexPage: React.FC<IndexProps> = props => {
     <IndexLayout>
       <Meta {...props} />
       <Wrapper>
-        <main id="site-main" css={[SiteMain, outer, flexStart]}>
-          <SiteNav isHome />
+        <SiteNav isHome />
+        <main id="site-main" css={[SiteMain, outer]}>
           <div css={[inner, flexColumn, flexSpaceEvenly]} >
             <div css={[flexRow, flexCenter]}>
 
-              {/* <SaveTheDateHeader>Save the Date</SaveTheDateHeader> */}
-              <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} />
+              <SaveTheDateHeader>Riley & Clara</SaveTheDateHeader>
+              {/* <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} /> */}
+            </div>
+            <div css={[flexRow]} >
+              <Img
+                alt={config.title}
+                style={{
+                  height: '100%',
+                  innerWidth: '100%',
+                  borderRadius: '.5rem',
+                  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                }}
+                fluid={props.data.beach.childImageSharp.fluid}
+              />
+            </div>
+            <div css={css`display: flex; align-self: center;`}>
+              Time to Build 🚧
             </div>
             {/* <div css={[flexRow, css`
               ${bpMaxSM} {
@@ -142,6 +197,7 @@ const IndexPage: React.FC<IndexProps> = props => {
               justify-content: space-evenly;
               margin-bottom: 3.3rem;
             `]}
+            <di
             >
               <LandingImage width={size.width} />
               <SaveTheDateInfo size={size} />
@@ -171,6 +227,15 @@ export const pageQuery = graphql`
         # Makes it trivial to update as your page's design changes.
         fixed(width: 2000, quality: 100) {
           ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    beach: file(relativePath: {eq: "img/beach.jpg" }) {
+        childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

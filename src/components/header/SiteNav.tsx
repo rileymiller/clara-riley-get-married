@@ -138,7 +138,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
             </SocialLinks> */}
             {config.showSubscribe && (
               <Link to="/rsvp">
-                <RSVPButton>RSVP</RSVPButton>
+                {/* <RSVPButton>RSVP</RSVPButton> */}
               </Link>
             )}
           </SiteNavRight>
@@ -155,8 +155,8 @@ export const SiteNavMain = css`
   left: 0;
   z-index: 1000;
   /* background: color(var(--darkgrey) l(-5%)) */
-  background: ${darken('0.05', colors.darkgrey)};
-
+  /* background: ${darken('0.05', colors.darkgrey)}; */
+  background-color: red;
   @media (max-width: 700px) {
     padding-right: 0;
     padding-left: 0;
@@ -172,6 +172,7 @@ const SiteNavStyles = css`
   overflow-y: hidden;
   height: 64px;
   font-size: 1.3rem;
+  margin: 0 2rem;
 `;
 
 const SiteNavLeft = styled.div`

@@ -50,7 +50,7 @@ export const SiteNavMain = css`
   left: 0;
   z-index: 1000;
   /* background: color(var(--darkgrey) l(-5%)); */
-  background: ${lighten('-0.3', colors.royalty.white)};
+  /* background: ${lighten('-0.3', colors.royalty.white)}; */
 `;
 
 export const SiteTitle = styled.h1`
@@ -258,7 +258,7 @@ export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string 
     padding-top: 0;
     padding-bottom: 0;
     /* color: var(--darkgrey); */
-    color: ${colors.royalty.gold};
+    color: ${colors.royalty.blue};
     background: #fff;
     opacity: 1;
 
