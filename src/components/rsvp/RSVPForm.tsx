@@ -100,16 +100,18 @@ const initializeRsvpGuestToGuestResponse = (names: string[]): GuestResponse[] =>
   };
 });
 
+const areComing = (guests: GuestResponse[]) => Boolean(guests.filter(guest => guest.rsvp === 'accepts').length);
+
 const VerifiedGuestForm = ({ names, wasAllotedPlusOne }: { names: string[], wasAllotedPlusOne?: boolean }) => {
   const guests = initializeRsvpGuestToGuestResponse(names);
   const [dietaryRestrictions, setDietaryRestrictions] = useState('');
   const [plusOne, setPlusOne] = useState('');
   const [isBringingPlusOne, setIsBringingPlusOne] = useState('no');
-  const onSubmit = () => {
-    console.log(`guests: ${JSON.stringify(guests)} \nDietary Restrictions: ${dietaryRestrictions}\n Plus One: ${plusOne}`);
-  };
 
-  const isComing = () => Boolean(guests.filter(guest => guest.rsvp === 'accepts').length);
+  const onSubmit = () => {
+    const rsvpDTO = convertToRSVPDTO(guests, dietaryRestrictions, plusOne);
+    console.log(`rsvpDTO: ${JSON.stringify(rsvpDTO)}`);
+  };
 
   return (
     <section css={
@@ -129,8 +131,8 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne }: { names: string[], wasA
           <GuestRSVPControl key={guest.name} name={guest.name} rsvp={guest.rsvp} onChange={guest.onChange} />
         );
       })}
-      {(wasAllotedPlusOne && isComing()) && <PlusOneControl isBringingPlusOne={isBringingPlusOne} setPlusOne={setPlusOne} setIsBringingPlusOne={setIsBringingPlusOne} />}
-      {isComing() &&
+      {(wasAllotedPlusOne && areComing(guests)) && <PlusOneControl isBringingPlusOne={isBringingPlusOne} setPlusOne={setPlusOne} setIsBringingPlusOne={setIsBringingPlusOne} />}
+      {areComing(guests) &&
         <>
           <p css={css`font-size: 1.4rem !important;margin: 2rem!important;`}>Please note any dietary restrictions below.</p>
           <textarea
@@ -165,9 +167,42 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne }: { names: string[], wasA
   );
 };
 
+type rsvpDTO = {
+  guests: GuestDTO[]
+  dietaryRestrictions: string
+  plusOne: string
+};
+
+const convertToRSVPDTO = (guests: GuestResponse[], dietaryRestrictions: string, plusOne: string) => {
+  if (areComing(guests)) {
+    return {
+      guests: JSON.stringify(convertToGuestDTO(guests)),
+      dietaryRestrictions,
+      plusOne,
+    };
+  }
+
+  return {
+    guests: JSON.stringify(convertToGuestDTO(guests)),
+    dietaryRestrictions: '',
+    plusOne: '',
+  };
+};
+
+type GuestDTO = {
+  name: string
+  isComing: boolean
+};
+
+const convertToGuestDTO = (guests: GuestResponse[]) => guests.map(guest => ({
+  name: guest.name,
+  isComing: convertIsComing(guest.rsvp),
+}));
+
+const convertIsComing = (rsvp: RSVPAnswer) => rsvp === 'accepts';
+
 type PlusOneOption = 'yes' | 'no';
 type PlusOneControlProps = {
-  // plusOne: string
   setPlusOne: (person: string) => void
   isBringingPlusOne: string
   setIsBringingPlusOne: (choice: PlusOneOption) => void
@@ -177,7 +212,6 @@ const PlusOneControl = (props: PlusOneControlProps) => {
   return (
     <>
       <h3
-        // key={guest}
         css={css`
         font-weight: bold;
         `}

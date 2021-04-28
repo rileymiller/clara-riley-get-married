@@ -29,7 +29,8 @@ export const Footer: React.FC = () => {
 };
 
 const SiteFooter = css`
-  position: relative;
+  position: absolute;
+  bottom: 0;
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 1.2rem;

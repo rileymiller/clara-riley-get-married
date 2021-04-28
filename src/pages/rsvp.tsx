@@ -10,6 +10,7 @@ import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
 import { inner, outer, SiteHeader, SiteNavMain } from '../styles/shared';
 import { RSVP as Rsvp } from '../components/rsvp/RSVP';
+import { Footer } from '../components/Footer';
 
 interface NotFoundTemplateProps {
   data: {
@@ -43,6 +44,7 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
             </section>
           </div>
         </main>
+        <Footer />
       </Wrapper>
     </IndexLayout>
   );
