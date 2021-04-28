@@ -20,6 +20,7 @@
     "@fontsource/raleway": "^4.1.0",
     "@types/react-scrollspy": "^3.3.3",
     "@workday/canvas-kit-react-checkbox": "^4.7.0",
+    "@workday/canvas-kit-react-common": "^4.7.0",
     "@workday/canvas-kit-react-form-field": "^4.7.0",
     "@workday/canvas-kit-react-radio": "^4.7.0",
     "cssnano": "4.1.10",
