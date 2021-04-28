@@ -91,7 +91,7 @@ export const pageQuery = graphql`
 `;
 
 const MainContent = css`
-  padding: 14vw 4vw 6vw;
+  padding: 8vw 4vw 6vw;
   display:flex;
   justify-content: center;
   align-items:center;
