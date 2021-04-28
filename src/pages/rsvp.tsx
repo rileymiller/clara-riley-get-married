@@ -20,7 +20,7 @@ interface NotFoundTemplateProps {
   };
 }
 
-const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
+const RSVPPage: React.FC<NotFoundTemplateProps> = props => {
   return (
     <IndexLayout>
       <Wrapper>
@@ -36,11 +36,6 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
             <section style={{ textAlign: 'center' }}>
 
               <Rsvp title={`Riley and Clara's Wedding`} />
-              {/* <ErrorCode>FAQ</ErrorCode>
-              <ErrorDescription>Not ready yet go back</ErrorDescription>
-              <Link css={ErrorLink} to="/">
-                Go to the front page →
-              </Link> */}
             </section>
           </div>
         </main>
@@ -115,37 +110,4 @@ const MainContent = css`
   }
 `;
 
-const ErrorCode = styled.h1`
-  margin: 0;
-  /* color: var(--lightgrey); */
-  color: ${colors.lightgrey};
-  font-size: 12vw;
-  line-height: 1em;
-  letter-spacing: -5px;
-  opacity: 0.75;
-
-  @media (max-width: 800px) {
-    font-size: 11.2rem;
-  }
-`;
-
-const ErrorDescription = styled.p`
-  margin: 0;
-  /* color: var(--midgrey); */
-  color: ${colors.midgrey};
-  font-size: 3rem;
-  line-height: 1.3em;
-  font-weight: 400;
-
-  @media (max-width: 800px) {
-    margin: 5px 0 0 0;
-    font-size: 1.8rem;
-  }
-`;
-
-const ErrorLink = css`
-  display: inline-block;
-  margin-top: 5px;
-`;
-
-export default NotFoundPage;
+export default RSVPPage;

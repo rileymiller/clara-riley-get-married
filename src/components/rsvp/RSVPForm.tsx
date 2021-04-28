@@ -1,7 +1,7 @@
 import { lighten, saturate } from 'polished';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
-
+import { v4 as uuid } from 'uuid';
 import { css } from '@emotion/react';
 
 import { colors } from '../../styles/colors';
@@ -11,6 +11,8 @@ import * as rsvp from '../../rsvp/rsvp.json';
 import { EmotionCanvasTheme } from '@workday/canvas-kit-react-common';
 import { Radio, RadioGroup } from '@workday/canvas-kit-react-radio';
 import FormField from '@workday/canvas-kit-react-form-field';
+
+import { postRSVP } from '../../api';
 
 type RSVPGuests = {
   names: string[]
@@ -108,9 +110,25 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne }: { names: string[], wasA
   const [plusOne, setPlusOne] = useState('');
   const [isBringingPlusOne, setIsBringingPlusOne] = useState('no');
 
-  const onSubmit = () => {
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const onSubmit = async () => {
+    setIsUpdating(true);
     const rsvpDTO = convertToRSVPDTO(guests, dietaryRestrictions, plusOne);
     console.log(`rsvpDTO: ${JSON.stringify(rsvpDTO)}`);
+
+    type NewType = any;
+
+    try {
+      const result = await postRSVP(rsvpDTO);
+      console.log(result);
+      setIsUpdating(false);
+      setHasSubmitted(true);
+      // console.log(`Upload Result: ${JSON.stringify(result)}`);
+    } catch (e: NewType) {
+      // throw a toast
+      console.error(`Error Uploading: ${JSON.stringify(e)}`);
+    }
   };
 
   return (
@@ -160,22 +178,24 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne }: { names: string[], wasA
             onChange={e => setDietaryRestrictions(e.target.value)}
           />
         </>}
-      <RSVPFormButton css={css`margin-top: 1.4rem;`} type="submit" onClick={onSubmit}>
+      <RSVPFormButton disabled={isUpdating} css={css`margin-top: 1.4rem;`} type="submit" onClick={onSubmit}>
         <span>Submit</span>
       </RSVPFormButton>
     </section>
   );
 };
 
-type rsvpDTO = {
-  guests: GuestDTO[]
+type RSVPDTO = {
+  id: string
+  guests: string
   dietaryRestrictions: string
   plusOne: string
 };
 
-const convertToRSVPDTO = (guests: GuestResponse[], dietaryRestrictions: string, plusOne: string) => {
+const convertToRSVPDTO = (guests: GuestResponse[], dietaryRestrictions: string, plusOne: string): RSVPDTO => {
   if (areComing(guests)) {
     return {
+      id: guests[0].name,
       guests: JSON.stringify(convertToGuestDTO(guests)),
       dietaryRestrictions,
       plusOne,
@@ -183,6 +203,7 @@ const convertToRSVPDTO = (guests: GuestResponse[], dietaryRestrictions: string, 
   }
 
   return {
+    id: guests[0].name,
     guests: JSON.stringify(convertToGuestDTO(guests)),
     dietaryRestrictions: '',
     plusOne: '',

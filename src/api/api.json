@@ -1,0 +1,4 @@
+{
+  "rsvpBaseURL": "https://vd8kd2pd9e.execute-api.us-east-1.amazonaws.com/Prod",
+  "rsvpUploadEndpoint": "rsvp/upload"
+}
