@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import { darken } from 'polished';
+import { darken, lighten, saturate } from 'polished';
 import React from 'react';
 
 import { css } from '@emotion/react';
@@ -100,6 +100,9 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   <Link to="/save-the-date">Save The Date</Link>
                 </li>
                 {/* <li role="menuitem">
+                  <Link to="/rsvp">RSVP</Link>
+                </li> */}
+                {/* <li role="menuitem">
                   <Link to="/tags/getting-started/">Getting Started</Link>
                 </li> */}
               </ul>
@@ -139,6 +142,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
             {config.showSubscribe && (
               <Link to="/rsvp">
                 {/* <RSVPButton>RSVP</RSVPButton> */}
+                <RSVPFormButton>RSVP</RSVPFormButton>
               </Link>
             )}
           </SiteNavRight>
@@ -147,6 +151,39 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
     );
   }
 }
+
+const RSVPFormButton = styled.button`
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 10px;
+  padding: 0 20px;
+  /* height: 23px; */
+  outline: none;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 39px;
+  font-weight: 400;
+  text-align: center;
+  /* background: ${lighten('.05', colors.royalty.pink)};
+   */
+  background: ${colors.royalty.ivory};
+  color: ${colors.royalty.blue};
+  border-radius: 5px;
+
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  :active,
+  :focus,
+  :hover {
+    background: ${saturate('-0.1', lighten('-0.09', colors.royalty.pink))};
+
+    transition: background 0.35s ease-in-out;
+  }
+  @media (max-width: 500px) {
+    margin: 10px 0 0 0;
+    width: 100%;
+  }
+`;
 
 export const SiteNavMain = css`
   position: fixed;
@@ -222,7 +259,7 @@ const NavStyles = css`
     display: block;
     padding: 12px 12px;
     color: #fff;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     transition: opacity 0.35s ease-in-out;
   }
 

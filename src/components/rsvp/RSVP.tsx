@@ -14,29 +14,25 @@ export const RSVP: React.FC<RSVPProps> = props => {
   return (
     <RSVPFormSection>
       <h3 css={RSVPFormTitle}>RSVP to {props.title}</h3>
-      <p>Get the latest posts delivered right to your inbox</p>
+      <p>before Saturday May 29, 2021</p>
+      <AccessCodeNote>Enter the Access Code on the Back of Your RSVP Card</AccessCodeNote>
       <RSVPForm />
     </RSVPFormSection>
   );
 };
 
 const RSVPFormSection = styled.section`
-  margin: 1.5em 0;
+  margin: 1em;
   padding: 6.5vw 7vw 8vw;
-  /* border: color(var(--lightgrey) l(+10%)) 1px solid; */
   border: ${lighten('0.1', colors.lightgrey)} 1px solid;
   text-align: center;
-  /* background: linear-gradient(color(var(--whitegrey) l(+6%)), color(var(--whitegrey) l(+4%))); */
-  background: linear-gradient(
-    ${lighten('0.06', colors.whitegrey)},
-    ${lighten('0.04', colors.whitegrey)}
-  );
+  background: ${colors.royalty.ivory};
   border-radius: 3px;
 
   p {
     margin-bottom: 0.2em 0 1em;
     /* color: var(--midgrey); */
-    color: ${colors.midgrey};
+    color: ${colors.royalty.blue};
     font-size: 2.1rem;
     line-height: 1.55em;
   }
@@ -50,36 +46,21 @@ const RSVPFormSection = styled.section`
   .form-group {
     flex-grow: 1;
   }
+`;
 
-  @media (prefers-color-scheme: dark) {
-    border: none;
-    /* background: linear-gradient(color(var(--darkmode) l(-6%)), color(var(--darkmode) l(-3%))); */
-    /* background: linear-gradient(
-      ${lighten('-0.06', colors.darkmode)},
-      ${lighten('-0.03', colors.darkmode)}
-    ); */
-    background: linear-gradient(#000, #000);
-
-    p {
-      color: rgba(255, 255, 255, 0.7);
-    }
-  }
+const AccessCodeNote = styled.p`
+  font-size: 2rem;
 `;
 
 const RSVPFormTitle = css`
   margin: 0 0 3px 0;
   padding: 0;
-  /* color: var(--darkgrey); */
-  color: ${colors.darkgrey};
+  color: ${colors.royalty.blue};
   font-size: 3.5rem;
   line-height: 1;
   font-weight: 600;
 
   @media (max-width: 650px) {
     font-size: 2.4rem;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    color: rgba(255, 255, 255, 0.9);
   }
 `;

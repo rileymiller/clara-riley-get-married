@@ -34,7 +34,7 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
           <div css={[inner]}>
             <section style={{ textAlign: 'center' }}>
 
-              <Rsvp title={`Clara & Riley's Wedding`} />
+              <Rsvp title={`Riley and Clara's Wedding`} />
               {/* <ErrorCode>FAQ</ErrorCode>
               <ErrorDescription>Not ready yet go back</ErrorDescription>
               <Link css={ErrorLink} to="/">

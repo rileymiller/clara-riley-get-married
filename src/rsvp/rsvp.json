@@ -1,0 +1,17 @@
+[
+  {
+    "names": [
+      "Loner"
+    ],
+    "accessCode": "69",
+    "plusOne": true
+  },
+  {
+    "names": [
+      "Steve Larson",
+      "Daffni Larson"
+    ],
+    "accessCode": "A01",
+    "plusOne": false
+  }
+]

@@ -1,5 +1,5 @@
 import { lighten, saturate } from 'polished';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
 import { css } from '@emotion/react';
@@ -8,31 +8,39 @@ import { colors } from '../../styles/colors';
 import config from '../../website-config';
 
 export const RSVPForm: React.FC = () => {
+  const [accessCode, setAccessCode] = useState('');
+  const handleSubmit = (e: MouseEvent) => {
+    console.log('submit')
+    e.preventDefault()
+    alert(accessCode);
+  };
+
   return (
     <form
       noValidate
       css={RSVPFormStyles}
-      action={config.mailchimpAction}
-      method="post"
-      id="mc-embedded-RSVP-form"
-      name="mc-embedded-RSVP-form"
+      // action={config.mailchimpAction}
+      // method="post"
+      // id="mc-embedded-RSVP-form"
+      // name="mc-embedded-RSVP-form"
       className="RSVP-form"
-      target="_blank"
+    // target="_blank"
     >
       {/* This is required for the form to work correctly  */}
       <FormGroup className="form-group">
         <RSVPEmail
           className="RSVP-email"
           type="email"
-          name={config.mailchimpEmailFieldName}
-          id={config.mailchimpEmailFieldName}
-          placeholder="youremail@example.com"
+          // name={config.mailchimpEmailFieldName}
+          // id={config.mailchimpEmailFieldName}
+          placeholder="Access Code (e.g. D49)"
+          onChange={e => setAccessCode(e.currentTarget.value)}
         />
       </FormGroup>
-      <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+      {/* <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
         <input type="text" name={config.mailchimpName} tabIndex={-1} />
-      </div>
-      <RSVPFormButton type="submit">
+      </div> */}
+      <RSVPFormButton type="submit" onSubmit={handleSubmit}>
         <span>RSVP</span>
       </RSVPFormButton>
     </form>
@@ -62,7 +70,8 @@ const RSVPEmail = styled.input`
   padding: 10px;
   width: 100%;
   /* border: color(var(--lightgrey) l(+7%)) 1px solid; */
-  border: ${lighten('0.07', colors.lightgrey)} 1px solid;
+  border: ${lighten('0.07', colors.royalty.blue)} 0.15em solid;
+  background: ${colors.royalty.ivory};
   /* color: var(--midgrey); */
   color: ${colors.midgrey};
   font-size: 1.8rem;
@@ -75,22 +84,9 @@ const RSVPEmail = styled.input`
   -webkit-appearance: none;
 
   :focus {
-    outline: 0;
-    /* border-color: color(var(--lightgrey) l(-2%)); */
-    border-color: ${lighten('-0.02', colors.lightgrey)};
-  }
-
-  @media (prefers-color-scheme: dark) {
-    /* border-color: color(var(--darkmode) l(+6%)); */
-    border-color: ${lighten('0.06', colors.darkmode)};
-    color: rgba(255, 255, 255, 0.9);
-    /* background: color(var(--darkmode) l(+3%)); */
-    background: ${lighten('0.03', colors.darkmode)};
-
-    :focus {
-      /* border-color: color(var(--darkmode) l(+25%)); */
-      border-color: ${lighten('0.25', colors.darkmode)};
-    }
+    border-color: ${lighten('-0.1', colors.royalty.blue)};
+    background: #e7f1fe;
+    transition: background 0.35s ease-in-out;
   }
 `;
 
@@ -106,35 +102,20 @@ const RSVPFormButton = styled.button`
   line-height: 39px;
   font-weight: 400;
   text-align: center;
-  /* background: linear-gradient(
-    color(var(--blue) whiteness(+7%)),
-    color(var(--blue) lightness(-7%) saturation(-10%)) 60%,
-    color(var(--blue) lightness(-7%) saturation(-10%)) 90%,
-    color(var(--blue) lightness(-4%) saturation(-10%))
-  ); */
-  /* background: linear-gradient(
-    ${lighten('0.07', colors.blue)},
-    ${saturate('-0.1', lighten('-0.07', colors.blue))} 60%,
-    ${saturate('-0.1', lighten('-0.07', colors.blue))} 90%,
-    ${saturate('-0.1', lighten('-0.04', colors.blue))}
-  ); */
-  background: linear-gradient(#4fb7f0, #29a0e0 60%, #29a0e0 90%, #36a6e2);
+  background: ${colors.royalty.pink};
   border-radius: 5px;
 
   -webkit-font-smoothing: subpixel-antialiased;
 
   :active,
-  :focus {
-    /* background: color(var(--blue) lightness(-9%) saturation(-10%)); */
-    background: ${saturate('-0.1', lighten('-0.09', colors.blue))};
+  :focus,
+  :hover {
+    background: ${saturate('-0.1', lighten('-0.09', colors.royalty.pink))};
+    transition: background 0.35s ease-in-out;
   }
   @media (max-width: 500px) {
     margin: 10px 0 0 0;
     width: 100%;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    opacity: 0.9;
   }
 `;
 
