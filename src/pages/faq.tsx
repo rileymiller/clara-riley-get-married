@@ -24,7 +24,7 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
       <Wrapper>
         <header css={[SiteHeader, outer]}>
           <div css={[SiteNavMain]}>
-            <div css={inner}>
+            <div>
               <SiteNav isHome={false} />
             </div>
           </div>

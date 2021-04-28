@@ -14,8 +14,7 @@ export const RSVP: React.FC<RSVPProps> = props => {
   return (
     <RSVPFormSection>
       <h3 css={RSVPFormTitle}>RSVP to {props.title}</h3>
-      <p>before Saturday May 29, 2021</p>
-      <AccessCodeNote>Enter the Access Code on the Back of Your RSVP Card</AccessCodeNote>
+      <p>Please respond before Saturday May 29, 2021</p>
       <RSVPForm />
     </RSVPFormSection>
   );
@@ -28,9 +27,12 @@ const RSVPFormSection = styled.section`
   text-align: center;
   background: ${colors.royalty.ivory};
   border-radius: 3px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   p {
-    margin-bottom: 0.2em 0 1em;
+    margin-bottom: 2rem;
     /* color: var(--midgrey); */
     color: ${colors.royalty.blue};
     font-size: 2.1rem;
@@ -46,10 +48,6 @@ const RSVPFormSection = styled.section`
   .form-group {
     flex-grow: 1;
   }
-`;
-
-const AccessCodeNote = styled.p`
-  font-size: 2rem;
 `;
 
 const RSVPFormTitle = css`

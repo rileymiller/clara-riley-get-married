@@ -47,9 +47,12 @@ ${bpMaxXS} {
 }
 margin: .75rem;
 `;
+
 export const SiteMain = css`
   flex-grow: 1;
   flex-direction: column;
+  /* justify-content:center; */
+  align-items: center;
   display: flex;
   /* background-color: ${lighten(`0.05`, bgColor.primary)}; */
   background-color: ${bgColor.primary};
@@ -224,7 +227,7 @@ const SaveTheDatePage: React.FC<NotFoundTemplateProps> = props => {
       <Wrapper>
         <header css={[SiteHeader, outer]}>
           <div css={[SiteNavMain]}>
-            <div css={inner}>
+            <div >
               <SiteNav isHome={false} />
             </div>
           </div>

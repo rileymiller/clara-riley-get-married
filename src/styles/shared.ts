@@ -14,6 +14,8 @@ export const outer = css`
 export const inner = css`
   /* margin: 0 auto; */
   max-width: 1040px;
+  /* display:flex;
+  align-items: center; */
   width: 100%;
 `;
 

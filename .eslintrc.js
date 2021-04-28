@@ -13,6 +13,7 @@ module.exports = {
     'capitalized-comments': 'off',
     'comma-dangle': ['error', 'always-multiline'],
     'react/jsx-tag-spacing': 'off',
+    'react/jsx-key': 'off',
     'react/prop-types': 'off',
     'no-warning-comments': 'off',
     'complexity': 'off',

@@ -25,12 +25,12 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
       <Wrapper>
         <header css={[SiteHeader, outer]}>
           <div css={[outer, SiteNavMain]}>
-            <div css={inner}>
+            <div>
               <SiteNav isHome={false} />
             </div>
           </div>
         </header>
-        <main id="site-main" css={[outer, ErrorContent]} className="error-content">
+        <main id="site-main" css={[outer, MainContent]} className="error-content">
           <div css={[inner]}>
             <section style={{ textAlign: 'center' }}>
 
@@ -90,9 +90,12 @@ export const pageQuery = graphql`
   }
 `;
 
-const ErrorContent = css`
+const MainContent = css`
   padding: 14vw 4vw 6vw;
-
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  
   @media (max-width: 800px) {
     padding-top: 24vw;
   }

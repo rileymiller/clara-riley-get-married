@@ -1,17 +1,26 @@
-[
-  {
-    "names": [
-      "Loner"
-    ],
-    "accessCode": "69",
-    "plusOne": true
-  },
-  {
-    "names": [
-      "Steve Larson",
-      "Daffni Larson"
-    ],
-    "accessCode": "A01",
-    "plusOne": false
-  }
-]
+{
+  "guests": [
+    {
+      "names": [
+        "Loner"
+      ],
+      "accessCode": "69",
+      "plusOne": false
+    },
+    {
+      "names": [
+        "Chad"
+      ],
+      "accessCode": "420",
+      "plusOne": true
+    },
+    {
+      "names": [
+        "Steve Larson",
+        "Daffni Larson"
+      ],
+      "accessCode": "A01",
+      "plusOne": false
+    }
+  ]
+}

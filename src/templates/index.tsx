@@ -58,6 +58,7 @@ export const SiteMain = css`
   flex-grow: 1;
   flex-direction: column;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   /* background-color: ${lighten(`0.05`, bgColor.primary)}; */
   background-color: ${bgColor.primary};
@@ -167,8 +168,8 @@ const IndexPage: React.FC<IndexProps> = props => {
       <Meta {...props} />
       <Wrapper>
         <SiteNav isHome />
-        <main id="site-main" css={[SiteMain, outer]}>
-          <div css={[inner, flexColumn, flexSpaceEvenly]} >
+        <main id="site-main" css={[SiteMain, outer, css`display:flex;justify-content:center;`]}>
+          <div css={[flexColumn, flexSpaceEvenly]} >
             <div css={[flexRow, flexCenter]}>
 
               <SaveTheDateHeader>Riley & Clara</SaveTheDateHeader>
@@ -186,7 +187,7 @@ const IndexPage: React.FC<IndexProps> = props => {
                 fluid={props.data.beach.childImageSharp.fluid}
               />
             </div>
-            <div css={css`display: flex; align-self: center;`}>
+            <div css={[inner, css`display: flex; align-self: center;`]}>
               Time to Build 🚧
             </div>
             {/* <div css={[flexRow, css`
