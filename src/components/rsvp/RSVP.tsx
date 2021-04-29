@@ -1,21 +1,30 @@
 import { lighten } from 'polished';
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 import { colors } from '../../styles/colors';
 import { RSVPForm } from './RSVPForm';
+import { useToast } from '../toasts/useToast';
 
 export interface RSVPProps {
   title: string;
 }
 
 export const RSVP: React.FC<RSVPProps> = props => {
+  const toastContainerRef = useRef(null);
+  const { throwToast, ToastManager } = useToast({
+    containerRef: toastContainerRef.current!,
+  });
+
   return (
-    <RSVPFormSection>
+    <RSVPFormSection
+      ref={toastContainerRef}
+    >
+      <ToastManager />
       <h3 css={RSVPFormTitle}>RSVP to {props.title}</h3>
       <p>Please respond before Saturday May 29, 2021</p>
-      <RSVPForm />
+      <RSVPForm throwToast={throwToast} />
     </RSVPFormSection>
   );
 };

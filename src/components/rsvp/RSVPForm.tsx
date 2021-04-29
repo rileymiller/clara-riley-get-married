@@ -11,8 +11,11 @@ import * as rsvp from '../../rsvp/rsvp.json';
 import { EmotionCanvasTheme } from '@workday/canvas-kit-react-common';
 import { Radio, RadioGroup } from '@workday/canvas-kit-react-radio';
 import FormField from '@workday/canvas-kit-react-form-field';
+import { Link } from 'gatsby';
 
 import { postRSVP } from '../../api';
+
+import { useToast, ThrowToastProps } from '../toasts/useToast';
 
 type RSVPGuests = {
   names: string[]
@@ -20,15 +23,16 @@ type RSVPGuests = {
   plusOne: boolean
 };
 
-export const RSVPForm: React.FC = () => {
+export const RSVPForm = ({ throwToast }: { throwToast: (props: ThrowToastProps) => void }) => {
   const [accessCode, setAccessCode] = useState('');
   const [guests] = useState(rsvp.guests);
   const [rsvpGuests, setRSVPGuests] = useState<RSVPGuests>();
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const getGuestInviteFromAccessCode = (accessCode: string) =>
     guests.filter(invite => invite.accessCode === accessCode);
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleAccessCodeSubmit = (e: React.MouseEvent) => {
     console.log(guests);
     e.preventDefault();
     const guest = getGuestInviteFromAccessCode(accessCode)[0];
@@ -53,7 +57,7 @@ export const RSVPForm: React.FC = () => {
         }
       `}
       >
-        {!rsvpGuests &&
+        {!rsvpGuests && !hasSubmitted &&
           <form
             noValidate
             css={RSVPFormStyles}
@@ -67,13 +71,35 @@ export const RSVPForm: React.FC = () => {
                 onChange={e => setAccessCode(e.currentTarget.value)}
               />
             </FormGroup>
-            <RSVPFormButton type="submit" onClick={handleSubmit}>
+            <RSVPFormButton type="submit" onClick={handleAccessCodeSubmit}>
               <span>RSVP</span>
             </RSVPFormButton>
 
           </form>}
 
-        {rsvpGuests?.names.length && <VerifiedGuestForm names={rsvpGuests.names} wasAllotedPlusOne={rsvpGuests.plusOne} />}
+        {rsvpGuests?.names.length && !hasSubmitted && <VerifiedGuestForm
+          throwToast={throwToast}
+          names={rsvpGuests.names}
+          wasAllotedPlusOne={rsvpGuests.plusOne}
+          setHasSubmitted={setHasSubmitted}
+        />}
+        {hasSubmitted &&
+          <>
+            <h3
+              css={css`
+            color: ${colors.royalty.blue};
+          `}
+            >
+              Thank you for your RSVP! Check out the rest of the site for information on <Link to="/travel">Travel</Link> and  <Link to="/faq">FAQ</Link>.
+            </h3>
+            <h3
+              css={css`
+            color: ${colors.royalty.blue};
+          `}
+            >
+              If you ever need to update the information on your reservation, refresh the page and resubmit.
+            </h3>
+          </>}
 
       </div>
     </>
@@ -104,14 +130,15 @@ const initializeRsvpGuestToGuestResponse = (names: string[]): GuestResponse[] =>
 
 const areComing = (guests: GuestResponse[]) => Boolean(guests.filter(guest => guest.rsvp === 'accepts').length);
 
-const VerifiedGuestForm = ({ names, wasAllotedPlusOne }: { names: string[], wasAllotedPlusOne?: boolean }) => {
+const VerifiedGuestForm = ({ names, wasAllotedPlusOne, throwToast, setHasSubmitted }:
+  { names: string[], wasAllotedPlusOne?: boolean, throwToast: (props: ThrowToastProps) => void, setHasSubmitted: (hasSubmitted: boolean) => void }) => {
   const guests = initializeRsvpGuestToGuestResponse(names);
   const [dietaryRestrictions, setDietaryRestrictions] = useState('');
   const [plusOne, setPlusOne] = useState('');
   const [isBringingPlusOne, setIsBringingPlusOne] = useState('no');
 
   const [isUpdating, setIsUpdating] = useState(false);
-  const [hasSubmitted, setHasSubmitted] = useState(false);
+
   const onSubmit = async () => {
     setIsUpdating(true);
     const rsvpDTO = convertToRSVPDTO(guests, dietaryRestrictions, plusOne);
@@ -124,16 +151,24 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne }: { names: string[], wasA
       console.log(result);
       setIsUpdating(false);
       setHasSubmitted(true);
-      // console.log(`Upload Result: ${JSON.stringify(result)}`);
+      throwToast({
+        message: `See you at the Wedding! 😆 🎉 💒 👰`,
+      });
     } catch (e: NewType) {
-      // throw a toast
+      // throw a toast..
+      throwToast({
+        message: `There was an error recording your RSVP.`,
+        actionText: `Click here to refresh`,
+        type: `error`,
+      });
       console.error(`Error Uploading: ${JSON.stringify(e)}`);
     }
   };
 
   return (
-    <section css={
-      css`
+    <section
+      css={
+        css`
         color: black;
         display:flex;
         flex-direction: column;
@@ -142,7 +177,7 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne }: { names: string[], wasA
 
         width:100%;
       `
-    }
+      }
     >
       {guests.map(guest => {
         return (
@@ -215,7 +250,7 @@ type GuestDTO = {
   isComing: boolean
 };
 
-const convertToGuestDTO = (guests: GuestResponse[]) => guests.map(guest => ({
+const convertToGuestDTO = (guests: GuestResponse[]): GuestDTO[] => guests.map(guest => ({
   name: guest.name,
   isComing: convertIsComing(guest.rsvp),
 }));
