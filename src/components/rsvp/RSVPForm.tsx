@@ -22,6 +22,9 @@ type RSVPGuests = {
   accessCode: string
   plusOne: boolean
 };
+// const redirectYouFilthyAnimal = () => {
+//   window.location.href = `https://www.youtube.com/watch?v=-nHNHIDduH4`;
+// };
 
 export const RSVPForm = ({ throwToast }: { throwToast: (props: ThrowToastProps) => void }) => {
   const [accessCode, setAccessCode] = useState('');
@@ -39,7 +42,13 @@ export const RSVPForm = ({ throwToast }: { throwToast: (props: ThrowToastProps) 
     if (guest) {
       setRSVPGuests(guest);
     } else {
-      alert(`Not found`);
+      // alert(`Not found`);
+      throwToast({
+        message: `Invalid Access Code.`,
+        actionText: `https://www.youtube.com/watch?v=-nHNHIDduH4`,
+        // onActionClick: redirectYouFilthyAnimal,
+        type: `error`,
+      });
     }
   };
 
@@ -90,14 +99,23 @@ export const RSVPForm = ({ throwToast }: { throwToast: (props: ThrowToastProps) 
             color: ${colors.royalty.blue};
           `}
             >
-              Thank you for your RSVP! Check out the rest of the site for information on <Link to="/travel">Travel</Link> and  <Link to="/faq">FAQ</Link>.
+              Thank you! Your RSVP has been received.
+              If you need to update your RSVP, return to this page and resubmit before May 29.
             </h3>
             <h3
               css={css`
             color: ${colors.royalty.blue};
           `}
             >
-              If you ever need to update the information on your reservation, refresh the page and resubmit.
+              If you are in need of a hotel room, please see our hotel block information on our <Link to="/travel">Travel</Link> page.
+              Also, be sure to check out our <Link to="/faq">FAQ</Link> page.
+            </h3>
+            <h3
+              css={css`
+            color: ${colors.royalty.blue};
+          `}
+            >
+              Finally, if you would like to submit any song requests to our DJ, you can do so <a target="_blank" rel="noreferrer" href="https://jdjclients.com/requests.asp?djidnumber=23469&month=6&day=19&year=2021&password=tncycwd">here</a>.
             </h3>
           </>}
 
@@ -151,9 +169,18 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne, throwToast, setHasSubmitt
       console.log(result);
       setIsUpdating(false);
       setHasSubmitted(true);
-      throwToast({
-        message: `See you at the Wedding! 😆 🎉 💒 👰`,
-      });
+
+      if (areComing(guests)) {
+        throwToast({
+          message: `See you at the Wedding! 😆 🎉 💒 👰`,
+          actionText: `Refresh to resubmit`,
+        });
+      } else {
+        throwToast({
+          message: `Sorry you won't be joining us. 😔`,
+          actionText: `Refresh to resubmit`,
+        });
+      }
     } catch (e: NewType) {
       // throw a toast..
       throwToast({

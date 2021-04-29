@@ -11,6 +11,7 @@ type ToastManagerProps = {
 };
 
 type ToastProps = {
+  // children: string & React.ReactNode
   message: string
   actionText?: string
   handleAction?: () => void
@@ -18,6 +19,9 @@ type ToastProps = {
 };
 const SuccessToast = (props: ToastProps) => (
   <Toast
+    css={css`
+      z-index:999;
+    `}
     actionText={props.actionText} onActionClick={props.handleAction}
     onClose={props.handleToastClose}
   >
@@ -27,6 +31,9 @@ const SuccessToast = (props: ToastProps) => (
 
 const ErrorToast = (props: ToastProps) => (
   <Toast
+    css={css`
+      z-index:999;
+    `}
     actionText={props.actionText} iconColor={canvasColors.cinnamon500} icon={exclamationCircleIcon}
     onActionClick={props.handleAction}
     onClose={props.handleToastClose}
@@ -34,28 +41,36 @@ const ErrorToast = (props: ToastProps) => (
     {props.message}
   </Toast>
 );
+const reloadWindow = () => window.location.reload();
 
 type ToastType = 'success' | 'error';
-export type ThrowToastProps = { message: string, actionText?: string, type?: ToastType };
+export type ThrowToastProps = {
+  message: string, actionText?: string, type?: ToastType, onActionClick?: () => void,
+  //  children: string | React.ReactNode
+};
 export const useToast = (
   { containerRef }:
     ToastManagerProps) => {
   const [open, setToastOpen] = React.useState(false);
   const [message, setMessage] = React.useState('');
   const [actionText, setActionText] = React.useState('');
+  // const [handleActionClick, setHandleActionClick] = React.useState<void>();
+  // const [children, setChildren] = React.useState<Rac()
   const [type, setType] = React.useState<'success' | 'error'>('success');
-
-  const reloadWindow = () => window.location.reload();
 
   const handleToastClose = () => {
     setToastOpen(false);
   };
 
-  const throwToast = ({ message, actionText, type = 'success' }: ThrowToastProps) => {
+  const throwToast = ({ message, actionText, type = 'success', onActionClick,
+    //  children
+  }: ThrowToastProps) => {
     setMessage(message);
     setActionText(actionText ?? '');
     setType(type);
     setToastOpen(true);
+    // setHandleActionClick(reloadWindow);
+    // setChildren(children);
   };
 
   const isSuccess = type === 'success';
