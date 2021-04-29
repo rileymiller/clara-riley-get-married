@@ -172,7 +172,7 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne, throwToast, setHasSubmitt
 
       if (areComing(guests)) {
         throwToast({
-          message: `See you at the Wedding! 😆 🎉 💒 👰`,
+          message: `See you at the Wedding! 😆🎉💒👰💍🍾`,
           actionText: `Refresh to resubmit`,
         });
       } else {

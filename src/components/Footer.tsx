@@ -31,6 +31,7 @@ export const Footer: React.FC = () => {
 const SiteFooter = css`
   position: absolute;
   bottom: 0;
+  width:100%;
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 1.2rem;
