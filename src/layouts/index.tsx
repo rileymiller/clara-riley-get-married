@@ -494,17 +494,8 @@ const IndexLayout: React.FC<IndexProps> = props => {
           /* globals from screen.css */
           body {
             background: #fff;
-          }
-
-          @media (prefers-color-scheme: dark) {
-            body {
-              color: rgba(255, 255, 255, 0.75);
-              /* background: ${lighten(`0.05`, bgColor.primary)}; */
               background: ${bgColor.primary}
-            }
-            img {
-              opacity: 0.9;
-            }
+
           }
         `}
       />

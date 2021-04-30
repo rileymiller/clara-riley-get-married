@@ -192,7 +192,7 @@ const IndexPage: React.FC<IndexProps> = props => {
               <SaveTheDateHeader>Riley & Clara</SaveTheDateHeader>
               {/* <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} /> */}
             </div>
-            <h3 css={css`text-align: center;`}>
+            <h3 css={css`text-align: center; color: rgba(255, 255, 255, 0.75);`}>
               Saturday, June 19 at 6:30pm | The Pines at Genesee
             </h3>
             <Sparkles>

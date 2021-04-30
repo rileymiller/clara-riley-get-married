@@ -56,8 +56,6 @@ export const SiteMain = css`
   display: flex;
   /* background-color: ${lighten(`0.05`, bgColor.primary)}; */
   background-color: ${bgColor.primary};
-  @media (prefers-color-scheme: dark) {
-  }
 `;
 export const SaveTheDateForTheWedding = styled.div`
 color: ${textColor.primary};
