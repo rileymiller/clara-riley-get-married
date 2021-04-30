@@ -19,6 +19,7 @@ const IndexLayout: React.FC<IndexProps> = props => {
     <div className={props.className}>
       <Helmet>
         <link rel="icon" href={favicon} type="image/x-icon" />
+        <link rel="canonical" href="https://www.clarasallriledup.com/rsvp/" />
       </Helmet>
       <Global
         styles={css`
