@@ -12,6 +12,8 @@ export const Wrapper: React.FC<WrapperProps> = ({ children, className }) => (
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  position: relative;
   min-height: 100vh;
 `;
 

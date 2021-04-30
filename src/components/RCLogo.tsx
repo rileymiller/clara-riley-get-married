@@ -11,7 +11,7 @@ export type LogoProps = {
 export const RCLogo = (props: LogoProps) => {
   useEffect(() => {
     const paths = document.querySelectorAll<SVGPathElement>(".logo-animation");
-    console.log(`loading heading component`)
+    // console.log(`loading heading component`)
     // setTimeout(() => {
     paths.forEach(path => {
       const length = path.getTotalLength();

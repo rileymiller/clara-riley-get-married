@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import { darken } from 'polished';
+import { darken, lighten, saturate } from 'polished';
 import React from 'react';
 
 import { css } from '@emotion/react';
@@ -80,13 +80,13 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
   };
 
   render() {
-    const { isHome = false, isPost = false, post = {} } = this.props;
+    // const { isHome = false, isPost = false, post = {} } = this.props;
     return (
       <>
         {config.showSubscribe && <SubscribeModal ref={this.subscribe} />}
         <nav css={SiteNavStyles}>
           <SiteNavLeft className="site-nav-left">
-            {!isHome && <SiteNavLogo />}
+            {/* {!isHome && <SiteNavLogo />} */}
             <SiteNavContent css={[this.state.showTitle ? HideNav : '']}>
               <ul css={NavStyles} role="menu">
                 {/* TODO: mark current nav item - add class nav-current */}
@@ -94,21 +94,41 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   <Link to="/">Home</Link>
                 </li>
                 <li role="menuitem">
-                  <Link to="/about">About</Link>
+                  <Link to="/travel">Travel</Link>
                 </li>
                 <li role="menuitem">
-                  <Link to="/tags/getting-started/">Getting Started</Link>
+                  <Link to="/faq">FAQ</Link>
                 </li>
+                <li role="menuitem">
+                  <Link to="/save-the-date">Save The Date</Link>
+                </li>
+
+                <li
+                  css={css`
+                    display: block;
+                  @media (min-width: 700px) {
+                  display: none !important;
+                  }
+                `} role="menuitem"
+                >
+                  <Link to="/rsvp">RSVP</Link>
+                </li>
+                {/* <li role="menuitem">
+                  <Link to="/rsvp">RSVP</Link>
+                </li> */}
+                {/* <li role="menuitem">
+                  <Link to="/tags/getting-started/">Getting Started</Link>
+                </li> */}
               </ul>
-              {isPost && (
+              {/* {isPost && (
                 <NavPostTitle ref={this.titleRef} className="nav-post-title">
                   {post.title}
                 </NavPostTitle>
-              )}
+              )} */}
             </SiteNavContent>
           </SiteNavLeft>
           <SiteNavRight>
-            <SocialLinks>
+            {/* <SocialLinks>
               {config.facebook && (
                 <a
                   className="social-link-fb"
@@ -132,9 +152,12 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   <Twitter />
                 </a>
               )}
-            </SocialLinks>
+            </SocialLinks> */}
             {config.showSubscribe && (
-              <SubscribeButton onClick={this.openModal}>Subscribe</SubscribeButton>
+              <Link to="/rsvp">
+                {/* <RSVPButton>RSVP</RSVPButton> */}
+                <RSVPFormButton>RSVP</RSVPFormButton>
+              </Link>
             )}
           </SiteNavRight>
         </nav>
@@ -143,15 +166,48 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
   }
 }
 
+const RSVPFormButton = styled.button`
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 10px;
+  padding: 0 20px;
+  /* height: 23px; */
+  outline: none;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 39px;
+  font-weight: 400;
+  text-align: center;
+  /* background: ${lighten('.05', colors.royalty.pink)};
+   */
+  background: ${colors.royalty.ivory};
+  color: ${colors.royalty.blue};
+  border-radius: 5px;
+
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  :active,
+  :focus,
+  :hover {
+    background: ${saturate('-0.1', lighten('-0.09', colors.royalty.pink))};
+
+    transition: background 0.35s ease-in-out;
+  }
+  @media (max-width: 500px) {
+    margin: 10px 0 0 0;
+    width: 100%;
+  }
+`;
+
 export const SiteNavMain = css`
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 9;
   /* background: color(var(--darkgrey) l(-5%)) */
-  background: ${darken('0.05', colors.darkgrey)};
-
+  /* background: ${darken('0.05', colors.darkgrey)}; */
+  background-color: red;
   @media (max-width: 700px) {
     padding-right: 0;
     padding-left: 0;
@@ -160,13 +216,14 @@ export const SiteNavMain = css`
 
 const SiteNavStyles = css`
   position: relative;
-  z-index: 100;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   height: 64px;
   font-size: 1.3rem;
+  margin: 0 2rem;
 `;
 
 const SiteNavLeft = styled.div`
@@ -192,14 +249,16 @@ const SiteNavLeft = styled.div`
 `;
 
 const SiteNavContent = styled.div`
-  position: relative;
+  /* position: relative; */
+  display: flex;
   align-self: flex-start;
 `;
 
 const NavStyles = css`
   position: absolute;
-  z-index: 1000;
+  z-index: 10;
   display: flex;
+  flex-wrap: wrap;
   margin: 0 0 0 -12px;
   padding: 0;
   list-style: none;
@@ -216,7 +275,7 @@ const NavStyles = css`
     display: block;
     padding: 12px 12px;
     color: #fff;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     transition: opacity 0.35s ease-in-out;
   }
 
@@ -262,7 +321,7 @@ const SocialLinks = styled.div`
   align-items: center;
 `;
 
-const SubscribeButton = styled.a`
+const RSVPButton = styled.a`
   display: block;
   padding: 4px 10px;
   margin: 0 0 0 10px;

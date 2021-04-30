@@ -1,10 +1,13 @@
-import { graphql } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
+import { graphql, StaticQuery } from 'gatsby';
+import Img, { FixedObject, FluidObject } from 'gatsby-image';
+import { StaticImage } from 'gatsby-plugin-image';
+
 import React, { useEffect, useState } from 'react';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { Helmet } from 'react-helmet';
-
+import { Sparkles } from '../components/sparkle/Sparkles';
 import { css } from '@emotion/react';
+import SiteNav from '../components/header/SiteNav';
 
 import "@fontsource/clicker-script";
 import "@fontsource/raleway";
@@ -20,13 +23,15 @@ import {
   flexRow,
   flexCenter,
   flexSpaceEvenly,
+  flexStart,
+  flexAlignMiddle,
 } from '../styles/shared';
 import config from '../website-config';
 import { bgColor, colors, textColor } from '../styles/colors';
 import { darken, lighten } from 'polished';
 import { bpMaxSM, bpMaxXS, maxSM, maxXS } from '../styles/breakpoints';
 import styled from '@emotion/styled';
-import { SaveTheDateHeader } from '../components/header/SaveTheDateHeader';
+// import { SaveTheDateHeader } from '../components/header/SaveTheDateHeader';
 
 export interface IndexProps {
   pageContext: {
@@ -44,12 +49,20 @@ export interface IndexProps {
         fixed: FixedObject;
       };
     };
+    beach: {
+      childImageSharp: {
+        fluid: FluidObject;
+      };
+    };
   };
 }
 
 export const SiteMain = css`
   flex-grow: 1;
+  flex-direction: column;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   /* background-color: ${lighten(`0.05`, bgColor.primary)}; */
   background-color: ${bgColor.primary};
   @media (prefers-color-scheme: dark) {
@@ -96,198 +109,71 @@ export const Meta = (props: IndexProps) => {
   );
 };
 
-// export const SaveTheDateHeader = styled.h1`
-//   color: ${textColor.primary};
-//   justify-content: center;
-//   font-family: "Clicker Script";
-//   display: flex;
-//   font-size: 11rem;
-//   font-weight: 500;
-//   align-items: center;
-//   margin-bottom: 0;
-//   ${bpMaxSM} {
-//   font-size: 10rem;
-//   }
-//   ${bpMaxXS} {
-//   font-size: 6.34rem;
-//   }
-// `;
-
-export const SaveTheDateWrapper = styled.div`
-display: flex;
-flex-direction:column;
-/* justify-content: center; */
-align-self: center;
-align-items: center;
-max-width: 50%;
-${bpMaxSM} {
-  max-width: 100%
-}
-${bpMaxXS} {
-  max-width: 100%;
-}
-margin: .75rem;
-`;
-
-export const SaveTheDateForTheWedding = styled.div`
-color: ${textColor.primary};
-font-family: "Raleway";
-font-size: 4rem;
-margin-bottom: 4rem;
-${bpMaxSM} {
-  font-size: 3rem;
-  margin-bottom: 3rem;
-}
-${bpMaxXS} {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-`;
-
-export const SaveTheDateNamesAttention = () => (
-  <div css={css`
-font-family: 'Clicker Script';
-font-size: 7rem;
-margin-bottom: 3rem;
-color: ${textColor.primary};
-display: flex;
-align-items:center;
-line-height: 1;
-${bpMaxSM} {
-  font-size: 5.25rem;
-  margin-bottom: 2.25rem;
-}
-${bpMaxXS} {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-}
-`}
-  >
-    <span >
-      Riley <br /> Miller
-    </span>
-    <span css={css`
-    margin: 0 1.5rem;
-  `}
-    >
-
-      {` `}&{` `}
-    </span>
-    <span>
-      Clara <br /> Larson
-    </span>
-  </div>
-);
-
-export const SaveTheDateWeddingDate = styled.div`
-color: ${textColor.primary};
-font-family: "Raleway";
-font-size: 5rem;
-margin-bottom: 2.3rem;
-${bpMaxSM} {
-  font-size: 3.75rem;
-  margin-bottom: 1.725rem;
-}
-${bpMaxXS} {
-  font-size: 2.5rem;
-  margin-bottom: 1.15rem;
-}
-`;
-
-export const SaveTheDateWeddingPlace = styled.div`
-color: ${textColor.primary};
-font-family: "Raleway";
-font-size: 3rem;
-margin-bottom: 2.5rem;
-${bpMaxSM} {
-  font-size: 2.25rem;
-  margin-bottom: 1.875rem;
-}
-${bpMaxXS} {
-  font-size: 1.5rem;
-  margin-bottom: 1.25rem;
-}
-`;
-
-export const SaveTheDateInvitationContext = styled.div`
-color: ${textColor.primary};
-font-family: "Raleway";
-font-size: 2rem;
-margin-bottom: 1.2rem;
-${bpMaxSM} {
-  font-size: 1.75rem;
-  margin-bottom: 1.06rem;
-}
-${bpMaxXS} {
-  font-size: 1.16rem;
-  margin-bottom: .696rem;
-}
-
-`;
-
-export const SaveTheDateCovidNotice = styled.div`
-color: ${textColor.primary};
-font-family: "Raleway";
-font-size: 1.4rem;
-margin: 1rem 0;
-text-align: center;
-line-height: 1.5;
-${bpMaxSM} {
-  font-size: 1.0rem;
-  margin: .9rem 0;
-}
-${bpMaxXS} {
-  font-size: .85rem;
-  margin: .6rem 0;
-}
-
-`;
-export type SaveTheDateInfoProps = {
-  size: {
-    width?: number
-    height?: number
+export const SaveTheDateHeader = styled.h1`
+  color: ${textColor.primary};
+  justify-content: center;
+  font-family: "Clicker Script";
+  display: flex;
+  font-size: 10rem;
+  font-weight: 500;
+  align-items: center;
+  margin-bottom: 0;
+  ${bpMaxSM} {
+  font-size: 10rem;
   }
-};
+  ${bpMaxXS} {
+  font-size: 6.34rem;
+  }
+`;
 
-export const SaveTheDateInfo = (props: SaveTheDateInfoProps) => {
-  const { size } = props;
+// const BeachBackground = () => {
+//   return (
+//     <StaticQuery
+//       query={graphql`
+//     query HomeImage {
+//       # beachImage: file(relativePath: { eq: "img/rc_landing.jpg" }) {
+//         childImageSharp {
+//           # Specify the image processing specifications right in the query.
+//           # Makes it trivial to update as your page's design changes.
+//           fluid(quality: 100) {
+//             ...GatsbyImageSharpFluid
+//           }
+//         }
+//       }
+//     }
+//   `}
+//       render={(data: any) => {
+//         if (!data.beachImage) {
+//           return;
+//         }
 
-  const LG_LOGO_SIZE = 80;
-  const MD_LOGO_SIZE = 65;
-  const SM_LOGO_SIZE = 55;
+//         return (
+//           <Img
+//             alt={config.title}
+//             style={{
+//               height: '100%',
+//               borderRadius: '.5rem',
+//               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+//             }}
+//             fluid={data.beachImage.childImageSharp.fluid}
+//           />
+//         );
+//       }}
+//     />
+//   );
+// };
 
-  const getLogoWidth = () => {
-    return (size.width && size.width > maxSM) ? LG_LOGO_SIZE :
-      (size.width && size.width < maxXS) ? SM_LOGO_SIZE : MD_LOGO_SIZE;
-  };
+const daysTillWedding = () => {
+  const today = new Date();
+  const weddingDate = new Date(today.getFullYear(), 5, 19);
 
-  const getLogoHeight = () => {
-    return (size.width && size.width > maxSM) ? LG_LOGO_SIZE :
-      (size.width && size.width < maxXS) ? SM_LOGO_SIZE : MD_LOGO_SIZE;
-  };
+  if (today.getMonth() === 5 && today.getDate() > 19) {
+    return `0`;
+  }
 
-  return (
-    <SaveTheDateWrapper>
-      <SaveTheDateForTheWedding>
-        For the wedding of
-      </SaveTheDateForTheWedding>
-      <SaveTheDateNamesAttention />
-      <SaveTheDateWeddingDate>
-        June 19, 2021
-      </SaveTheDateWeddingDate>
-      <SaveTheDateWeddingPlace>
-        Golden, Colorado
-      </SaveTheDateWeddingPlace>
-      <SaveTheDateInvitationContext>
-        Invitation to Follow*
-      </SaveTheDateInvitationContext>
-      <RCLogo width={getLogoWidth()} height={getLogoHeight()} />
-      <SaveTheDateCovidNotice>
-        *Please be aware that we may need to limit our guest list due to unforseeable changes in COVID-19 regulations.
-      </SaveTheDateCovidNotice>
+  const oneDaySeconds = 1000 * 60 * 60 * 24;
 
-    </SaveTheDateWrapper >
-  );
+  return Math.ceil((weddingDate.getTime() - today.getTime()) / (oneDaySeconds));
 };
 
 const IndexPage: React.FC<IndexProps> = props => {
@@ -297,14 +183,37 @@ const IndexPage: React.FC<IndexProps> = props => {
     <IndexLayout>
       <Meta {...props} />
       <Wrapper>
-        <main id="site-main" css={[SiteMain, outer, flexCenter]}>
-          <div css={[inner, flexColumn, flexSpaceEvenly]} >
+        <SiteNav isHome />
+
+        <main id="site-main" css={[SiteMain, outer, css`display:flex;justify-content:center;`]}>
+          <div css={[flexColumn, flexCenter, flexAlignMiddle]} >
             <div css={[flexRow, flexCenter]}>
 
-              {/* <SaveTheDateHeader>Save the Date</SaveTheDateHeader> */}
-              <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} />
+              <SaveTheDateHeader>Riley & Clara</SaveTheDateHeader>
+              {/* <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} /> */}
             </div>
-            <div css={[flexRow, css`
+            <h3 css={css`text-align: center;`}>
+              Saturday, June 19 at 6:30pm | The Pines at Genesee
+            </h3>
+            <Sparkles>
+              <h2 css={css`color: ${colors.royalty.pink};`}>
+                {`${daysTillWedding()} days until wedding!`}
+              </h2>
+            </Sparkles>
+            <div css={[flexRow]} >
+              {/* <Img
+                alt={config.title}
+                style={{
+                  height: '100%',
+                  innerWidth: '100%',
+                  borderRadius: '.5rem',
+                  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                }}
+                fluid={props.data.beach.childImageSharp.fluid}
+              /> */}
+
+            </div>
+            {/* <div css={[flexRow, css`
               ${bpMaxSM} {
                 justify-content: center;
                 flex-wrap: wrap-reverse;
@@ -312,12 +221,20 @@ const IndexPage: React.FC<IndexProps> = props => {
               justify-content: space-evenly;
               margin-bottom: 3.3rem;
             `]}
+            <di
             >
               <LandingImage width={size.width} />
               <SaveTheDateInfo size={size} />
-            </div>
+            </div> */}
           </div>
         </main>
+        <StaticImage
+          src="../content/img/beach_cropped.jpg"
+          alt="homepage beach background"
+          placeholder="blurred"
+          css={css`flex-grow: 3;margin-top: 2rem;`}
+        // height={600}
+        />
         <Footer />
       </Wrapper>
     </IndexLayout >
@@ -341,6 +258,15 @@ export const pageQuery = graphql`
         # Makes it trivial to update as your page's design changes.
         fixed(width: 2000, quality: 100) {
           ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    beach: file(relativePath: {eq: "img/beach.jpg" }) {
+        childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

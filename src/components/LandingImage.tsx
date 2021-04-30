@@ -5,7 +5,7 @@ import { maxSM } from '../styles/breakpoints';
 import { css } from '@emotion/react';
 
 import config from '../website-config';
-import { bgColor, colors } from '../styles/colors';
+import { bgColor } from '../styles/colors';
 
 interface LandingImageProps {
   landingImage?: {
@@ -51,29 +51,15 @@ const LandingImage = (props: Props) => (
         }
 
         return (
-          // <img
-          //   css={LandingImageOverlayLogo}
-          //   className="landing-image-overlay"
-          //   src={data.landingImage.childImageSharp.fixed.src}
-          //   alt={config.title}
-          // />
-          // <div css={[css`
-          // background-color: ${colors.royalty.blush};
-          // `]}>
           <Img
             alt={config.title}
             style={{
               height: '100%',
-              // width: (props.width && props.width < maxSM) ? '100%' : '50%',
-              // minHeight: '300px',
-              // minWidth: '300px',
               borderRadius: '.5rem',
-              // maxHeight: (props.width && props.width < maxSM) ? '450px' : '600px',
               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
             }}
             fluid={data.landingImage.childImageSharp.fluid}
           />
-          // </div>
         );
       }}
     />

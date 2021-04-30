@@ -18,14 +18,21 @@ export const colors = {
     // navy: `#1B3644`,
     // blue: `#00144E`,
     // blue: `#1B3644`,
-    blue: `#25314f`,
+    // blue: `#25314f`,
+    blue: `#0e0f22`,
 
     // blue: `#001A67`,
     // gold: `#DFC189`,
-    gold: `#ddb97f`,
+    // gold: `#ddb97f`,
     white: `#F3E4D2`,
     // blush: `#F4C7D4`,
-    blush: `#f6d9db`,
+    // blush: `#f6d9db`,
+    blush: `#fff`,
+
+    ivory: `#FFFFF0`,
+    // pink: `#ffc2c6`,
+    pink: `#fca3cc`,
+    // nav color: #9eadba add a pink button
 
     // blush: `#F8DCE4`,
     // blush: `#FCF1F4`
@@ -36,7 +43,7 @@ export const colors = {
 export const textColor = {
   primary: colors.royalty.blush,
   secondary: colors.royalty.blush,
-  tertiary: colors.royalty.gold,
+  tertiary: colors.royalty.blush,
 };
 
 export const bgColor = {

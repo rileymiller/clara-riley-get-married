@@ -7,13 +7,41 @@ import { colors } from './colors';
 
 export const outer = css`
   position: relative;
-  padding: 3vw 3vw 0vw 3vw;
+  padding: 0vw 3vw 0vw 3vw;
+`;
+
+export const flexJustifyCenter = css`
+  display: flex;
+  justify-content: center;
+`;
+
+export const InfoPageTitle = styled.h1`
+  margin: 0;
+  /* color: var(--lightgrey); */
+  color: ${colors.royalty.blue};
+  font-size: 8vw;
+  line-height: 1em;
+  letter-spacing: -5px;
+  opacity: 0.9;
+
+  @media (max-width: 800px) {
+    font-size: 9rem;
+  }
+`;
+
+export const pageIvoryBackground = css`
+  text-align: center;
+  background-color: ${colors.royalty.ivory};
+  border-radius: 3px;
+  padding: 2em;
 `;
 
 // Centered content container blocks
 export const inner = css`
   /* margin: 0 auto; */
   max-width: 1040px;
+  /* display:flex;
+  align-items: center; */
   width: 100%;
 `;
 
@@ -38,14 +66,18 @@ export const flexSpaceEvenly = css`
 export const flexAlignMiddle = css`
   align-items: center;
 `;
+
+export const flexStart = css`
+  justify-content: flex-start;
+`;
+
 export const SiteNavMain = css`
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1000;
-  /* background: color(var(--darkgrey) l(-5%)); */
-  background: ${lighten('-0.3', colors.royalty.white)};
+  z-index: 10;
+
 `;
 
 export const SiteTitle = styled.h1`
@@ -253,7 +285,7 @@ export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string 
     padding-top: 0;
     padding-bottom: 0;
     /* color: var(--darkgrey); */
-    color: ${colors.royalty.gold};
+    color: ${colors.royalty.blue};
     background: #fff;
     opacity: 1;
 

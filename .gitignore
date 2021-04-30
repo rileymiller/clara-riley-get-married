@@ -114,3 +114,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 .vscode
+
+rsvp-api/build/*
+rsvp-api/.aws-sam/*
