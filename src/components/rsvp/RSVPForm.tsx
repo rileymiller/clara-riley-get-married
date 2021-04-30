@@ -163,7 +163,16 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne, throwToast, setHasSubmitt
     const rsvpDTO = convertToRSVPDTO(guests, dietaryRestrictions, plusOne);
     console.log(`rsvpDTO: ${JSON.stringify(rsvpDTO)}`);
 
+    const plusOneIsEmpty = !plusOne;
     type NewType = any;
+    if (areComing(guests) && wasAllotedPlusOne && isBringingPlusOne === 'yes' && plusOneIsEmpty) {
+      throwToast({
+        message: `Please fill out your plus one if you're bringing one.`,
+        type: `error`,
+      });
+      setIsUpdating(false);
+      return;
+    }
 
     try {
       const result = await postRSVP(rsvpDTO);
@@ -369,7 +378,6 @@ const AccessCodeNote = styled.p`
 
 const RSVPFormStyles = css`
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   margin: 0 auto;
