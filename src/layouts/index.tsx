@@ -298,7 +298,7 @@ const IndexLayout: React.FC<IndexProps> = props => {
             font-style: normal;
             letter-spacing: 0;
             text-rendering: optimizeLegibility;
-            background: #fff;
+            background: ${colors.royalty.blue};
 
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
