@@ -1,9 +1,11 @@
 import { graphql, StaticQuery } from 'gatsby';
 import Img, { FixedObject, FluidObject } from 'gatsby-image';
+import { StaticImage } from 'gatsby-plugin-image';
+
 import React, { useEffect, useState } from 'react';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { Helmet } from 'react-helmet';
-
+import { Sparkles } from '../components/sparkle/Sparkles';
 import { css } from '@emotion/react';
 import SiteNav from '../components/header/SiteNav';
 
@@ -22,6 +24,7 @@ import {
   flexCenter,
   flexSpaceEvenly,
   flexStart,
+  flexAlignMiddle,
 } from '../styles/shared';
 import config from '../website-config';
 import { bgColor, colors, textColor } from '../styles/colors';
@@ -160,6 +163,19 @@ export const SaveTheDateHeader = styled.h1`
 //   );
 // };
 
+const daysTillWedding = () => {
+  const today = new Date();
+  const weddingDate = new Date(today.getFullYear(), 5, 19);
+
+  if (today.getMonth() === 5 && today.getDate() > 19) {
+    return `0`;
+  }
+
+  const oneDaySeconds = 1000 * 60 * 60 * 24;
+
+  return Math.ceil((weddingDate.getTime() - today.getTime()) / (oneDaySeconds));
+};
+
 const IndexPage: React.FC<IndexProps> = props => {
   const size = useWindowSize();
 
@@ -168,15 +184,24 @@ const IndexPage: React.FC<IndexProps> = props => {
       <Meta {...props} />
       <Wrapper>
         <SiteNav isHome />
+
         <main id="site-main" css={[SiteMain, outer, css`display:flex;justify-content:center;`]}>
-          <div css={[flexColumn, flexSpaceEvenly]} >
+          <div css={[flexColumn, flexCenter, flexAlignMiddle]} >
             <div css={[flexRow, flexCenter]}>
 
               <SaveTheDateHeader>Riley & Clara</SaveTheDateHeader>
               {/* <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} /> */}
             </div>
+            <h3 css={css`text-align: center;`}>
+              Saturday, June 19 at 6:30pm | The Pines at Genesee
+            </h3>
+            <Sparkles>
+              <h2 css={css`color: ${colors.royalty.pink};`}>
+                {`${daysTillWedding()} days until wedding!`}
+              </h2>
+            </Sparkles>
             <div css={[flexRow]} >
-              <Img
+              {/* <Img
                 alt={config.title}
                 style={{
                   height: '100%',
@@ -185,10 +210,8 @@ const IndexPage: React.FC<IndexProps> = props => {
                   boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
                 }}
                 fluid={props.data.beach.childImageSharp.fluid}
-              />
-            </div>
-            <div css={[inner, css`display: flex; align-self: center;`]}>
-              Time to Build 🚧
+              /> */}
+
             </div>
             {/* <div css={[flexRow, css`
               ${bpMaxSM} {
@@ -205,6 +228,13 @@ const IndexPage: React.FC<IndexProps> = props => {
             </div> */}
           </div>
         </main>
+        <StaticImage
+          src="../content/img/beach_cropped.jpg"
+          alt="homepage beach background"
+          placeholder="blurred"
+          css={css`flex-grow: 3;margin-top: 2rem;`}
+        // height={600}
+        />
         <Footer />
       </Wrapper>
     </IndexLayout >

@@ -16,6 +16,7 @@ import { Link } from 'gatsby';
 import { postRSVP } from '../../api';
 
 import { useToast, ThrowToastProps } from '../toasts/useToast';
+import { Sparkles } from '../sparkle/Sparkles';
 
 type RSVPGuests = {
   names: string[]
@@ -54,7 +55,7 @@ export const RSVPForm = ({ throwToast }: { throwToast: (props: ThrowToastProps) 
 
   return (
     <>
-      {!rsvpGuests && <AccessCodeNote>Enter the Access Code on the Back of Your RSVP Card</AccessCodeNote>}
+      {!rsvpGuests && <AccessCodeNote>Enter the <Sparkles color={colors.royalty.pink}>Access Code</Sparkles> on the Back of Your RSVP Card</AccessCodeNote>}
       <div css={css`
         display:flex;
         flex-direction: column;

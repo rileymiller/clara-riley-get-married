@@ -193,7 +193,7 @@ export const SiteNavMain = css`
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 9;
   /* background: color(var(--darkgrey) l(-5%)) */
   /* background: ${darken('0.05', colors.darkgrey)}; */
   background-color: red;
@@ -205,7 +205,7 @@ export const SiteNavMain = css`
 
 const SiteNavStyles = css`
   position: relative;
-  z-index: 100;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -244,7 +244,7 @@ const SiteNavContent = styled.div`
 
 const NavStyles = css`
   position: absolute;
-  z-index: 1000;
+  z-index: 10;
   display: flex;
   margin: 0 0 0 -12px;
   padding: 0;

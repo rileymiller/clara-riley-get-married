@@ -20,7 +20,7 @@ type ToastProps = {
 const SuccessToast = (props: ToastProps) => (
   <Toast
     css={css`
-      z-index:999;
+      z-index:1001;
     `}
     actionText={props.actionText} onActionClick={props.handleAction}
     onClose={props.handleToastClose}
@@ -32,7 +32,7 @@ const SuccessToast = (props: ToastProps) => (
 const ErrorToast = (props: ToastProps) => (
   <Toast
     css={css`
-      z-index:999;
+      z-index:1001;
     `}
     actionText={props.actionText} iconColor={canvasColors.cinnamon500} icon={exclamationCircleIcon}
     onActionClick={props.handleAction}

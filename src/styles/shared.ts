@@ -50,9 +50,8 @@ export const SiteNavMain = css`
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1000;
-  /* background: color(var(--darkgrey) l(-5%)); */
-  /* background: ${lighten('-0.3', colors.royalty.white)}; */
+  z-index: 10;
+
 `;
 
 export const SiteTitle = styled.h1`

@@ -19,6 +19,7 @@ module.exports = {
     'complexity': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/restrict-plus-operands': 'off',
     '@typescript-eslint/no-unnecessary-condition': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
