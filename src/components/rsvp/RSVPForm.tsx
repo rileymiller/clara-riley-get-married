@@ -359,7 +359,7 @@ const GuestRSVPControl = (props: GuestRSVPControlProps) => {
 
 const RadioLabelStyles = css`
   label {
-    font-family: "Raleway";
+    font-family: "Andina Regular";
   }
 `;
 
