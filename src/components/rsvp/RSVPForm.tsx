@@ -150,7 +150,7 @@ const initializeRsvpGuestToGuestResponse = (names: string[]): GuestResponse[] =>
 const areComing = (guests: GuestResponse[]) => Boolean(guests.filter(guest => guest.rsvp === 'accepts').length);
 
 const VerifiedGuestForm = ({ names, wasAllotedPlusOne, throwToast, setHasSubmitted }:
-{ names: string[], wasAllotedPlusOne?: boolean, throwToast: (props: ThrowToastProps) => void, setHasSubmitted: (hasSubmitted: boolean) => void }) => {
+  { names: string[], wasAllotedPlusOne?: boolean, throwToast: (props: ThrowToastProps) => void, setHasSubmitted: (hasSubmitted: boolean) => void }) => {
   const guests = initializeRsvpGuestToGuestResponse(names);
   const [dietaryRestrictions, setDietaryRestrictions] = useState('');
   const [plusOne, setPlusOne] = useState('');
@@ -358,8 +358,8 @@ const GuestRSVPControl = (props: GuestRSVPControlProps) => {
 };
 
 const RadioLabelStyles = css`
-    label {
-    font-family: 'Raleway';
+  label {
+    font-family: "Raleway";
   }
 `;
 
