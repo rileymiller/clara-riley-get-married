@@ -31,9 +31,22 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
         </header>
         <main id="site-main" css={[outer, ErrorContent]} className="error-content">
           <div css={[inner]}>
-            <section style={{ textAlign: 'center' }}>
-              <ErrorCode>Travel</ErrorCode>
-              <ErrorDescription>Not ready yet go back</ErrorDescription>
+            <section css={
+              css`
+              text-align: center;
+               background-color: ${colors.royalty.ivory};
+               border-radius: 3px;
+               `
+            }>
+              <TravelTitle>Travel</TravelTitle>
+              <p css={css`color: ${colors.royalty.blue};`}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis volutpat ligula, eu pulvinar leo placerat in. Suspendisse sed lorem a mi hendrerit dapibus eu at nisl. Donec nibh leo, molestie pretium metus ac, molestie rhoncus neque. Sed ultricies ultricies sem, a dapibus turpis ornare at. Pellentesque interdum nec dolor non elementum. Curabitur accumsan vel elit non bibendum. Nulla lacus nunc, vestibulum eu mattis maximus, efficitur sit amet eros. Praesent auctor diam quis neque ullamcorper interdum. Vestibulum vitae enim nec nunc commodo posuere vestibulum sed dui. Nam id eros dictum ex sagittis cursus. Quisque diam lectus, fermentum at placerat eu, congue at justo.
+
+                Sed luctus odio finibus nibh lobortis vestibulum. Duis vel pretium erat. Pellentesque sed velit leo. Duis nec urna ante. Suspendisse tempor ligula eget ipsum facilisis, ut eleifend sem aliquam. In nec lacinia mi. Maecenas vehicula, nisl sed sagittis venenatis, ex enim viverra justo, at consectetur velit libero eu sapien. Sed a tristique est. Quisque at mollis ligula. Nam viverra urna at augue luctus volutpat. Vestibulum sollicitudin nibh in arcu semper dapibus. Nullam sodales elit et finibus condimentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce porttitor nibh tellus, consequat viverra tortor bibendum sit amet. Nam laoreet volutpat ante non lacinia.
+
+                Etiam nec enim eu neque scelerisque iaculis. Maecenas vitae ante eu ante efficitur elementum ac eu libero. Donec neque metus, tincidunt id nunc nec, tempus interdum sem. Etiam non quam in urna consequat fermentum non sit amet tortor. In rhoncus sapien eu enim tempor molestie. Donec non sagittis velit. Phasellus pretium, turpis ac feugiat consequat, augue erat placerat leo, elementum mattis turpis sem vitae odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus ac facilisis tellus, vitae tincidunt neque. Quisque aliquet congue augue vel tempus. Proin efficitur nisi eget tincidunt venenatis.
+              </p>
+              <TravelDescription>Not ready yet go back</TravelDescription>
               <Link css={ErrorLink} to="/">
                 Go to the front page →
               </Link>
@@ -107,21 +120,21 @@ const ErrorContent = css`
   }
 `;
 
-const ErrorCode = styled.h1`
+const TravelTitle = styled.h1`
   margin: 0;
   /* color: var(--lightgrey); */
-  color: ${colors.lightgrey};
+  color: ${colors.royalty.blue};
   font-size: 12vw;
   line-height: 1em;
   letter-spacing: -5px;
-  opacity: 0.75;
+  opacity: 0.9;
 
   @media (max-width: 800px) {
     font-size: 11.2rem;
   }
 `;
 
-const ErrorDescription = styled.p`
+const TravelDescription = styled.p`
   margin: 0;
   /* color: var(--midgrey); */
   color: ${colors.midgrey};
