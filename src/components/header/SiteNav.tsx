@@ -10,7 +10,6 @@ import { SocialLink, SocialLinkFb } from '../../styles/shared';
 import config from '../../website-config';
 import { Facebook } from '../icons/facebook';
 import { Twitter } from '../icons/twitter';
-import { SubscribeModal } from '../subscribe/SubscribeModal';
 import { SiteNavLogo } from './SiteNavLogo';
 
 interface SiteNavProps {
@@ -24,17 +23,10 @@ interface SiteNavState {
 }
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
-  subscribe = React.createRef<SubscribeModal>();
   titleRef = React.createRef<HTMLSpanElement>();
   lastScrollY = 0;
   ticking = false;
   state = { showTitle: false };
-
-  openModal = () => {
-    if (this.subscribe.current) {
-      this.subscribe.current.open();
-    }
-  };
 
   componentDidMount(): void {
     this.lastScrollY = window.scrollY;
@@ -82,53 +74,51 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
   render() {
     // const { isHome = false, isPost = false, post = {} } = this.props;
     return (
-      <>
-        {config.showSubscribe && <SubscribeModal ref={this.subscribe} />}
-        <nav css={SiteNavStyles}>
-          <SiteNavLeft className="site-nav-left">
-            {/* {!isHome && <SiteNavLogo />} */}
-            <SiteNavContent css={[this.state.showTitle ? HideNav : '']}>
-              <ul css={NavStyles} role="menu">
-                {/* TODO: mark current nav item - add class nav-current */}
-                <li role="menuitem">
-                  <Link to="/">Home</Link>
-                </li>
-                <li role="menuitem">
-                  <Link to="/travel">Travel</Link>
-                </li>
-                <li role="menuitem">
-                  <Link to="/faq">FAQ</Link>
-                </li>
-                <li role="menuitem">
-                  <Link to="/save-the-date">Save The Date</Link>
-                </li>
+      <nav css={SiteNavStyles}>
+        <SiteNavLeft className="site-nav-left">
+          {/* {!isHome && <SiteNavLogo />} */}
+          <SiteNavContent css={[this.state.showTitle ? HideNav : '']}>
+            <ul css={NavStyles} role="menu">
+              {/* TODO: mark current nav item - add class nav-current */}
+              <li role="menuitem">
+                <Link to="/">Home</Link>
+              </li>
+              <li role="menuitem">
+                <Link to="/travel">Travel</Link>
+              </li>
+              <li role="menuitem">
+                <Link to="/faq">FAQ</Link>
+              </li>
+              <li role="menuitem">
+                <Link to="/save-the-date">Save The Date</Link>
+              </li>
 
-                <li
-                  css={css`
+              <li
+                css={css`
                     display: block;
                   @media (min-width: 700px) {
                   display: none !important;
                   }
                 `} role="menuitem"
-                >
-                  <Link to="/rsvp">RSVP</Link>
-                </li>
-                {/* <li role="menuitem">
+              >
+                <Link to="/rsvp">RSVP</Link>
+              </li>
+              {/* <li role="menuitem">
                   <Link to="/rsvp">RSVP</Link>
                 </li> */}
-                {/* <li role="menuitem">
+              {/* <li role="menuitem">
                   <Link to="/tags/getting-started/">Getting Started</Link>
                 </li> */}
-              </ul>
-              {/* {isPost && (
+            </ul>
+            {/* {isPost && (
                 <NavPostTitle ref={this.titleRef} className="nav-post-title">
                   {post.title}
                 </NavPostTitle>
               )} */}
-            </SiteNavContent>
-          </SiteNavLeft>
-          <SiteNavRight>
-            {/* <SocialLinks>
+          </SiteNavContent>
+        </SiteNavLeft>
+        <SiteNavRight>
+          {/* <SocialLinks>
               {config.facebook && (
                 <a
                   className="social-link-fb"
@@ -153,15 +143,14 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                 </a>
               )}
             </SocialLinks> */}
-            {config.showSubscribe && (
-              <Link to="/rsvp">
-                {/* <RSVPButton>RSVP</RSVPButton> */}
-                <RSVPFormButton>RSVP</RSVPFormButton>
-              </Link>
-            )}
-          </SiteNavRight>
-        </nav>
-      </>
+          {config.showSubscribe && (
+            <Link to="/rsvp">
+              {/* <RSVPButton>RSVP</RSVPButton> */}
+              <RSVPFormButton>RSVP</RSVPFormButton>
+            </Link>
+          )}
+        </SiteNavRight>
+      </nav>
     );
   }
 }

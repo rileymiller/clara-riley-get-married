@@ -50,7 +50,7 @@ export type ThrowToastProps = {
 };
 export const useToast = (
   { containerRef }:
-    ToastManagerProps) => {
+  ToastManagerProps) => {
   const [open, setToastOpen] = React.useState(false);
   const [message, setMessage] = React.useState('');
   const [actionText, setActionText] = React.useState('');
