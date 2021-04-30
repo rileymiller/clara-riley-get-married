@@ -24,8 +24,8 @@ const RSVPPage: React.FC<NotFoundTemplateProps> = props => {
   return (
     <IndexLayout>
       <Wrapper>
-        <header css={[SiteHeader, outer]}>
-          <div css={[outer, SiteNavMain]}>
+        <header css={[SiteHeader]}>
+          <div css={[SiteNavMain]}>
             <div>
               <SiteNav isHome={false} />
             </div>

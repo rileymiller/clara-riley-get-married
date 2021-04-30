@@ -8,7 +8,7 @@ import SiteNav from '../components/header/SiteNav';
 import { Wrapper } from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
-import { inner, outer, SiteHeader, SiteNavMain } from '../styles/shared';
+import { flexJustifyCenter, inner, outer, pageIvoryBackground, SiteHeader, SiteNavMain, InfoPageTitle } from '../styles/shared';
 
 interface NotFoundTemplateProps {
   data: {
@@ -29,17 +29,10 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
             </div>
           </div>
         </header>
-        <main id="site-main" css={[outer, ErrorContent]} className="error-content">
+        <main id="site-main" css={[outer, ErrorContent, flexJustifyCenter]} className="error-content">
           <div css={[inner]}>
-            <section css={
-              css`
-              text-align: center;
-               background-color: ${colors.royalty.ivory};
-               border-radius: 3px;
-               `
-            }
-            >
-              <TravelTitle>Travel</TravelTitle>
+            <section css={[pageIvoryBackground]}>
+              <InfoPageTitle>Travel</InfoPageTitle>
               <p css={[TravelParagraphStyles]}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis volutpat ligula, eu pulvinar leo placerat in. Suspendisse sed lorem a mi hendrerit dapibus eu at nisl. Donec nibh leo, molestie pretium metus ac, molestie rhoncus neque. Sed ultricies ultricies sem, a dapibus turpis ornare at. Pellentesque interdum nec dolor non elementum. Curabitur accumsan vel elit non bibendum. Nulla lacus nunc, vestibulum eu mattis maximus, efficitur sit amet eros. Praesent auctor diam quis neque ullamcorper interdum. Vestibulum vitae enim nec nunc commodo posuere vestibulum sed dui. Nam id eros dictum ex sagittis cursus. Quisque diam lectus, fermentum at placerat eu, congue at justo.
               </p>
@@ -106,7 +99,7 @@ export const pageQuery = graphql`
 const TravelParagraphStyles = css`color: ${colors.royalty.blue};`;
 
 const ErrorContent = css`
-  padding: 14vw 4vw 6vw;
+  padding: 10vw 4vw 6vw;
 
   @media (max-width: 800px) {
     padding-top: 24vw;
@@ -135,7 +128,7 @@ const TravelTitle = styled.h1`
   opacity: 0.9;
 
   @media (max-width: 800px) {
-    font-size: 11.2rem;
+    font-size: 9rem;
   }
 `;
 

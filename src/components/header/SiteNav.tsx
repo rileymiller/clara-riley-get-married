@@ -102,6 +102,17 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                 <li role="menuitem">
                   <Link to="/save-the-date">Save The Date</Link>
                 </li>
+
+                <li
+                  css={css`
+                    display: block;
+                  @media (min-width: 700px) {
+                  display: none !important;
+                  }
+                `} role="menuitem"
+                >
+                  <Link to="/rsvp">RSVP</Link>
+                </li>
                 {/* <li role="menuitem">
                   <Link to="/rsvp">RSVP</Link>
                 </li> */}
@@ -209,7 +220,7 @@ const SiteNavStyles = css`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   height: 64px;
   font-size: 1.3rem;
   margin: 0 2rem;
@@ -238,7 +249,8 @@ const SiteNavLeft = styled.div`
 `;
 
 const SiteNavContent = styled.div`
-  position: relative;
+  /* position: relative; */
+  display: flex;
   align-self: flex-start;
 `;
 
@@ -246,6 +258,7 @@ const NavStyles = css`
   position: absolute;
   z-index: 10;
   display: flex;
+  flex-wrap: wrap;
   margin: 0 0 0 -12px;
   padding: 0;
   list-style: none;

@@ -10,6 +10,32 @@ export const outer = css`
   padding: 0vw 3vw 0vw 3vw;
 `;
 
+export const flexJustifyCenter = css`
+  display: flex;
+  justify-content: center;
+`;
+
+export const InfoPageTitle = styled.h1`
+  margin: 0;
+  /* color: var(--lightgrey); */
+  color: ${colors.royalty.blue};
+  font-size: 8vw;
+  line-height: 1em;
+  letter-spacing: -5px;
+  opacity: 0.9;
+
+  @media (max-width: 800px) {
+    font-size: 9rem;
+  }
+`;
+
+export const pageIvoryBackground = css`
+  text-align: center;
+  background-color: ${colors.royalty.ivory};
+  border-radius: 3px;
+  padding: 2em;
+`;
+
 // Centered content container blocks
 export const inner = css`
   /* margin: 0 auto; */

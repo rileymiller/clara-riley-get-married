@@ -234,7 +234,12 @@ const SaveTheDatePage: React.FC<NotFoundTemplateProps> = props => {
         </header>
         <main id="site-main" css={[SiteMain, outer, flexCenter]}>
           <div css={[inner, flexColumn, flexSpaceEvenly]} >
-            <div css={[flexRow, flexCenter]}>
+            <div css={[flexRow, flexCenter, css`
+                @media (max-width: 700px) {
+                  padding-top: 25vw;
+                }
+            `]}
+            >
 
               {/* <SaveTheDateHeader>Save the Date</SaveTheDateHeader> */}
               <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} />
