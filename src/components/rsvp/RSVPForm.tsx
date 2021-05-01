@@ -102,6 +102,15 @@ export const RSVPForm = ({ throwToast }: { throwToast: (props: ThrowToastProps) 
             color: ${colors.royalty.blue};
           `}
             >
+              Please note that, due to the unpredictability of changes in COVID-19 regulations in <a target=" blank" rel ="noreferrer" href="https://www.jeffco.us/4047/Dial-Status">Jefferson County in Phase 2 under PHO 21-001</a>, the county could potentially restrict our guest count as late as 24 hours before the wedding.
+              We are praying for the county to remain in Level Clear, but please keep in mind that we may need to reduce our guest list on extremely short notice.
+              We will make every effort to keep you in the loop and notified of changes as soon as we can.
+            </h3>
+            <h3
+              css={css`
+            color: ${colors.royalty.blue};
+          `}
+            >
               If you are in need of a hotel room, please see our hotel block information on our <Link to="/travel">Travel</Link> page.
               Also, be sure to check out our <Link to="/faq">FAQ</Link> page.
             </h3>
