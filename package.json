@@ -23,6 +23,7 @@
     "@workday/canvas-kit-react-common": "^4.7.0",
     "@workday/canvas-kit-react-core": "^4.7.0",
     "@workday/canvas-kit-react-form-field": "^4.7.0",
+    "@workday/canvas-kit-react-loading-animation": "^4.7.0",
     "@workday/canvas-kit-react-popup": "^4.7.0",
     "@workday/canvas-kit-react-radio": "^4.7.0",
     "@workday/canvas-kit-react-toast": "^4.7.0",

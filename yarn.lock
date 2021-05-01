@@ -2552,6 +2552,15 @@
     "@workday/canvas-kit-react-core" "^4.7.0"
     "@workday/design-assets-types" "^0.2.4"
 
+"@workday/canvas-kit-react-loading-animation@^4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@workday/canvas-kit-react-loading-animation/-/canvas-kit-react-loading-animation-4.7.0.tgz#e26c4cffc68a441571303cfebf61fd634f5b04e9"
+  integrity sha512-0h2oy8VuLWDJjYa7zINC/LHMCHNcZquX3iw7RpEUStnxtV+gCWv3HZWM6gBDiZLcMQjhmEqxYG8xpWXhpXLAMw==
+  dependencies:
+    "@emotion/core" "^10.0.28"
+    "@emotion/styled" "^10.0.27"
+    "@workday/canvas-kit-react-core" "^4.7.0"
+
 "@workday/canvas-kit-react-popup@^4.7.0":
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/@workday/canvas-kit-react-popup/-/canvas-kit-react-popup-4.7.0.tgz#50c1f1bb7193a7a914b37757251663436d46cd61"

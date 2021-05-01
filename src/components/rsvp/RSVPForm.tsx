@@ -8,10 +8,10 @@ import { colors } from '../../styles/colors';
 import config from '../../website-config';
 import * as rsvp from '../../rsvp/rsvp.json';
 // import { gu } from 'date-fns/locale';
-import { EmotionCanvasTheme } from '@workday/canvas-kit-react-common';
 import { Radio, RadioGroup } from '@workday/canvas-kit-react-radio';
 import FormField from '@workday/canvas-kit-react-form-field';
 import { Link } from 'gatsby';
+import { LoadingDots } from '@workday/canvas-kit-react-loading-animation';
 
 import { postRSVP } from '../../api';
 
@@ -23,9 +23,6 @@ type RSVPGuests = {
   accessCode: string
   plusOne: boolean
 };
-// const redirectYouFilthyAnimal = () => {
-//   window.location.href = `https://www.youtube.com/watch?v=-nHNHIDduH4`;
-// };
 
 export const RSVPForm = ({ throwToast }: { throwToast: (props: ThrowToastProps) => void }) => {
   const [accessCode, setAccessCode] = useState('');
@@ -34,20 +31,17 @@ export const RSVPForm = ({ throwToast }: { throwToast: (props: ThrowToastProps) 
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const getGuestInviteFromAccessCode = (accessCode: string) =>
-    guests.filter(invite => invite.accessCode === accessCode);
+    guests.filter(invite => invite.accessCode.toLowerCase() === accessCode.toLowerCase());
 
   const handleAccessCodeSubmit = (e: React.MouseEvent) => {
-    console.log(guests);
     e.preventDefault();
     const guest = getGuestInviteFromAccessCode(accessCode)[0];
     if (guest) {
       setRSVPGuests(guest);
     } else {
-      // alert(`Not found`);
       throwToast({
         message: `Invalid Access Code.`,
-        actionText: `https://www.youtube.com/watch?v=-nHNHIDduH4`,
-        // onActionClick: redirectYouFilthyAnimal,
+        actionText: `Click here to refresh`,
         type: `error`,
       });
     }
@@ -161,7 +155,6 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne, throwToast, setHasSubmitt
   const onSubmit = async () => {
     setIsUpdating(true);
     const rsvpDTO = convertToRSVPDTO(guests, dietaryRestrictions, plusOne);
-    console.log(`rsvpDTO: ${JSON.stringify(rsvpDTO)}`);
 
     const plusOneIsEmpty = !plusOne;
     type NewType = any;
@@ -176,7 +169,7 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne, throwToast, setHasSubmitt
 
     try {
       const result = await postRSVP(rsvpDTO);
-      console.log(result);
+
       setIsUpdating(false);
       setHasSubmitted(true);
 
@@ -251,7 +244,7 @@ const VerifiedGuestForm = ({ names, wasAllotedPlusOne, throwToast, setHasSubmitt
           />
         </>}
       <RSVPFormButton disabled={isUpdating} css={css`margin-top: 1.4rem;`} type="submit" onClick={onSubmit}>
-        <span>Submit</span>
+        {isUpdating ? <LoadingDots /> : <span>Submit</span>}
       </RSVPFormButton>
     </section>
   );

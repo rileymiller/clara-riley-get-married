@@ -22,7 +22,8 @@ const SuccessToast = (props: ToastProps) => (
     css={css`
       z-index:1001;
     `}
-    actionText={props.actionText} onActionClick={props.handleAction}
+    actionText={props.actionText}
+    onActionClick={props.handleAction}
     onClose={props.handleToastClose}
   >
     {props.message}
@@ -50,11 +51,11 @@ export type ThrowToastProps = {
 };
 export const useToast = (
   { containerRef }:
-  ToastManagerProps) => {
+    ToastManagerProps) => {
   const [open, setToastOpen] = React.useState(false);
   const [message, setMessage] = React.useState('');
   const [actionText, setActionText] = React.useState('');
-  // const [handleActionClick, setHandleActionClick] = React.useState<void>();
+  const [handleActionClick, setHandleActionClick] = React.useState<() => void | undefined>();
   // const [children, setChildren] = React.useState<Rac()
   const [type, setType] = React.useState<'success' | 'error'>('success');
 
@@ -69,7 +70,7 @@ export const useToast = (
     setActionText(actionText ?? '');
     setType(type);
     setToastOpen(true);
-    // setHandleActionClick(reloadWindow);
+    setHandleActionClick(onActionClick);
     // setChildren(children);
   };
 
