@@ -33,14 +33,118 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
           <div css={[inner]}>
             <section css={[pageIvoryBackground]}>
               <InfoPageTitle>FAQ</InfoPageTitle>
+              <h2>
+                General Questions
+              </h2>
+              <h3>
+              Where are the ceremony and reception taking place?
+              </h3>
               <p css={[FAQParagraphStyles]}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis volutpat ligula, eu pulvinar leo placerat in. Suspendisse sed lorem a mi hendrerit dapibus eu at nisl. Donec nibh leo, molestie pretium metus ac, molestie rhoncus neque. Sed ultricies ultricies sem, a dapibus turpis ornare at. Pellentesque interdum nec dolor non elementum. Curabitur accumsan vel elit non bibendum. Nulla lacus nunc, vestibulum eu mattis maximus, efficitur sit amet eros. Praesent auctor diam quis neque ullamcorper interdum. Vestibulum vitae enim nec nunc commodo posuere vestibulum sed dui. Nam id eros dictum ex sagittis cursus. Quisque diam lectus, fermentum at placerat eu, congue at justo.
+              Both will take place at the Pines at Genesee (633 Park Point Dr, Golden, CO 80401). The ceremony will be outside and we will move inside for the reception. The ceremony and reception sites are a short walk apart, so you will not need to worry about driving from one site to the other.
               </p>
+              <h3>
+              Where can I park?
+              </h3>
               <p css={[FAQParagraphStyles]}>
-                Sed luctus odio finibus nibh lobortis vestibulum. Duis vel pretium erat. Pellentesque sed velit leo. Duis nec urna ante. Suspendisse tempor ligula eget ipsum facilisis, ut eleifend sem aliquam. In nec lacinia mi. Maecenas vehicula, nisl sed sagittis venenatis, ex enim viverra justo, at consectetur velit libero eu sapien. Sed a tristique est. Quisque at mollis ligula. Nam viverra urna at augue luctus volutpat. Vestibulum sollicitudin nibh in arcu semper dapibus. Nullam sodales elit et finibus condimentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce porttitor nibh tellus, consequat viverra tortor bibendum sit amet. Nam laoreet volutpat ante non lacinia.
+              There is plenty of free parking at the venue!
               </p>
+              <h3>
+              When should I arrive?
+              </h3>
               <p css={[FAQParagraphStyles]}>
-                Etiam nec enim eu neque scelerisque iaculis. Maecenas vitae ante eu ante efficitur elementum ac eu libero. Donec neque metus, tincidunt id nunc nec, tempus interdum sem. Etiam non quam in urna consequat fermentum non sit amet tortor. In rhoncus sapien eu enim tempor molestie. Donec non sagittis velit. Phasellus pretium, turpis ac feugiat consequat, augue erat placerat leo, elementum mattis turpis sem vitae odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus ac facilisis tellus, vitae tincidunt neque. Quisque aliquet congue augue vel tempus. Proin efficitur nisi eget tincidunt venenatis.
+              Anywhere between 6:00 and 6:30pm. Please do not arrive before 6:00pm. The ceremony begins at 6:30pm sharp, so please arrive with enough time to park and find a seat.
+              </p>
+              <h3>
+              What is the tentative schedule of events?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              6:30 Ceremony Begins
+              7:00 Cocktail Hour
+              7:50 Reception Begins
+              8:00 Dinner
+              9:00 Cake Cutting and First Dance
+              12:00 Send Off
+              </p>
+              <h3>
+              When is the reception over?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              The reception ends at midnight. For those who are able to stay that late, we will be doing a faux-sparkler send-off and would love to have you there!
+              </p>
+              <h3>
+              What’s the dress code?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              Semi-formal. Ladies, the walk from the ceremony to the reception is on pavement, so if you want to wear heels you can.
+              </p>
+              <h3>
+              When is the RSVP deadline? How do I RSVP?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              Please RSVP by May 29. You can do so at our “RSVP” page.
+              </p>
+              <h3>
+              Are kids welcome?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              Yes, kids are welcome. However, please keep in mind that we will have an open bar at the reception.
+              </p>
+              <h3>
+              Can I bring a plus one?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              Unfortunately, due to COVID restrictions, our guest numbers are limited and we cannot accommodate any extra plus ones. We appreciate your understanding!
+              </p>
+              <h3>
+              Do you have a hotel block?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              Yes, please see our “Travel” page for more information.
+              </p>
+              <h3>
+              Will transportation be provided to/from the hotel?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              Yes, blah
+              </p>
+              <h3>
+              Are there any other wedding events I can attend?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              Yes, we will be having a post-wedding brunch on Sunday, June 20 at ____.
+              </p>
+              <h3>
+              Can I take pictures and/or post pictures of your wedding on social media?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              We will be having an unplugged ceremony, so please silence or turn your phones off and put them away during the ceremony. After that, feel free to take and post pictures! We would love to see them, so use our hashtag #clarasallriledup when you post. :)
+              </p>
+              <h3>
+              Do you have a registry?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              Yes! Please do not feel any obligation whatsoever, we are just happy to celebrate with you! For those who are interested, see our “Registry” page.
+              </p>
+              <h3>
+              I have more questions! Who do I ask?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              Please feel free to text Clara or Riley with any more questions.
+              </p>
+              <h2>
+                COVID-Related Questions
+              </h2>
+              <h3>
+              What are the rules regarding masks?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              “For now, the Statewide indoor mask mandate is still in place.  Even if you are vaccinated, you are still required to wear a mask indoors.  Once you are seated at your table, you may remove your mask to eat/drink.  If you are outdoors, you do not need to wear a mask.”
+              </p>
+              <h3>
+              What are the rules for the dance floor?
+              </h3>
+              <p css={[FAQParagraphStyles]}>
+              “Open dancing is restricted to no more than 6 people from the same party (i.e. from the same dining table).  This means that 1 pod of 6 can be spaced away from another pod of 6 (with 6’ in between the groups).  We are estimating that 6 or 7 dance pods will be able to dance at one time (depending on how many guest tables you need to/would like to break down).   Each pod should be restricted to people seated at the same dining table – we plan to provide wristbands to each table designating their group.”
               </p>
               <FAQDescription>Not ready yet go back</FAQDescription>
               <Link css={ErrorLink} to="/">
