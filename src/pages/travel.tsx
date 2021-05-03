@@ -9,6 +9,7 @@ import { Wrapper } from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
 import { flexJustifyCenter, inner, outer, pageIvoryBackground, SiteHeader, SiteNavMain, InfoPageTitle } from '../styles/shared';
+import { Sparkles } from '../components/sparkle/Sparkles';
 
 interface NotFoundTemplateProps {
   data: {
@@ -32,7 +33,9 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
         <main id="site-main" css={[outer, ErrorContent, flexJustifyCenter]} className="error-content">
           <div css={[inner]}>
             <section css={[pageIvoryBackground]}>
-              <InfoPageTitle>Travel</InfoPageTitle>
+              <Sparkles>
+                <InfoPageTitle>Travel</InfoPageTitle>
+              </Sparkles>
               <p css={[TravelParagraphStyles]}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis volutpat ligula, eu pulvinar leo placerat in. Suspendisse sed lorem a mi hendrerit dapibus eu at nisl. Donec nibh leo, molestie pretium metus ac, molestie rhoncus neque. Sed ultricies ultricies sem, a dapibus turpis ornare at. Pellentesque interdum nec dolor non elementum. Curabitur accumsan vel elit non bibendum. Nulla lacus nunc, vestibulum eu mattis maximus, efficitur sit amet eros. Praesent auctor diam quis neque ullamcorper interdum. Vestibulum vitae enim nec nunc commodo posuere vestibulum sed dui. Nam id eros dictum ex sagittis cursus. Quisque diam lectus, fermentum at placerat eu, congue at justo.
               </p>
