@@ -93,7 +93,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   When is the reception over?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  The reception ends at midnight. For those who are able to stay that late, we will be doing a faux-sparkler send-off and would love to have you there!
+                  The reception ends at midnight. For those who are able to stay that late, we will be doing a glow stick send-off and would love to have you there!
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   What’s the dress code?
@@ -105,7 +105,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   When is the RSVP deadline? How do I RSVP?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Please RSVP by May 29. You can do so at our “RSVP” page.
+                  Please RSVP by May 29. You can do so at our <Link to="/rsvp">RSVP</Link> page.
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   Are kids welcome?
@@ -135,7 +135,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   Are there any other wedding events I can attend?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Yes, we will be having a post-wedding brunch on Sunday, June 20 at ____.
+                  Yes, we will be having a post-wedding brunch on Sunday, June 20 from 9am-11am at the hotel listed on our <Link to="/travel">Travel</Link> page. This is a drop-in event and everyone is welcome to stop by at any time from 9-11!
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   Can I take pictures and/or post pictures of your wedding on social media?
