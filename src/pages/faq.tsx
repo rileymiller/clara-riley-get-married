@@ -129,7 +129,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   Will transportation be provided to/from the hotel?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Yes, details TBD.
+                  Yes, we will have shuttle busses running from the hotel to the venue on Saturday, June 19 before the ceremony and from the venue to the hotel after the reception. Details are TBD, please check our <Link to="/travel">Travel</Link> page later for more information!
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   Are there any other wedding events I can attend?
@@ -147,7 +147,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   Do you have a registry?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Yes! Please do not feel any obligation whatsoever, we are just happy to celebrate with you! For those who are interested, see our “Registry” page.
+                  Yes! Please do not feel any obligation whatsoever, we are just happy to celebrate with you! For those who are interested, details are coming soon!
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   I have more questions! Who do I ask?
@@ -162,14 +162,17 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   What are the rules regarding masks?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  “For now, the Statewide indoor mask mandate is still in place.  Even if you are vaccinated, you are still required to wear a mask indoors.  Once you are seated at your table, you may remove your mask to eat/drink.  If you are outdoors, you do not need to wear a mask.”
+                  From our venue: "For now, the Statewide indoor mask mandate is still in place. Even if you are vaccinated, you are still required to wear a mask indoors. Once you are seated at your table, you may remove your mask to eat/drink. If you are outdoors, you do not need to wear a mask."
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   What are the rules for the dance floor?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  “Open dancing is restricted to no more than 6 people from the same party (i.e. from the same dining table).  This means that 1 pod of 6 can be spaced away from another pod of 6 (with 6’ in between the groups).  We are estimating that 6 or 7 dance pods will be able to dance at one time (depending on how many guest tables you need to/would like to break down).   Each pod should be restricted to people seated at the same dining table – we plan to provide wristbands to each table designating their group.”
+                  From our venue: "Open dancing is restricted to no more than 6 people from the same party (i.e. from the same dining table). This means that 1 pod of 6 can be spaced away from another pod of 6 (with 6' in between the groups). We are estimating that 6 or 7 dance pods will be able to dance at one time. Each pod should be restricted to people seated at the same dining table – we plan to provide wristbands to each table designating their group."
                 </p>
+                <h3 css={[FAQHeaderStyles]}>
+                  Overall, please be prepared to be flexible, as COVID-19 regulations are fluid and may change at any time. We appreciate your understanding!
+                </h3>
               </div>
             </section>
           </div>

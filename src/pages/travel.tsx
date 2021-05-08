@@ -36,6 +36,9 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               <Sparkles>
                 <InfoPageTitle>Travel</InfoPageTitle>
               </Sparkles>
+              <h2 css={css`text-align: center; font-size: 3rem;`}>
+                Hotel
+                </h2>
               <p css={[TravelParagraphStyles]}>
                 Our hotel block is at <b>Denver Marriott West</b> (1717 Denver West Boulevard, Golden CO 80401).
               </p>
@@ -48,6 +51,12 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               <p>
                 The room block will only be active until <b>Friday, May 28</b>. Please be sure to make your reservation before then!
               </p>
+              <h2 css={css`text-align: center; font-size: 3rem;`}>
+                Transportation
+                </h2>
+                <p css={[TravelParagraphStyles]}>
+                  We will have shuttle busses running from the hotel to the venue on Saturday, June 19 before the ceremony and from the venue to the hotel after the reception. Details are TBD, please check back later for more information!
+                </p>
             </section>
           </div>
         </main>
