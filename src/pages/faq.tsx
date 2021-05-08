@@ -129,7 +129,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   Will transportation be provided to/from the hotel?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Yes, blah
+                  Yes, details TBD.
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   Are there any other wedding events I can attend?
@@ -171,10 +171,6 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   “Open dancing is restricted to no more than 6 people from the same party (i.e. from the same dining table).  This means that 1 pod of 6 can be spaced away from another pod of 6 (with 6’ in between the groups).  We are estimating that 6 or 7 dance pods will be able to dance at one time (depending on how many guest tables you need to/would like to break down).   Each pod should be restricted to people seated at the same dining table – we plan to provide wristbands to each table designating their group.”
                 </p>
               </div>
-              <FAQDescription>Not ready yet go back</FAQDescription>
-              <Link css={ErrorLink} to="/">
-                Go to the front page →
-              </Link>
             </section>
           </div>
         </main>
