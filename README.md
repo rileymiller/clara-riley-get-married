@@ -24,5 +24,5 @@ To start the local stack run:
 yarn dev
 ```
 
-and you should see te site running at [http://localhost:8000](http://localhost:8000)
+and you should see the site running at [http://localhost:8000](http://localhost:8000)
 
