@@ -10,8 +10,8 @@ The application uses several AWS resources, including Lambda functions, an API G
 ## API
 We currently have two endpoints that are supported by Lambdas:
 
-`/rsvps` - returns all of the guests that have RSVP'd thus far, great to help your SO stay up to date.
-`rsvp/upload` - an endpoint to record a guest's RSVP.
+* `/rsvps` - returns all of the guests that have RSVP'd thus far, great to help your SO stay up to date.
+* `rsvp/upload` - an endpoint to record a guest's RSVP.
 
 ## Deploy the application
 
