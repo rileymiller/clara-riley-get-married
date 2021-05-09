@@ -26,3 +26,12 @@ yarn dev
 
 and you should see the site running at [http://localhost:8000](http://localhost:8000)
 
+## CI
+Using GitHub Actions to deploy the site to an S3 bucket configured with Cloudfront for the CDN. Here's the link to our [workflow](https://github.com/rileymiller/clara-riley-get-married/blob/master/.github/workflows/main.yml).
+
+## Hosting
+Went through Google Domains to purchase [https://clarasallriledup.com](https://clarasallriledup.com).
+
+We deploy our site to an S3 Bucket with a Cloudfront Configuration.
+
+Here's a [link](https://www.rileymiller.dev/gatsby/deploy-gatsby-s3-gh-actions/#git-repo-on-github) to a blog I wrote with some steps on how to setup a Gatsby site to deploy to S3 via GitHub actions.
