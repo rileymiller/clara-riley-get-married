@@ -35,3 +35,16 @@ Went through Google Domains to purchase [https://clarasallriledup.com](https://c
 We deploy our site to an S3 Bucket with a Cloudfront Configuration.
 
 Here's a [link](https://www.rileymiller.dev/gatsby/deploy-gatsby-s3-gh-actions/#git-repo-on-github) to a blog I wrote with some steps on how to setup a Gatsby site to deploy to S3 via GitHub actions.
+
+## RSVPs
+For our RSVPs we assigned all of our guests a specific access code affiliated with their invite which we inscribed on the back of guests' invitations.
+
+Upon receiving the invitation they would scan the QR code addendum in their invitation envelope which would route them to our [RSVP page](https://clarasallriledup.com).
+
+![RSVP Screenshot](assets/mobile-rsvp.png)
+
+Our guests would fill in their access code where our app would then go and fetch their invitation details from a JSON file and hydrate the RSVP form with the guest's information and hydrate the form with state for whether or not the guest was allotted a plus one to our wedding.
+
+![RSVP Plus One Form](assets/mobile-plus-one.png)
+
+From here, our guests were able to fill out their RSVP and submit the form to our Serverless API running on Lambdas and DynamoDB which recorded our guests RSVP information and allowed us to give our vendors more accurate headcounts as well as give us an idea of which guests we needed to nag to fill out their RSVPs. :P
