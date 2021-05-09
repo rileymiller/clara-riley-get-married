@@ -197,7 +197,7 @@ const IndexPage: React.FC<IndexProps> = props => {
             </h3>
             <Sparkles>
               <h2 css={css`color: ${colors.royalty.pink};`}>
-                {`${daysTillWedding()} days until wedding!`}
+                {`${daysTillWedding()} days until the wedding!`}
               </h2>
             </Sparkles>
             <div css={[flexRow]} >

@@ -36,19 +36,27 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               <Sparkles>
                 <InfoPageTitle>Travel</InfoPageTitle>
               </Sparkles>
+              <h2 css={css`text-align: center; font-size: 3rem;`}>
+                Hotel
+                </h2>
               <p css={[TravelParagraphStyles]}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis volutpat ligula, eu pulvinar leo placerat in. Suspendisse sed lorem a mi hendrerit dapibus eu at nisl. Donec nibh leo, molestie pretium metus ac, molestie rhoncus neque. Sed ultricies ultricies sem, a dapibus turpis ornare at. Pellentesque interdum nec dolor non elementum. Curabitur accumsan vel elit non bibendum. Nulla lacus nunc, vestibulum eu mattis maximus, efficitur sit amet eros. Praesent auctor diam quis neque ullamcorper interdum. Vestibulum vitae enim nec nunc commodo posuere vestibulum sed dui. Nam id eros dictum ex sagittis cursus. Quisque diam lectus, fermentum at placerat eu, congue at justo.
+                Our hotel block is at <b>Denver Marriott West</b> (1717 Denver West Boulevard, Golden CO 80401).
               </p>
               <p css={[TravelParagraphStyles]}>
-                Sed luctus odio finibus nibh lobortis vestibulum. Duis vel pretium erat. Pellentesque sed velit leo. Duis nec urna ante. Suspendisse tempor ligula eget ipsum facilisis, ut eleifend sem aliquam. In nec lacinia mi. Maecenas vehicula, nisl sed sagittis venenatis, ex enim viverra justo, at consectetur velit libero eu sapien. Sed a tristique est. Quisque at mollis ligula. Nam viverra urna at augue luctus volutpat. Vestibulum sollicitudin nibh in arcu semper dapibus. Nullam sodales elit et finibus condimentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce porttitor nibh tellus, consequat viverra tortor bibendum sit amet. Nam laoreet volutpat ante non lacinia.
+                You can go <a target=" blank" rel ="noreferrer" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1620496745022&key=GRP&app=resvlink">here</a> to make a room reservation at the discounted block rate.
               </p>
               <p css={[TravelParagraphStyles]}>
-                Etiam nec enim eu neque scelerisque iaculis. Maecenas vitae ante eu ante efficitur elementum ac eu libero. Donec neque metus, tincidunt id nunc nec, tempus interdum sem. Etiam non quam in urna consequat fermentum non sit amet tortor. In rhoncus sapien eu enim tempor molestie. Donec non sagittis velit. Phasellus pretium, turpis ac feugiat consequat, augue erat placerat leo, elementum mattis turpis sem vitae odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus ac facilisis tellus, vitae tincidunt neque. Quisque aliquet congue augue vel tempus. Proin efficitur nisi eget tincidunt venenatis.
+                You can also call 1-888-238-1803 to make a reservation. If you call, please identify yourself as a part of the <b>Larson/Miller Wedding Room Block</b> to get the discounted block rate.
               </p>
-              <TravelDescription>Not ready yet go back</TravelDescription>
-              <Link css={ErrorLink} to="/">
-                Go to the front page →
-              </Link>
+              <p>
+                The room block will only be active until <b>Friday, May 28</b>. Please be sure to make your reservation before then!
+              </p>
+              <h2 css={css`text-align: center; font-size: 3rem;`}>
+                Transportation
+                </h2>
+                <p css={[TravelParagraphStyles]}>
+                  We will have shuttle busses running from the hotel to the venue on Saturday, June 19 before the ceremony and from the venue to the hotel after the reception. Details are TBD, please check back later for more information!
+                </p>
             </section>
           </div>
         </main>
