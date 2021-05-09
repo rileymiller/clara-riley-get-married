@@ -103,6 +103,31 @@ Resources:
             Path: /rsvp/upload
             Method: POST
             RestApiId: !Ref RSVPRestApi
+  
+  # This is a Lambda function config associated with the source code: put-item.js
+  getRSVPsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/get-rsvps.handler
+      Runtime: nodejs12.x
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple function to retrieve all RSVPs
+      Policies:
+        # Give Create/Read/Update/Delete Permissions to the RSVPTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref RSVPTable
+      Environment:
+        Variables:
+          # Make table name accessible as environment variable from function code during execution
+          RSVP_TABLE: !Ref RSVPTable
+      Events:
+        UploadRSVPApi:
+          Type: Api
+          Properties:
+            Path: /rsvps
+            Method: GET
+            RestApiId: !Ref RSVPRestApi
   # Simple syntax to create a DynamoDB table with a single attribute primary key, more in
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
 
