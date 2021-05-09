@@ -1,61 +1,28 @@
+## Welcome
+Here is the repo that Clara and I used to create our wedding site, hosted [here](https://clarasallriledup.com). We made use of Gatsby, Typescript, Styled Components, Emotion, and
+a small Serverless stack run on AWS to record RSVP responses.
+
+Some of the small UI tricks that were implemented to spruce up the site include:
+* An implementation of [Josh Comeau's React Sparkle component](https://www.joshwcomeau.com/react/animated-sparkles-in-react/) featured throughout the site.
+* A small countdown feature on the home page to show how many days were left until the wedding
+* SVGs Animations on the [Save The Date](https://www.clarasallriledup.com/save-the-date/) page.
+
 ## Getting Started
 
-Clone this repo.
+Make sure you have `node` installed.
 
-```
-git clone https://github.com/scttcper/gatsby-casper.git --depth=1
-```
 
-Remove .git folder and setup a new one
-
+**Install Dependencies**
 ```
-rm -rf .git && git init
+yarn
 ```
 
-Edit website-config.ts with your website settings.
-Either disable subscribe or setup a mailchimp list and add the form action and hidden field input name.
+**Start Local Stack**
+To start the local stack run:
 
-Now push to whatever repo you want!
-
-## How to configure Google Analytics
-
-Edit `gatsby-config.js` and add your tracking ID
-
-```javascript
-{
-    resolve: `gatsby-plugin-google-analytics`,
-    options: {
-      // Here goes your tracking ID
-      trackingId: 'UA-XXXX-Y',
-      // Puts tracking script in the head instead of the body
-      head: true,
-      // IP anonymization for GDPR compliance
-      anonymize: true,
-      // Disable analytics for users with `Do Not Track` enabled
-      respectDNT: true,
-      // Avoids sending pageview hits from custom paths
-      exclude: ['/preview/**'],
-      // Specifies what percentage of users should be tracked
-      sampleRate: 100,
-      // Determines how often site speed tracking beacons will be sent
-      siteSpeedSampleRate: 10,
-    },
-},
+```
+yarn dev
 ```
 
-## How to edit your site title and description
+and you should see te site running at [http://localhost:8000](http://localhost:8000)
 
-Edit `gatsby-config.js` section `siteMetadata`
-
-```javascript
- siteMetadata: {
-    title: 'My awesome site name',
-    description: 'This is a description for my site',
-    siteUrl: 'https://mysite.com', // full path to blog - no ending slash
-  },
-```
-
-## How to adjust pagination
-
-In `gatsby-node.js`, edit the `postsPerPage` constant. The default value is
-six posts per page.
