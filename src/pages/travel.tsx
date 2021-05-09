@@ -26,7 +26,7 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
         <header css={[SiteHeader, outer]}>
           <div css={[SiteNavMain]}>
             <div>
-              <SiteNav isHome={false} />
+              <SiteNav />
             </div>
           </div>
         </header>

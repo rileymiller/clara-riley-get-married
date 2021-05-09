@@ -1,158 +1,55 @@
 import { Link } from 'gatsby';
-import { darken, lighten, saturate } from 'polished';
+import { lighten, saturate } from 'polished';
 import React from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../styles/colors';
-import { SocialLink, SocialLinkFb } from '../../styles/shared';
+
 import config from '../../website-config';
-import { Facebook } from '../icons/facebook';
-import { Twitter } from '../icons/twitter';
-import { SiteNavLogo } from './SiteNavLogo';
 
-interface SiteNavProps {
-  isHome?: boolean;
-  isPost?: boolean;
-  post?: any;
-}
+const SiteNav = () => {
+  return (
+    <nav css={SiteNavStyles}>
+      <SiteNavLeft className="site-nav-left">
+        <SiteNavContent>
+          <ul css={NavStyles} role="menu">
+            <li role="menuitem">
+              <Link to="/">Home</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/travel">Travel</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/faq">FAQ</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/save-the-date">Save The Date</Link>
+            </li>
 
-interface SiteNavState {
-  showTitle: boolean;
-}
-
-class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
-  titleRef = React.createRef<HTMLSpanElement>();
-  lastScrollY = 0;
-  ticking = false;
-  state = { showTitle: false };
-
-  componentDidMount(): void {
-    this.lastScrollY = window.scrollY;
-    if (this.props.isPost) {
-      window.addEventListener('scroll', this.onScroll, { passive: true });
-    }
-  }
-
-  componentWillUnmount(): void {
-    window.removeEventListener('scroll', this.onScroll);
-  }
-
-  onScroll = () => {
-    if (!this.titleRef || !this.titleRef.current) {
-      return;
-    }
-
-    if (!this.ticking) {
-      requestAnimationFrame(this.update);
-    }
-
-    this.ticking = true;
-  };
-
-  update = () => {
-    if (!this.titleRef || !this.titleRef.current) {
-      return;
-    }
-
-    this.lastScrollY = window.scrollY;
-
-    const trigger = this.titleRef.current.getBoundingClientRect().top;
-    const triggerOffset = this.titleRef.current.offsetHeight + 35;
-
-    // show/hide post title
-    if (this.lastScrollY >= trigger + triggerOffset) {
-      this.setState({ showTitle: true });
-    } else {
-      this.setState({ showTitle: false });
-    }
-
-    this.ticking = false;
-  };
-
-  render() {
-    // const { isHome = false, isPost = false, post = {} } = this.props;
-    return (
-      <nav css={SiteNavStyles}>
-        <SiteNavLeft className="site-nav-left">
-          {/* {!isHome && <SiteNavLogo />} */}
-          <SiteNavContent css={[this.state.showTitle ? HideNav : '']}>
-            <ul css={NavStyles} role="menu">
-              {/* TODO: mark current nav item - add class nav-current */}
-              <li role="menuitem">
-                <Link to="/">Home</Link>
-              </li>
-              <li role="menuitem">
-                <Link to="/travel">Travel</Link>
-              </li>
-              <li role="menuitem">
-                <Link to="/faq">FAQ</Link>
-              </li>
-              <li role="menuitem">
-                <Link to="/save-the-date">Save The Date</Link>
-              </li>
-
-              <li
-                css={css`
-                    display: block;
-                  @media (min-width: 700px) {
-                  display: none !important;
-                  }
-                `} role="menuitem"
-              >
-                <Link to="/rsvp">RSVP</Link>
-              </li>
-              {/* <li role="menuitem">
-                  <Link to="/rsvp">RSVP</Link>
-                </li> */}
-              {/* <li role="menuitem">
-                  <Link to="/tags/getting-started/">Getting Started</Link>
-                </li> */}
-            </ul>
-            {/* {isPost && (
-                <NavPostTitle ref={this.titleRef} className="nav-post-title">
-                  {post.title}
-                </NavPostTitle>
-              )} */}
-          </SiteNavContent>
-        </SiteNavLeft>
-        <SiteNavRight>
-          {/* <SocialLinks>
-              {config.facebook && (
-                <a
-                  className="social-link-fb"
-                  css={[SocialLink, SocialLinkFb]}
-                  href={config.facebook}
-                  target="_blank"
-                  title="Facebook"
-                  rel="noopener noreferrer"
-                >
-                  <Facebook />
-                </a>
-              )}
-              {config.twitter && (
-                <a
-                  css={SocialLink}
-                  href={config.twitter}
-                  title="Twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Twitter />
-                </a>
-              )}
-            </SocialLinks> */}
-          {config.showSubscribe && (
-            <Link to="/rsvp">
-              {/* <RSVPButton>RSVP</RSVPButton> */}
-              <RSVPFormButton>RSVP</RSVPFormButton>
-            </Link>
-          )}
-        </SiteNavRight>
-      </nav>
-    );
-  }
+            <li
+              css={css`
+                display: block;
+              @media (min-width: 700px) {
+              display: none !important;
+              }
+            `} role="menuitem"
+            >
+              <Link to="/rsvp">RSVP</Link>
+            </li>
+          </ul>
+        </SiteNavContent>
+      </SiteNavLeft>
+      <SiteNavRight>
+        {config.showSubscribe && (
+          <Link to="/rsvp">
+            <RSVPFormButton>RSVP</RSVPFormButton>
+          </Link>
+        )}
+      </SiteNavRight>
+    </nav>
+  )
 }
 
 const RSVPFormButton = styled.button`
@@ -160,15 +57,12 @@ const RSVPFormButton = styled.button`
   display: inline-block;
   margin: 0 0 0 10px;
   padding: 0 20px;
-  /* height: 23px; */
   outline: none;
   color: #fff;
   font-size: 1.5rem;
   line-height: 39px;
   font-weight: 400;
   text-align: center;
-  /* background: ${lighten('.05', colors.royalty.pink)};
-   */
   background: ${colors.royalty.ivory};
   color: ${colors.royalty.blue};
   border-radius: 5px;
@@ -194,8 +88,6 @@ export const SiteNavMain = css`
   right: 0;
   left: 0;
   z-index: 9;
-  /* background: color(var(--darkgrey) l(-5%)) */
-  /* background: ${darken('0.05', colors.darkgrey)}; */
   background-color: red;
   @media (max-width: 700px) {
     padding-right: 0;
@@ -207,12 +99,15 @@ const SiteNavStyles = css`
   position: relative;
   z-index: 10;
   display: flex;
+  background: ${colors.royalty.blue};
   justify-content: space-between;
-  align-items: flex-start;
-  /* overflow-y: hidden; */
-  height: 64px;
+  align-items: center;
   font-size: 1.3rem;
-  margin: 0 2rem;
+  padding: 0.25rem 2rem;
+  flex-direction: row;
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 const SiteNavLeft = styled.div`
@@ -223,7 +118,6 @@ const SiteNavLeft = styled.div`
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   margin-right: 10px;
-  padding: 10px 0 80px;
   font-weight: 500;
   letter-spacing: 0.2px;
   text-transform: uppercase;
@@ -238,13 +132,11 @@ const SiteNavLeft = styled.div`
 `;
 
 const SiteNavContent = styled.div`
-  /* position: relative; */
   display: flex;
   align-self: flex-start;
 `;
 
 const NavStyles = css`
-  position: absolute;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
@@ -252,7 +144,7 @@ const NavStyles = css`
   padding: 0;
   list-style: none;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
-
+  max-width: unset;
   li {
     display: block;
     margin: 0;
@@ -264,7 +156,6 @@ const NavStyles = css`
     display: block;
     padding: 12px 12px;
     color: #fff;
-    /* opacity: 0.8; */
     transition: opacity 0.35s ease-in-out;
   }
 
@@ -296,70 +187,12 @@ const SiteNavRight = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 10px 0;
-  height: 64px;
 
   @media (max-width: 700px) {
     display: none;
   }
 `;
 
-const SocialLinks = styled.div`
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-`;
 
-const RSVPButton = styled.a`
-  display: block;
-  padding: 4px 10px;
-  margin: 0 0 0 10px;
-  border: #fff 1px solid;
-  color: #fff;
-  line-height: 1em;
-  border-radius: 10px;
-  opacity: 0.8;
-
-  :hover {
-    text-decoration: none;
-    opacity: 1;
-    cursor: pointer;
-  }
-`;
-
-const NavPostTitle = styled.span`
-  visibility: hidden;
-  position: absolute;
-  top: 9px;
-  color: #fff;
-  font-size: 1.7rem;
-  font-weight: 400;
-  text-transform: none;
-  opacity: 0;
-  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
-  transform: translateY(175%);
-
-  .dash {
-    left: -25px;
-  }
-
-  .dash:before {
-    content: '– ';
-    opacity: 0.5;
-  }
-`;
-
-const HideNav = css`
-  ul {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-175%);
-  }
-  .nav-post-title {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
 
 export default SiteNav;
