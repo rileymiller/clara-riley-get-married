@@ -183,7 +183,7 @@ const IndexPage: React.FC<IndexProps> = props => {
     <IndexLayout>
       <Meta {...props} />
       <Wrapper>
-        <SiteNav isHome />
+        <SiteNav />
 
         <main id="site-main" css={[SiteMain, outer, css`display:flex;justify-content:center;`]}>
           <div css={[flexColumn, flexCenter, flexAlignMiddle]} >

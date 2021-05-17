@@ -27,7 +27,7 @@ const RSVPPage: React.FC<NotFoundTemplateProps> = props => {
         <header css={[SiteHeader]}>
           <div css={[SiteNavMain]}>
             <div>
-              <SiteNav isHome={false} />
+              <SiteNav />
             </div>
           </div>
         </header>
