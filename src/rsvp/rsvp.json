@@ -313,6 +313,13 @@
     },
     {
       "names": [
+        "Grant Stewart"
+      ],
+      "accessCode": "59B",
+      "plusOne": true
+    },
+    {
+      "names": [
         "Steve Larson",
         "Daffni Larson"
       ],
@@ -475,6 +482,14 @@
         "Zach Lyle"
       ],
       "accessCode": "82V",
+      "plusOne": false
+    },
+    {
+      "names": [
+        "Claire Stringfellow",
+        "Nick Wilkins"
+      ],
+      "accessCode": "Y7X",
       "plusOne": false
     }
   ]
