@@ -147,7 +147,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   Do you have a registry?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Yes! Please do not feel any obligation whatsoever, we are just happy to celebrate with you! For those who are interested, we are registered at Bed Bath &#38; Beyond: https://www.bedbathandbeyond.com/store/giftregistry/viewregistryguest/549821130?eventType=Wedding
+                  Yes! Please do not feel any obligation whatsoever, we are just happy to celebrate with you! For those who are interested, we are registered at Bed Bath &#38; Beyond. You can view the registry <a target=" blank" rel ="noreferrer" href="https://www.bedbathandbeyond.com/store/giftregistry/viewregistryguest/549821130?eventType=Wedding">here</a>.
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   I have more questions! Who do I ask?
