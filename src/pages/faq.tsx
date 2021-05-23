@@ -147,7 +147,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   Do you have a registry?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Yes! Please do not feel any obligation whatsoever, we are just happy to celebrate with you! For those who are interested, details are coming soon!
+                  Yes! Please do not feel any obligation whatsoever, we are just happy to celebrate with you! For those who are interested, we are registered at Bed Bath &#38; Beyond: https://www.bedbathandbeyond.com/store/giftregistry/viewregistryguest/549821130?eventType=Wedding
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   I have more questions! Who do I ask?
@@ -170,7 +170,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                 <p css={[FAQParagraphStyles]}>
                   From our venue: "Open dancing is restricted to no more than 6 people from the same party (i.e. from the same dining table). This means that 1 pod of 6 can be spaced away from another pod of 6 (with 6' in between the groups). We are estimating that 6 or 7 dance pods will be able to dance at one time. Each pod should be restricted to people seated at the same dining table – we plan to provide wristbands to each table designating their group."
                 </p>
-                <h3 css={css`display: flex; align-self: center;`}>
+                <h3 css={css`text-align: center; font-size: 3rem;`}>   
                   Overall, please be prepared to be flexible, as COVID-19 regulations are fluid and may change at any time. We appreciate your understanding!
                 </h3>
               </div>
