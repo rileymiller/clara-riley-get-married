@@ -38,12 +38,12 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               </Sparkles>
               <h2 css={css`text-align: center; font-size: 3rem;`}>
                 Hotel
-                </h2>
+              </h2>
               <p css={[TravelParagraphStyles]}>
                 Our hotel block is at <b>Denver Marriott West</b> (1717 Denver West Boulevard, Golden CO 80401).
               </p>
               <p css={[TravelParagraphStyles]}>
-                You can go <a target=" blank" rel ="noreferrer" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1620496745022&key=GRP&app=resvlink">here</a> to make a room reservation at the discounted block rate.
+                You can go <a target=" blank" rel="noreferrer" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1620496745022&key=GRP&app=resvlink">here</a> to make a room reservation at the discounted block rate.
               </p>
               <p css={[TravelParagraphStyles]}>
                 You can also call 1-888-238-1803 to make a reservation. If you call, please identify yourself as a part of the <b>Larson/Miller Wedding Room Block</b> to get the discounted block rate.
@@ -53,10 +53,10 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               </p>
               <h2 css={css`text-align: center; font-size: 3rem;`}>
                 Transportation
-                </h2>
-                <p css={[TravelParagraphStyles]}>
-                  We will have shuttle busses running from the hotel to the venue on Saturday, June 19 before the ceremony and from the venue to the hotel after the reception. Details are TBD, please check back later for more information!
-                </p>
+              </h2>
+              <p css={[TravelParagraphStyles]}>
+                We will have shuttle busses running from the hotel to the venue on Saturday, June 19 before the ceremony and from the venue to the hotel after the reception. Details are TBD, please check back later for more information!
+              </p>
             </section>
           </div>
         </main>
