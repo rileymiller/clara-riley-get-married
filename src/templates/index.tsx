@@ -1,4 +1,4 @@
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Img, { FixedObject, FluidObject } from 'gatsby-image';
 import { StaticImage } from 'gatsby-plugin-image';
 
@@ -189,7 +189,7 @@ const IndexPage: React.FC<IndexProps> = props => {
           <div css={[flexColumn, flexCenter, flexAlignMiddle]} >
             <div css={[flexRow, flexCenter]}>
 
-              <SaveTheDateHeader>Riley & Clara</SaveTheDateHeader>
+              <SaveTheDateHeader>Riley &#38; Clara</SaveTheDateHeader>
               {/* <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} /> */}
             </div>
             <h3 css={css`text-align: center; color: rgba(255, 255, 255, 0.75);`}>
@@ -200,6 +200,22 @@ const IndexPage: React.FC<IndexProps> = props => {
                 {`${daysTillWedding()} days until the wedding!`}
               </h2>
             </Sparkles>
+            <div css={css`background-color: ${colors.royalty.ivory}; border-radius: 1rem; text-align: center; margin-top: 1.5rem; font-size: 1.8rem;`}>
+              <ul css={css`margin-bottom: 0; list-style: none;`}>
+                <li>
+                  Please <Link to="/rsvp">RSVP</Link> by <strong><u>this Saturday</u></strong>!
+                </li>
+                <li>
+                  The <Link to="/travel">hotel group block</Link> ends <strong><u>this Friday</u></strong>.
+                </li>
+                <li>
+                  See our new <Link to="/registry">Registry</Link> page!
+                </li>
+                <li>
+                  You can make song requests to our DJ <a target="_blank" rel="noreferrer" href="https://jdjclients.com/requests.asp?djidnumber=23469&month=6&day=19&year=2021&password=tncycwd">here</a>.
+                </li>
+              </ul>
+            </div>
             <div css={[flexRow]} >
               {/* <Img
                 alt={config.title}

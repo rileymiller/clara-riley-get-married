@@ -25,6 +25,9 @@ const SiteNav = () => {
               <Link to="/faq">FAQ</Link>
             </li>
             <li role="menuitem">
+              <Link to="/registry">Registry</Link>
+            </li>
+            <li role="menuitem">
               <Link to="/save-the-date">Save The Date</Link>
             </li>
 
