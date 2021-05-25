@@ -25,7 +25,7 @@ export const InfoPageTitle = styled.h1`
   opacity: 0.9;
 
   @media (max-width: 800px) {
-    font-size: 8rem;
+    font-size: 7rem;
   }
 `;
 
