@@ -203,10 +203,7 @@ const IndexPage: React.FC<IndexProps> = props => {
             <div css={css`background-color: ${colors.royalty.ivory}; border-radius: 1rem; text-align: center; margin-top: 1.5rem; font-size: 1.8rem;`}>
               <ul css={css`margin-bottom: 0; list-style: none;`}>
                 <li>
-                  Please <Link to="/rsvp">RSVP</Link> by <strong><u>this Saturday</u></strong>!
-                </li>
-                <li>
-                  The <Link to="/travel">hotel group block</Link> ends <strong><u>this Friday</u></strong>.
+                  Please <Link to="/rsvp">RSVP</Link> by <strong><u>the end of today</u></strong>!
                 </li>
                 <li>
                   See our new <Link to="/registry">Registry</Link> page!

@@ -99,7 +99,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   What’s the dress code?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Semi-formal. Ladies, the walk from the ceremony to the reception is on pavement, so if you want to wear heels you can.
+                  Semi-formal. Ladies, the walk from the ceremony to the reception is on pavement, so if you want to wear heels you can. Please feel free to text Clara or Riley with questions on attire; we know that "semi-formal" can be a little vague.
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   When is the RSVP deadline? How do I RSVP?
@@ -123,7 +123,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   Do you have a hotel block?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Yes, please see our <Link to="/travel">Travel</Link> page for more information.
+                  The hotel block is no longer available. You can still book a room at our hotel though! Please see our <Link to="/travel">Travel</Link> page for more information.
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   Will transportation be provided to/from the hotel?
@@ -168,13 +168,10 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   What are the rules regarding masks?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  From our venue: "For now, the Statewide indoor mask mandate is still in place. Even if you are vaccinated, you are still required to wear a mask indoors. Once you are seated at your table, you may remove your mask to eat/drink. If you are outdoors, you do not need to wear a mask."
+                  Currently, Jefferson County is following the State of Colorado Executive Order, which is in effect May 15 through June 1 with the potential to be extended. The details can be found <a target="_blank" rel="noreferrer" href="https://www.jeffco.us/4056/Mask-Guidance">here</a>.
                 </p>
-                <h3 css={[FAQHeaderStyles]}>
-                  What are the rules for the dance floor?
-                </h3>
                 <p css={[FAQParagraphStyles]}>
-                  From our venue: "Open dancing is restricted to no more than 6 people from the same party (i.e. from the same dining table). This means that 1 pod of 6 can be spaced away from another pod of 6 (with 6' in between the groups). We are estimating that 6 or 7 dance pods will be able to dance at one time. Each pod should be restricted to people seated at the same dining table – we plan to provide wristbands to each table designating their group."
+                  I will update this section as frequently as I can when I receive new information from our venue and when we all receive new information from Jefferson County and the State of Colorado.
                 </p>
                 <h3 css={css`text-align: center; font-size: 3rem;`}>
                   Overall, please be prepared to be flexible, as COVID-19 regulations are fluid and may change at any time. We appreciate your understanding!

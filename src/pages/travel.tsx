@@ -40,16 +40,13 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
                 Hotel
               </h2>
               <p css={[TravelParagraphStyles]}>
-                Our hotel block is at <b>Denver Marriott West</b> (1717 Denver West Boulevard, Golden CO 80401).
+                The hotel block discount is no longer available.
               </p>
               <p css={[TravelParagraphStyles]}>
-                You can go <a target=" blank" rel="noreferrer" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1620496745022&key=GRP&app=resvlink">here</a> to make a room reservation at the discounted block rate.
+                Our hotel is <b>Denver Marriott West</b> (1717 Denver West Boulevard, Golden CO 80401).
               </p>
               <p css={[TravelParagraphStyles]}>
-                You can also call 1-888-238-1803 to make a reservation. If you call, please identify yourself as a part of the <b>Larson/Miller Wedding Room Block</b> to get the discounted block rate.
-              </p>
-              <p>
-                The room block will only be active until <b>Friday, May 28</b>. Please be sure to make your reservation before then!
+                You can call 1-888-238-1803 to make a reservation.
               </p>
               <h2 css={css`text-align: center; font-size: 3rem;`}>
                 Transportation

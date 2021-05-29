@@ -111,8 +111,7 @@ export const RSVPForm = ({ throwToast }: { throwToast: (props: ThrowToastProps) 
             color: ${colors.royalty.blue};
           `}
             >
-              If you are in need of a hotel room, please see our hotel block information on our <Link to="/travel">Travel</Link> page.
-              Also, be sure to check out our <Link to="/faq">FAQ</Link> page.
+              Be sure to check out our <Link to="/faq">FAQ</Link> page for any questions you may have.
             </h3>
             <h3
               css={css`
