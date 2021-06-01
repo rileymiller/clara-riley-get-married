@@ -126,10 +126,13 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   The hotel block is no longer available. You can still book a room at our hotel though! Please see our <Link to="/travel">Travel</Link> page for more information.
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
-                  Will transportation be provided to/from the hotel?
+                  Will transportation be provided from the hotel?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Yes, we will have shuttle busses running from the hotel to the venue on Saturday, June 19 before the ceremony and from the venue to the hotel after the reception. Details are TBD, please check our <Link to="/travel">Travel</Link> page later for more information!
+                  Yes, we will have shuttle busses running from the hotel to the venue on Saturday, June 19 before the ceremony. Details are TBD, please check our <Link to="/travel">Travel</Link> page later for more information!
+                </p>
+                <p css={[FAQParagraphStyles]}>
+                  <strong>We have decided based on our hotel guest list that there won't be a need for shuttles from the venue back to the hotel after the reception. If you would be interested in this, please text Clara or Riley and let us know!</strong>
                 </p>
                 <h3 css={[FAQHeaderStyles]}>
                   Are there any other wedding events I can attend?

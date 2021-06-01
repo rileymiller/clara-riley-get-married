@@ -208,6 +208,9 @@ const IndexPage: React.FC<IndexProps> = props => {
                 <li>
                   You can make song requests to our DJ <a target="_blank" rel="noreferrer" href="https://jdjclients.com/requests.asp?djidnumber=23469&month=6&day=19&year=2021&password=tncycwd">here</a>.
                 </li>
+                <li>
+                  <strong>We have not booked shuttles from the venue back to the hotel after the reception. If you would be interested in this, please text Clara or Riley and let us know ASAP!</strong>
+                </li>
               </ul>
             </div>
             <div css={[flexRow]} >
