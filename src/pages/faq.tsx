@@ -129,7 +129,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   Will transportation be provided from the hotel?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Yes, we will have shuttle busses running from the hotel to the venue on Saturday, June 19 before the ceremony. Details are TBD, please check our <Link to="/travel">Travel</Link> page later for more information!
+                  Yes, please see our <Link to="/travel">Travel</Link> page for more information.                
                 </p>
                 <p css={[FAQParagraphStyles]}>
                   <strong>We have decided based on our hotel guest list that there won't be a need for shuttles from the venue back to the hotel after the reception. If you would be interested in this, please text Clara or Riley and let us know!</strong>
