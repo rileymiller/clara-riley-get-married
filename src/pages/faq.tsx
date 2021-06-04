@@ -171,10 +171,7 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                   What are the rules regarding masks?
                 </h3>
                 <p css={[FAQParagraphStyles]}>
-                  Currently, Jefferson County is following the State of Colorado Executive Order, which is in effect May 15 through June 1 with the potential to be extended. The details can be found <a target="_blank" rel="noreferrer" href="https://www.jeffco.us/4056/Mask-Guidance">here</a>.
-                </p>
-                <p css={[FAQParagraphStyles]}>
-                  I will update this section as frequently as I can when I receive new information from our venue and when we all receive new information from Jefferson County and the State of Colorado.
+                  Jefferson County is currently in Level Clear with no restrictions. Anyone who is fully vaccinated does not need to wear a mask. Anyone who is not fully vaccinated is encouraged to wear their mask, but no masks will be required.              
                 </p>
                 <h3 css={css`text-align: center; font-size: 3rem;`}>
                   Overall, please be prepared to be flexible, as COVID-19 regulations are fluid and may change at any time. We appreciate your understanding!
