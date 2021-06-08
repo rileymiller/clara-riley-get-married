@@ -60,7 +60,7 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               <h3 css={css`text-align: center; font-size: 2.5rem;`}>
                 Food
               </h3>
-              <p css={[TravelParagraphStyles]}>
+              <p css={[ThingsToDoParagraphStyles]}>
                 <ul css={css`margin-bottom: 0; list-style-type: none;`}>
                   <li>
                     <b>Woody's Wood Fired Pizza</b> is a fun and delicious pizza place right in the heart of downtown Golden that offers an all you can eat pizza buffet.
@@ -82,7 +82,7 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               <h3 css={css`text-align: center; font-size: 2.5rem;`}>
                 Drinks
               </h3>
-              <p css={[TravelParagraphStyles]}>        
+              <p css={[ThingsToDoParagraphStyles]}>        
                 <ul css={css`margin-bottom: 0; list-style-type: none;`}>
                   <li>
                     <b>Golden City Brewery</b> (usually just called <b>GCB</b>) in downtown Golden is one of Riley's favorite spots to grab a beer and hang out with friends.
@@ -95,7 +95,7 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               <h3 css={css`text-align: center; font-size: 2.5rem;`}>
                 Food &#38; Drinks
               </h3>
-              <p css={[TravelParagraphStyles]}>
+              <p css={[ThingsToDoParagraphStyles]}>
                 <ul css={css`margin-bottom: 0; list-style-type: none;`}>
                   <li>
                     <b>Colorado Plus 49 Cidery &#38; Pub</b> is Clara's favorite spot to grab a drink in downtown Golden. She recommends the Black Widow cider (if they have it, they rotate their ciders) and the adult mac and cheese! It's a lot of fun to get a flight of ciders and try out a bunch!
@@ -114,7 +114,7 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               <h3 css={css`text-align: center; font-size: 2.5rem;`}>
                 Coffee
               </h3>
-              <p css={[TravelParagraphStyles]}>
+              <p css={[ThingsToDoParagraphStyles]}>
                 <ul css={css`margin-bottom: 0; list-style-type: none;`}>
                   <li>
                     <b>Cafe 13</b> is an awesome spot in downtown Golden to grab a coffee and a bite to eat in the morning! They even offer a fun selection of morning cocktails if you wanted a spot to do brunch.
@@ -127,7 +127,7 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               <h3 css={css`text-align: center; font-size: 2.5rem;`}>
                 Other Stuff
               </h3>
-              <p css={[TravelParagraphStyles]}>
+              <p css={[ThingsToDoParagraphStyles]}>
                 <ul css={css`margin-bottom: 0; list-style-type: none;`}>
                   <li>
                     The <b>Coors Brewery Tour</b> is really hard to beat if you're looking for things to do in Golden. You'll get to walk through the Coors Brewery while you learn about the history and brewing process. You'll also get to sample some beers along the way!
@@ -194,6 +194,7 @@ export const pageQuery = graphql`
 `;
 
 const TravelParagraphStyles = css`color: ${colors.royalty.blue};`;
+const ThingsToDoParagraphStyles = css`color: ${colors.royalty.blue}; text-align: left`;
 
 const ErrorContent = css`
   padding: 10vw 4vw 6vw;
