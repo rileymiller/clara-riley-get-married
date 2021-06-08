@@ -54,9 +54,6 @@ const TravelPage: React.FC<NotFoundTemplateProps> = props => {
               <p css={[TravelParagraphStyles]}>
                 We will have one shuttle van depart from the hotel on Saturday, June 19 at 5:45pm, which will arrive at the venue roughly at 6:00pm.
               </p>
-              <p css={[TravelParagraphStyles]}>
-                <strong>We have decided based on our hotel guest list that there won't be a need for shuttles from the venue back to the hotel after the reception. If you would be interested in this, please text Clara or Riley and let us know!</strong>
-              </p>
             </section>
           </div>
         </main>
