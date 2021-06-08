@@ -131,9 +131,6 @@ const FAQPage: React.FC<NotFoundTemplateProps> = props => {
                 <p css={[FAQParagraphStyles]}>
                   Yes, please see our <Link to="/travel">Travel</Link> page for more information.                
                 </p>
-                <p css={[FAQParagraphStyles]}>
-                  <strong>We have decided based on our hotel guest list that there won't be a need for shuttles from the venue back to the hotel after the reception. If you would be interested in this, please text Clara or Riley and let us know!</strong>
-                </p>
                 <h3 css={[FAQHeaderStyles]}>
                   Are there any other wedding events I can attend?
                 </h3>
