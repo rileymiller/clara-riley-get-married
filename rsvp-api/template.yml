@@ -21,8 +21,8 @@ Resources:
   RSVPRestApi:
     Type: AWS::Serverless::Api
     Properties:
-      Name: !Sub "RSVPRestApi"
-      StageName: !Sub "Prod"
+      Name: !Sub 'RSVPRestApi'
+      StageName: !Sub 'Prod'
       Cors:
         AllowMethods: "'*'"
         AllowHeaders: "'*'"
@@ -33,7 +33,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: src/handlers/put-item.putItemHandler
-      Runtime: nodejs12.x
+      Runtime: nodejs18.x
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
@@ -58,7 +58,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: src/handlers/get-rsvps.handler
-      Runtime: nodejs12.x
+      Runtime: nodejs18.x
       MemorySize: 128
       Timeout: 100
       Description: A simple function to retrieve all RSVPs
@@ -93,5 +93,5 @@ Resources:
 
 Outputs:
   WebEndpoint:
-    Description: "API Gateway endpoint URL for Prod stage"
-    Value: !Sub "https://${RSVPRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    Description: 'API Gateway endpoint URL for Prod stage'
+    Value: !Sub 'https://${RSVPRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/'
