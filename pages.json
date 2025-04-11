@@ -1,0 +1,8 @@
+{
+  "build": {
+    "command": "yarn install --immutable=false && yarn build",
+    "environment": {
+      "NODE_VERSION": "18"
+    }
+  }
+}

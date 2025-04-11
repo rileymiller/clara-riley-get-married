@@ -5,6 +5,7 @@
   "private": true,
   "author": "Riley Miller <rmllr000@gmail.com>",
   "license": "MIT",
+  "packageManager": "yarn@3.6.3",
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
