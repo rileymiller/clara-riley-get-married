@@ -1,6 +1,6 @@
 {
   "build": {
-    "command": "corepack enable && corepack prepare yarn@3.6.3 --activate && yarn install --immutable=false && yarn build",
+    "command": "chmod +x build.sh && ./build.sh",
     "environment": {
       "NODE_VERSION": "18"
     }
