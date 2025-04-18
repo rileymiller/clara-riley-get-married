@@ -48,3 +48,5 @@ Our guests would fill in their access code where our app would then go and fetch
 ![RSVP Plus One Form](assets/mobile-plus-one.png)
 
 From here, our guests were able to fill out their RSVP and submit the form to our Serverless API running on Lambdas and DynamoDB which recorded our guests RSVP information and allowed us to give our vendors more accurate headcounts as well as give us an idea of which guests we needed to nag to fill out their RSVPs. :P
+
+// TODO -> Move to CNAME of wedding.rileymiller.dev
