@@ -1,6 +1,4 @@
-#!/bin/bash
-echo "Installing dependencies with npm..."
-npm install --legacy-peer-deps
-
-echo "Building Gatsby site...."
-npm run build 
+#\!/bin/bash
+export NODE_OPTIONS="--openssl-legacy-provider"
+yarn build
+EOF < /dev/null
