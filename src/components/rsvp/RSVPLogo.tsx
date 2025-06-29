@@ -1,5 +1,5 @@
 import { graphql, StaticQuery } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
 
 import { css } from '@emotion/react';
@@ -9,7 +9,7 @@ import config from '../../website-config';
 interface SiteNavLogoProps {
   logo?: {
     childImageSharp: {
-      fixed: FixedObject;
+      gatsbyImageData: IGatsbyImageData;
     };
   };
 }
@@ -22,9 +22,7 @@ const RSVPLogo = () => (
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
-            fixed(quality: 100 width: 500) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(quality: 100, width: 500, layout: FIXED)
           }
         }
       }
@@ -38,7 +36,7 @@ const RSVPLogo = () => (
         <img
           css={RSVPOverlayLogo}
           className="RSVP-overlay-logo"
-          src={data.logo.childImageSharp.fixed.src}
+          src={data.logo.childImageSharp.gatsbyImageData.images.fallback!.src}
           alt={config.title}
         />
       );

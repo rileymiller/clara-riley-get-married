@@ -6,7 +6,7 @@ import { css } from '@emotion/react';
 
 import { colors } from '../../styles/colors';
 import config from '../../website-config';
-import * as rsvp from '../../rsvp/rsvp.json';
+import rsvpData from '../../rsvp/rsvp.json';
 // import { gu } from 'date-fns/locale';
 import { Radio, RadioGroup } from '@workday/canvas-kit-react-radio';
 import FormField from '@workday/canvas-kit-react-form-field';
@@ -26,7 +26,7 @@ type RSVPGuests = {
 
 export const RSVPForm = ({ throwToast }: { throwToast: (props: ThrowToastProps) => void }) => {
   const [accessCode, setAccessCode] = useState('');
-  const [guests] = useState(rsvp.guests);
+  const [guests] = useState(rsvpData.guests);
   const [rsvpGuests, setRSVPGuests] = useState<RSVPGuests>();
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
