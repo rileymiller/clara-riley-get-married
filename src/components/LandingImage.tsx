@@ -1,5 +1,5 @@
 import { graphql, StaticQuery } from 'gatsby';
-import Img, { FluidObject, FixedObject } from 'gatsby-image';
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
 import { maxSM } from '../styles/breakpoints';
 import { css } from '@emotion/react';
@@ -10,7 +10,7 @@ import { bgColor } from '../styles/colors';
 interface LandingImageProps {
   landingImage?: {
     childImageSharp: {
-      fluid: FluidObject;
+      gatsbyImageData: IGatsbyImageData;
     };
   };
 }
@@ -38,9 +38,7 @@ const LandingImage = (props: Props) => (
             childImageSharp {
               # Specify the image processing specifications right in the query.
               # Makes it trivial to update as your page's design changes.
-              fluid(quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(quality: 100, layout: FULL_WIDTH)
             }
           }
         }
@@ -50,15 +48,16 @@ const LandingImage = (props: Props) => (
           return;
         }
 
+        const image = getImage(data.landingImage);
         return (
-          <Img
+          <GatsbyImage
+            image={image!}
             alt={config.title}
             style={{
               height: '100%',
               borderRadius: '.5rem',
               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
             }}
-            fluid={data.landingImage.childImageSharp.fluid}
           />
         );
       }}

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Link, StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import Navigation from '../header/SiteNav';
 // import config from '../../utils/siteConfig';
@@ -42,7 +42,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }: any) => {
                   <Link to="/">
                     {site.logo ?
                       <img className="site-logo" src={site.logo} alt={site.title} /> :
-                      <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />}
+                      <GatsbyImage image={getImage(data.file)!} alt={site.title} />}
                   </Link>
                 </div>
                 <div className="site-mast-right">
@@ -112,9 +112,7 @@ const DefaultLayoutSettingsQuery = (props: any) => (
             query GhostSettings {
                 file(relativePath: {eq: "ghost-icon.png"}) {
                     childImageSharp {
-                        fixed(width: 30, height: 30) {
-                            ...GatsbyImageSharpFixed
-                        }
+                        gatsbyImageData(width: 30, height: 30, layout: FIXED)
                     }
                 }
             }

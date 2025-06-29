@@ -1,5 +1,5 @@
 import { graphql, Link } from 'gatsby';
-import Img, { FixedObject, FluidObject } from 'gatsby-image';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import React, { useEffect, useState } from 'react';
@@ -41,17 +41,17 @@ export interface IndexProps {
   data: {
     logo: {
       childImageSharp: {
-        fixed: FixedObject;
+        gatsbyImageData: IGatsbyImageData;
       };
     };
     header: {
       childImageSharp: {
-        fixed: FixedObject;
+        gatsbyImageData: IGatsbyImageData;
       };
     };
     beach: {
       childImageSharp: {
-        fluid: FluidObject;
+        gatsbyImageData: IGatsbyImageData;
       };
     };
   };
@@ -70,7 +70,9 @@ export const SiteMain = css`
 `;
 
 export const Meta = (props: IndexProps) => {
-  const { width, height } = props.data.header.childImageSharp.fixed;
+  const imageData = props.data.header.childImageSharp.gatsbyImageData;
+  const { width, height } = imageData.images.fallback!;
+  const imageSrc = imageData.images.fallback!.src;
   return (
     <Helmet>
       <html lang={config.lang} />
@@ -83,7 +85,7 @@ export const Meta = (props: IndexProps) => {
       <meta property="og:url" content={config.siteUrl} />
       <meta
         property="og:image"
-        content={`${config.siteUrl}${props.data.header.childImageSharp.fixed.src}`}
+        content={`${config.siteUrl}${imageSrc}`}
       />
       {config.facebook && <meta property="article:publisher" content={config.facebook} />}
       {config.googleSiteVerification && (
@@ -95,7 +97,7 @@ export const Meta = (props: IndexProps) => {
       <meta name="twitter:url" content={config.siteUrl} />
       <meta
         name="twitter:image"
-        content={`${config.siteUrl}${props.data.header.childImageSharp.fixed.src}`}
+        content={`${config.siteUrl}${imageSrc}`}
       />
       {config.twitter && (
         <meta
@@ -103,8 +105,8 @@ export const Meta = (props: IndexProps) => {
           content={`@${config.twitter.split('https://twitter.com/')[1]}`}
         />
       )}
-      <meta property="og:image:width" content={width.toString()} />
-      <meta property="og:image:height" content={height.toString()} />
+      <meta property="og:image:width" content={width?.toString() || ''} />
+      <meta property="og:image:height" content={height?.toString() || ''} />
     </Helmet>
   );
 };
@@ -257,27 +259,21 @@ export const pageQuery = graphql`
           childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fixed {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(layout: FIXED)
       }
     }
     header: file(relativePath: {eq: "img/rc_header.png" }) {
           childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fixed(width: 2000, quality: 100) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 2000, quality: 100, layout: FIXED)
       }
     }
     beach: file(relativePath: {eq: "img/beach.jpg" }) {
         childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fluid(quality: 100) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(quality: 100, layout: FULL_WIDTH)
       }
     }
     allMarkdownRemark(
@@ -297,9 +293,7 @@ export const pageQuery = graphql`
             excerpt
             image {
           childImageSharp {
-          fluid(maxWidth: 3720) {
-          ...GatsbyImageSharpFluid
-        }
+          gatsbyImageData(width: 3720, layout: CONSTRAINED)
               }
             }
             author {
@@ -308,9 +302,7 @@ export const pageQuery = graphql`
               avatar {
           children {
           ...on ImageSharp {
-          fluid(quality: 100, srcSetBreakpoints: [40, 80, 120]) {
-          ...GatsbyImageSharpFluid
-        }
+          gatsbyImageData(quality: 100, breakpoints: [40, 80, 120], layout: CONSTRAINED)
                   }
                 }
               }
