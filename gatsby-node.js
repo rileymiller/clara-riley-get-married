@@ -2,6 +2,11 @@
 const path = require('path');
 const _ = require('lodash');
 
+// Set OpenSSL legacy provider for Node 20 compatibility
+if (!process.env.NODE_OPTIONS || !process.env.NODE_OPTIONS.includes('--openssl-legacy-provider')) {
+  process.env.NODE_OPTIONS = (process.env.NODE_OPTIONS || '') + ' --openssl-legacy-provider';
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 

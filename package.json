@@ -7,8 +7,9 @@
   "license": "MIT",
   "packageManager": "yarn@3.6.3",
   "scripts": {
-    "build": "NODE_OPTIONS='--openssl-legacy-provider' gatsby build",
-    "dev": "NODE_OPTIONS='--openssl-legacy-provider' gatsby develop",
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "build:production": "NODE_OPTIONS='--openssl-legacy-provider' gatsby build",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx .",
     "start": "npm run dev",
