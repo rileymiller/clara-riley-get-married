@@ -1,5 +1,5 @@
 ## Welcome
-Here is the repo that Clara and I used to create our wedding site, hosted [here](https://clarasallriledup.com). We made use of Gatsby, Typescript, Styled Components, Emotion, and
+Here is the repo that Clara and I used to create our wedding site, hosted at [https://wedding.rileymiller.dev](https://wedding.rileymiller.dev). We made use of Gatsby, Typescript, Styled Components, Emotion, and
 a small Serverless stack run on AWS to record RSVP responses.
 
 Some of the small UI tricks that were implemented to spruce up the site include:
@@ -30,11 +30,9 @@ and you should see the site running at [http://localhost:8000](http://localhost:
 Using GitHub Actions to deploy the site to an S3 bucket configured with Cloudfront for the CDN. Here's the link to our [workflow](https://github.com/rileymiller/clara-riley-get-married/blob/master/.github/workflows/main.yml).
 
 ## Hosting
-Went through Google Domains to purchase [https://clarasallriledup.com](https://clarasallriledup.com).
+The site is now hosted on Cloudflare Pages at [https://wedding.rileymiller.dev](https://wedding.rileymiller.dev).
 
-We deploy our site to an S3 Bucket with a Cloudfront Configuration.
-
-Here's a [link](https://www.rileymiller.dev/gatsby/deploy-gatsby-s3-gh-actions/#git-repo-on-github) to a blog I wrote with some steps on how to setup a Gatsby site to deploy to S3 via GitHub actions.
+Previously, we deployed our site to an S3 Bucket with a Cloudfront Configuration. Here's a [link](https://www.rileymiller.dev/gatsby/deploy-gatsby-s3-gh-actions/#git-repo-on-github) to a blog I wrote with some steps on how to setup a Gatsby site to deploy to S3 via GitHub actions.
 
 ## RSVPs
 For our RSVPs we assigned all of our guests a specific access code affiliated with their invite which we inscribed on the back of guests' invitations.
@@ -48,5 +46,3 @@ Our guests would fill in their access code where our app would then go and fetch
 ![RSVP Plus One Form](assets/mobile-plus-one.png)
 
 From here, our guests were able to fill out their RSVP and submit the form to our Serverless API running on Lambdas and DynamoDB which recorded our guests RSVP information and allowed us to give our vendors more accurate headcounts as well as give us an idea of which guests we needed to nag to fill out their RSVPs. :P
-
-// TODO -> Move to CNAME of wedding.rileymiller.dev
