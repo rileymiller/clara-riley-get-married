@@ -1,31 +1,26 @@
-name: Deploy
+name: Build Check
 
 on:
   push:
     branches:
       - master            # could be 'master' on older repos
+  pull_request:
+    branches:
+      - master
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node.js 14
-        uses: actions/setup-node@v1
+        uses: actions/checkout@v3
+      - name: Use Node.js 20
+        uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 20.x
+      - name: Enable Corepack
+        run: corepack enable
       - name: Build
         run: |
           yarn install && yarn build
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
-      - name: Deploy
-        uses: jonelantha/gatsby-s3-action@v1
-        with:
-          dest-s3-bucket: ${{ secrets.AWS_S3_BUCKET }}
-          cloudfront-id-to-invalidate: ${{ secrets.AWS_CLOUDFRONT_ID }}
