@@ -172,4 +172,11 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
       devtool: 'eval-source-map',
     });
   }
+  
+  // Fix for OpenSSL error with Node 20
+  actions.setWebpackConfig({
+    output: {
+      hashFunction: 'xxhash64',
+    },
+  });
 };
