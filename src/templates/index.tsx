@@ -69,6 +69,28 @@ export const SiteMain = css`
   }
 `;
 
+const HeroImageContainer = styled.div`
+  flex-grow: 3;
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${bgColor.primary};
+  
+  @media (min-width: 1024px) {
+    padding: 2rem;
+    
+    .hero-image-wrapper {
+      max-width: 1200px;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+  }
+`;
+
 export const Meta = (props: IndexProps) => {
   const imageData = props.data.header.childImageSharp.gatsbyImageData;
   const { width, height } = imageData.images.fallback!;
@@ -241,13 +263,16 @@ const IndexPage: React.FC<IndexProps> = props => {
             </div> */}
           </div>
         </main>
-        <StaticImage
-          src="../content/img/beach_cropped.jpg"
-          alt="homepage beach background"
-          placeholder="blurred"
-          css={css`flex-grow: 3;margin-top: 2rem;`}
-        // height={600}
-        />
+        <HeroImageContainer>
+          <div className="hero-image-wrapper">
+            <StaticImage
+              src="../content/img/beach_cropped.jpg"
+              alt="homepage beach background"
+              placeholder="blurred"
+              css={css`width: 100%; height: 100%;`}
+            />
+          </div>
+        </HeroImageContainer>
         <Footer />
       </Wrapper>
     </IndexLayout >
