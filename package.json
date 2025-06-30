@@ -9,7 +9,6 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "build:production": "NODE_OPTIONS='--openssl-legacy-provider' gatsby build",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx .",
     "start": "npm run dev",
@@ -97,5 +96,8 @@
   ],
   "engines": {
     "node": ">=20.0.0"
+  },
+  "resolutions": {
+    "loader-utils": "2.0.4"
   }
 }

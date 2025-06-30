@@ -2,11 +2,6 @@
 const path = require('path');
 const _ = require('lodash');
 
-// Set OpenSSL legacy provider for Node 20 compatibility
-if (!process.env.NODE_OPTIONS || !process.env.NODE_OPTIONS.includes('--openssl-legacy-provider')) {
-  process.env.NODE_OPTIONS = (process.env.NODE_OPTIONS || '') + ' --openssl-legacy-provider';
-}
-
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
@@ -177,4 +172,11 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
       devtool: 'eval-source-map',
     });
   }
+  
+  // Fix for OpenSSL error with Node 20
+  actions.setWebpackConfig({
+    output: {
+      hashFunction: 'xxhash64',
+    },
+  });
 };
