@@ -167,9 +167,10 @@ export const SaveTheDateHeader = styled.h1`
 
 const daysTillWedding = () => {
   const today = new Date();
-  const weddingDate = new Date(today.getFullYear(), 5, 19);
+  const weddingDate = new Date(2021, 5, 19); // June 19, 2021
 
-  if (today.getMonth() === 5 && today.getDate() > 19) {
+  // If the wedding date has passed, return 0
+  if (today.getTime() > weddingDate.getTime()) {
     return `0`;
   }
 
@@ -195,7 +196,7 @@ const IndexPage: React.FC<IndexProps> = props => {
               {/* <SaveTheDateHeader width={size.width} height={size.height} fill={textColor.primary} /> */}
             </div>
             <h3 css={css`text-align: center; color: rgba(255, 255, 255, 0.75);`}>
-              Saturday, June 19 at 6:30pm | The Pines at Genesee
+              Saturday, June 19, 2021 at 6:30pm | The Pines at Genesee
             </h3>
             <Sparkles>
               <h2 css={css`color: ${colors.royalty.pink};`}>
